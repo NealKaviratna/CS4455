@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class MeleeInput : MonoBehaviour {
 
-	enum Attack {jab, cross, uppercut, kick};
+	enum Attack {jab, uppercut, kick};
 	List<Attack> attackString = new List<Attack>();
 
 	public float inputCooldown;
@@ -23,9 +23,7 @@ public class MeleeInput : MonoBehaviour {
 			if (Input.GetMouseButtonDown(0)) {
 				attackString.Add(Attack.jab);  inputCooldown = 0.5f; }
 			else if (Input.GetMouseButtonDown(1)) {
-				attackString.Add(Attack.cross); inputCooldown = 0.5f; }
-//			else if (Input.GetButtonDown("l"))
-//				attackString.Add(Attack.uppercut);
+				attackString.Add(Attack.uppercut); inputCooldown = 0.5f; }
 //			else if (Input.GetButtonDown(";"))
 //				attackString.Add(Attack.kick);
 		}
