@@ -19,8 +19,9 @@ public class Enemy : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (this.hP <= 0) {
-			// This thing dies TODO: add animation/call to death
-			this.SendToPool();
+            // This thing dies TODO: add animation/call to death
+            anim.SetTrigger("Death");
+            if (anim.GetCurrentAnimatorStateInfo(0).IsName("Death")) this.SendToPool();
 		}
         anim.SetBool("Hit", hit);
         if (hit)
@@ -28,8 +29,8 @@ public class Enemy : MonoBehaviour {
 	}
 
 	void SendToPool() {
-		this.transform.position = new Vector3(1000,1000,1000);
-		this.isAlive = false;
-		this.gameObject.SetActive(false);
+        this.transform.position = new Vector3(1000, 1000, 1000);
+        this.isAlive = false;
+        this.gameObject.SetActive(false);
 	}
 }
