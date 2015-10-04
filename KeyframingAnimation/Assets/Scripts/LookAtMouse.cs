@@ -8,7 +8,7 @@ public class LookAtMouse : MonoBehaviour
 	
 	// speed is the rate at which the object will rotate
 	public float speed;
-	
+
 	void FixedUpdate () 
 	{
 		// Generate a plane that intersects the transform's position with an upwards normal.
@@ -23,7 +23,7 @@ public class LookAtMouse : MonoBehaviour
 		//   then find the point along that ray that meets that distance.  This will be the point
 		//   to look at.
 		float hitdist = 0.0f;
-		// If the ray is parallel to the plane, Raycast will return false.
+		// If the ray is parallel to the plane, Raycast will return false.\
 		if (playerPlane.Raycast (ray, out hitdist)) 
 		{
 			// Get the point along the ray that hits the calculated distance.
