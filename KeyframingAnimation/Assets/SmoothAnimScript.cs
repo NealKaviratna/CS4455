@@ -23,6 +23,9 @@ public class SmoothAnimScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		currentState = animator.GetCurrentAnimatorStateInfo(0); //Get the current state
+		if (Input.GetButtonUp ("Jump")) { //TODO: change this from jump to a dedicated crouch button
+			animator.SetBool("Crouched", !animator.GetBool("Crouched"));
+		}
 	
 	}
 
