@@ -20,24 +20,26 @@ public class MeleeInput : MonoBehaviour {
 	void Update () {
 		// Take in user input with a cooldown for time between presses and add them to attack string
 		if (inputCooldown < 0) {
-			if (Input.GetMouseButtonDown(0))
-				attackString.Add(Attack.jab);
-			else if (Input.GetMouseButtonDown(1))
-				attackString.Add(Attack.cross);
-			else if (Input.GetButtonDown("l"))
-				attackString.Add(Attack.uppercut);
-			else if (Input.GetButtonDown(";"))
-				attackString.Add(Attack.kick);
-			inputCooldown = 0.5f;
+			if (Input.GetMouseButtonDown(0)) {
+				attackString.Add(Attack.jab);  inputCooldown = 0.5f; }
+			else if (Input.GetMouseButtonDown(1)) {
+				attackString.Add(Attack.cross); inputCooldown = 0.5f; }
+//			else if (Input.GetButtonDown("l"))
+//				attackString.Add(Attack.uppercut);
+//			else if (Input.GetButtonDown(";"))
+//				attackString.Add(Attack.kick);
 		}
 		inputCooldown -= Time.deltaTime;
 
 		// If the character isn't currently in an attack animation play what's next on attackString
-		if (!player.GetCurrentAnimatorStateInfo(1).IsTag("attack")) {
-			player.SendMessage(attackString[0].ToString());
-			attackString.RemoveAt(0);
+		if (!player.GetCurrentAnimatorStateInfo(1).IsTag("attack") && attackString.Count > 0) {
+			Attack next = attackString[0];
+			player.SetInteger("NextAttack", ((int)next) + 1);
+			Debug.Log(attackString.Count);
+			attackString.Remove(next);
+			Debug.Log(next);
 		}
-
-		Debug.Log(attackString[0].ToString());
+		else if(player.GetCurrentAnimatorStateInfo(1).IsTag("attack"))
+			player.SetInteger("NextAttack", 0);
 	}
 }
