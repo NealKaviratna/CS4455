@@ -4,6 +4,7 @@ using System.Collections;
 public class Hitbox : MonoBehaviour {
 
 	public float damage;
+    bool inColl;
 
 	// Use this for initialization
 	void Start () {
@@ -16,10 +17,16 @@ public class Hitbox : MonoBehaviour {
 	}
 
 	void  OnCollisionEnter(Collision coll) {
-		if (coll.collider.tag == "Enemy") {
+		if (coll.collider.tag == "Enemy" && !inColl) {
+            inColl = true;
 			Enemy hitEnemy = coll.gameObject.GetComponent<Enemy>();
 			hitEnemy.hP -= damage;
             hitEnemy.hit = true;
 		}
 	}
+
+    void OnCollisionExit(Collision coll)
+    {
+        inColl = false;
+    }
 }
