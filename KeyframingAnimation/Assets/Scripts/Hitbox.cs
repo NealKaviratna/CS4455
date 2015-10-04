@@ -19,6 +19,7 @@ public class Hitbox : MonoBehaviour {
 		if (coll.collider.tag == "Enemy") {
 			Enemy hitEnemy = coll.gameObject.GetComponent<Enemy>();
 			hitEnemy.hP -= damage;
+            hitEnemy.hit = true;
 		}
 	}
 }

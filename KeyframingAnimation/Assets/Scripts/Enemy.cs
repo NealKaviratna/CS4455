@@ -3,13 +3,17 @@ using System.Collections;
 
 public class Enemy : MonoBehaviour {
 
+    Animator anim;
+
 	public float hP;
 	public float attack;
 	public bool isAlive;
+    public bool hit;
 
 	// Use this for initialization
 	void Start () {
-
+        anim = GetComponent<Animator>();
+        hit = false;
 	}
 	
 	// Update is called once per frame
@@ -18,6 +22,9 @@ public class Enemy : MonoBehaviour {
 			// This thing dies TODO: add animation/call to death
 			this.SendToPool();
 		}
+        anim.SetBool("Hit", hit);
+        if (hit)
+            hit = false;
 	}
 
 	void SendToPool() {
