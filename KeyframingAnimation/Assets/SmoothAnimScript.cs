@@ -33,7 +33,13 @@ public class SmoothAnimScript : MonoBehaviour {
 		float horizontalAxis = Input.GetAxis ("Horizontal");
 		float verticalAxis = Input.GetAxis ("Vertical");
 		animator.SetFloat ("VertSpeed", verticalAxis);
-		animator.SetFloat ("HorizSpeed", verticalAxis);
+		animator.SetFloat ("HorizSpeed", horizontalAxis);
+		Debug.Log ("V: " + verticalAxis + " H: " + horizontalAxis);
+
+		if (horizontalAxis > 0.1f || horizontalAxis < -0.1f || verticalAxis > 0.1f || verticalAxis < -0.1f) {
+			animator.SetBool ("Moving", true);
+		} else
+			animator.SetBool ("Moving", false);
 
 	}
 
