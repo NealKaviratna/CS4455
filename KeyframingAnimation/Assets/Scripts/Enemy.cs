@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        anim = GetComponent<Animator>();
+        anim = this.GetComponent<Animator>();
         hit = false;
 	}
 	
@@ -21,7 +21,11 @@ public class Enemy : MonoBehaviour {
 		if (this.hP <= 0) {
             // This thing dies TODO: add animation/call to death
             anim.SetTrigger("Death");
-            if (anim.GetCurrentAnimatorStateInfo(0).IsName("Death")) this.SendToPool();
+            if (anim.GetCurrentAnimatorStateInfo(0).IsName("Death"))
+            {
+                Debug.Log("Death");
+                this.SendToPool();
+            }
 		}
         anim.SetBool("Hit", hit);
         if (hit)
