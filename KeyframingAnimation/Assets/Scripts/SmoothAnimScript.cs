@@ -29,7 +29,10 @@ public class SmoothAnimScript : MonoBehaviour {
 		if (Input.GetButtonUp ("Jump")) {
 			animator.SetTrigger("Jump");
 		}
-	
+
+		// Temporary code for ragdoll testing
+		if (Input.GetKeyDown("r"))
+		    animator.enabled = !animator.enabled;
 	}
 
 	void FixedUpdate() {
