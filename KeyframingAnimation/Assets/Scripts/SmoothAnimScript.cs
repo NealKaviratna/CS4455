@@ -9,6 +9,7 @@ public class SmoothAnimScript : MonoBehaviour {
 	private SphereCollider sphereCollider;
 	private Rigidbody rigidBody;
 	private AnimatorStateInfo currentState;
+    private LookAtMouse lookAtMouse;
 
     private bool crouched = false;
 
@@ -23,8 +24,9 @@ public class SmoothAnimScript : MonoBehaviour {
 //		sphereCollider = GetComponent<SphereCollider> ();
 		rigidBody = GetComponent<Rigidbody> ();
         charController = GetComponent<CharacterController>();
-	
-	}
+        lookAtMouse = GetComponent<LookAtMouse>();
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -47,10 +49,13 @@ public class SmoothAnimScript : MonoBehaviour {
             animator.SetBool("Crouched", crouched);
         }
 
-		// Temporary code for ragdoll testing
-		if (Input.GetKeyDown("r"))
-		    animator.enabled = !animator.enabled;
-	}
+        // Temporary code for ragdoll testing
+        if (Input.GetKeyDown("r"))
+        {
+            animator.enabled = !animator.enabled;
+            lookAtMouse.enabled = !lookAtMouse.enabled;
+        }
+    }
 
 	void FixedUpdate() {
 		float horizontalAxis = Input.GetAxis ("Horizontal");
