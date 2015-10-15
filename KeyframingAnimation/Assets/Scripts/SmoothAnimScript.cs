@@ -14,6 +14,9 @@ public class SmoothAnimScript : MonoBehaviour {
 
     static int diveJump = Animator.StringToHash("Base Layer.Dive Jump");
 
+
+	private LookAtMouse lookAtMouse;
+
 	//TODO: Set up states here using nameToHash
 
 	// Use this for initialization
@@ -23,6 +26,7 @@ public class SmoothAnimScript : MonoBehaviour {
 //		sphereCollider = GetComponent<SphereCollider> ();
 		rigidBody = GetComponent<Rigidbody> ();
         charController = GetComponent<CharacterController>();
+		lookAtMouse = GetComponent<LookAtMouse> ();
 	
 	}
 	
@@ -48,8 +52,10 @@ public class SmoothAnimScript : MonoBehaviour {
         }
 
 		// Temporary code for ragdoll testing
-		if (Input.GetKeyDown("r"))
-		    animator.enabled = !animator.enabled;
+		if (Input.GetKeyDown ("r")) {
+			animator.enabled = !animator.enabled;
+			lookAtMouse.enabled = !lookAtMouse.enabled;
+		}
 	}
 
 	void FixedUpdate() {
