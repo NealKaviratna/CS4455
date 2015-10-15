@@ -5,9 +5,14 @@ public class SmoothAnimScript : MonoBehaviour {
 
 	private Animator animator;
 	private CapsuleCollider capCollider;
+    private CharacterController charController;
 	private SphereCollider sphereCollider;
 	private Rigidbody rigidBody;
 	private AnimatorStateInfo currentState;
+
+    private bool crouched = false;
+
+    static int diveJump = Animator.StringToHash("Base Layer.Dive Jump");
 
 	//TODO: Set up states here using nameToHash
 
@@ -17,6 +22,7 @@ public class SmoothAnimScript : MonoBehaviour {
 //		capCollider = GetComponent<CapsuleCollider> ();
 //		sphereCollider = GetComponent<SphereCollider> ();
 		rigidBody = GetComponent<Rigidbody> ();
+        charController = GetComponent<CharacterController>();
 	
 	}
 	
@@ -30,6 +36,17 @@ public class SmoothAnimScript : MonoBehaviour {
 			animator.SetTrigger("Jump");
 		}
 
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            animator.SetTrigger("Roll");
+        }
+
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            crouched = !crouched;
+            animator.SetBool("Crouched", crouched);
+        }
+
 		// Temporary code for ragdoll testing
 		if (Input.GetKeyDown("r"))
 		    animator.enabled = !animator.enabled;
@@ -40,13 +57,38 @@ public class SmoothAnimScript : MonoBehaviour {
 		float verticalAxis = Input.GetAxis ("Vertical");
 		animator.SetFloat ("VertSpeed", verticalAxis);
 		animator.SetFloat ("HorizSpeed", horizontalAxis);
-		//Debug.Log ("V: " + verticalAxis + " H: " + horizontalAxis);
+        //Debug.Log ("V: " + verticalAxis + " H: " + horizontalAxis);
 
-		if (horizontalAxis > 0.1f || horizontalAxis < -0.1f || verticalAxis > 0.1f || verticalAxis < -0.1f) {
-			animator.SetBool ("Moving", true);
-		} else
-			animator.SetBool ("Moving", false);
+        if (horizontalAxis > 0.1f || horizontalAxis < -0.1f || verticalAxis > 0.1f || verticalAxis < -0.1f)
+        {
+            animator.SetBool("Moving", true);
+        }
+        else
+        {
+            animator.SetBool("Moving", false);
+        }
 
+        if (crouched)
+        {
+            charController.height = .97f;
+            Vector3 newCenter = charController.center;
+            newCenter.y = .49f;
+            charController.center = newCenter;
+        } else
+        {
+            charController.height = 1.77f;
+            Vector3 newCenter = charController.center;
+            newCenter.y = .9f;
+            charController.center = newCenter;
+        }
+
+        /*if (currentState.fullPathHash == diveJump)
+        {
+            if (!animator.IsInTransition(0))
+            {
+                charController.height = animator.GetFloat("ColliderHeight");
+            }
+        }*/
 	}
 
 	void CheckState() {
