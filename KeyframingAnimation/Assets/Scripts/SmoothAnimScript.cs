@@ -13,7 +13,7 @@ using System.Collections;
 public class SmoothAnimScript : MonoBehaviour {
 
 	private Animator animator;
-	private CapsuleCollider capCollider;
+	//private CapsuleCollider capCollider;
     private CharacterController charController;
 	private SphereCollider sphereCollider;
 	private Rigidbody rigidBody;
@@ -22,7 +22,7 @@ public class SmoothAnimScript : MonoBehaviour {
 
     private bool crouched = false;
 
-    static int roll = Animator.StringToHash("Base Layer.Roll");
+    //static int roll = Animator.StringToHash("Base Layer.Roll");
 
 	//TODO: Set up states here using nameToHash
 
