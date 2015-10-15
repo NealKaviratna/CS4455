@@ -47,6 +47,20 @@ public class SmoothAnimScript : MonoBehaviour {
         {
             crouched = !crouched;
             animator.SetBool("Crouched", crouched);
+            if (crouched)
+            {
+                charController.height = .97f;
+                Vector3 newCenter = charController.center;
+                newCenter.y = .49f;
+                charController.center = newCenter;
+            }
+            else
+            {
+                charController.height = 1.77f;
+                Vector3 newCenter = charController.center;
+                newCenter.y = .9f;
+                charController.center = newCenter;
+            }
         }
 
         // Temporary code for ragdoll testing
@@ -71,20 +85,6 @@ public class SmoothAnimScript : MonoBehaviour {
         else
         {
             animator.SetBool("Moving", false);
-        }
-
-        if (crouched)
-        {
-            charController.height = .97f;
-            Vector3 newCenter = charController.center;
-            newCenter.y = .49f;
-            charController.center = newCenter;
-        } else
-        {
-            charController.height = 1.77f;
-            Vector3 newCenter = charController.center;
-            newCenter.y = .9f;
-            charController.center = newCenter;
         }
 
         /*if (currentState.fullPathHash == diveJump)
