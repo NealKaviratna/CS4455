@@ -1,6 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/** User input and character controller
+ * @Author: Team Wombo Combo
+ *          -Neal Kaviratna
+ *          -Robert Borowicz
+ *          -Ryan Mendes
+ *          -Clay Anderson
+ *          -Rich Li
+ **/
+
 public class SmoothAnimScript : MonoBehaviour {
 
 	private Animator animator;

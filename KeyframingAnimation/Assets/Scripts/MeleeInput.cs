@@ -2,6 +2,15 @@
 using System.Collections;
 using System.Collections.Generic;
 
+/** Melee and combat controller
+ * @Author: Team Wombo Combo
+ *          -Neal Kaviratna
+ *          -Robert Borowicz
+ *          -Ryan Mendes
+ *          -Clay Anderson
+ *          -Rich Li
+ **/
+
 public class MeleeInput : MonoBehaviour {
 
 	enum Attack {jab, uppercut, kick};
