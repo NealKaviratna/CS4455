@@ -22,7 +22,7 @@ public class SmoothAnimScript : MonoBehaviour {
 
     private bool crouched = false;
 
-    static int diveJump = Animator.StringToHash("Base Layer.Dive Jump");
+    static int roll = Animator.StringToHash("Base Layer.Roll");
 
 	//TODO: Set up states here using nameToHash
 
@@ -43,14 +43,14 @@ public class SmoothAnimScript : MonoBehaviour {
 //		if (Input.GetButtonUp ("Jump")) { //TODO: change this from jump to a dedicated crouch button
 //			animator.SetBool("Crouched", !animator.GetBool("Crouched"));
 //		}
-		if (Input.GetButtonUp ("Jump")) {
+		/*if (Input.GetButtonUp ("Jump")) {
 			animator.SetTrigger("Jump");
-		}
+		}*/
 
-        if (Input.GetKeyDown(KeyCode.Q))
+        /*if (Input.GetKeyDown(KeyCode.Q))
         {
             animator.SetTrigger("Roll");
-        }
+        }*/
 
         if (Input.GetKeyDown(KeyCode.C))
         {
@@ -96,7 +96,7 @@ public class SmoothAnimScript : MonoBehaviour {
             animator.SetBool("Moving", false);
         }
 
-        /*if (currentState.fullPathHash == diveJump)
+        /*if (currentState.fullPathHash == roll)
         {
             if (!animator.IsInTransition(0))
             {

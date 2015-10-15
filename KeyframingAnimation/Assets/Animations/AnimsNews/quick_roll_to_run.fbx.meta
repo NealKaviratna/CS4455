@@ -184,17 +184,32 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves:
-      - name: Curve
+      - name: ColliderHeight
         curve:
           serializedVersion: 2
           curve:
           - time: 0
-            value: 1.38
+            value: 1.76999998
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+          - time: .43617022
+            value: 1.39999998
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+          - time: .682978749
+            value: 1.39999998
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+          - time: .846808493
+            value: 1.76999998
             inSlope: 0
             outSlope: 0
             tangentMode: 0
           - time: 1
-            value: 0
+            value: 1.76999998
             inSlope: 0
             outSlope: 0
             tangentMode: 0
