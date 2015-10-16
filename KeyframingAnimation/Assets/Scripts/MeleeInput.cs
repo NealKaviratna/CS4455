@@ -2,10 +2,21 @@
 using System.Collections;
 using System.Collections.Generic;
 
+/** Melee and combat controller
+ * @Author: Team Wombo Combo
+ *          -Neal Kaviratna
+ *          -Robert Borowicz
+ *          -Ryan Mendes
+ *          -Clay Anderson
+ *          -Rich Li
+ **/
+
 public class MeleeInput : MonoBehaviour {
 
 	enum Attack {jab, uppercut, kick};
 	List<Attack> attackString = new List<Attack>();
+
+    private SmoothAnimScript animScript;
 
 	public float inputCooldown;
 	private float inputCooldownlength;
@@ -20,6 +31,7 @@ public class MeleeInput : MonoBehaviour {
 	void Start () {
 		inputCooldownlength = 0.5f;
 		inputCooldown = inputCooldownlength;
+        animScript = GetComponent<SmoothAnimScript>();
 	}
 	
 	// Update is called once per frame
@@ -27,9 +39,15 @@ public class MeleeInput : MonoBehaviour {
 		// Take in user input with a cooldown for time between presses and add them to attack string
 		if (inputCooldown < 0) {
 			if (Input.GetMouseButtonDown(0)) {
-				attackString.Add(Attack.jab);  inputCooldown = inputCooldownlength; }
+				attackString.Add(Attack.jab);
+                inputCooldown = inputCooldownlength;
+                animScript.SetCrouched(false);
+            }
 			else if (Input.GetMouseButtonDown(1)) {
-				attackString.Add(Attack.uppercut); inputCooldown = inputCooldownlength; }
+                attackString.Add(Attack.uppercut);
+                inputCooldown = inputCooldownlength;
+                animScript.SetCrouched(false);
+            }
 //			else if (Input.GetButtonDown(";"))
 //				attackString.Add(Attack.kick);
 		}
