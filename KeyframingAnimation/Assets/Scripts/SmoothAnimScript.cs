@@ -12,7 +12,7 @@ using System.Collections;
 
 public class SmoothAnimScript : MonoBehaviour {
 
-	private Animator animator;
+	public Animator animator;
 	//private CapsuleCollider capCollider;
     private CharacterController charController;
 	private SphereCollider sphereCollider;
@@ -96,6 +96,11 @@ public class SmoothAnimScript : MonoBehaviour {
     public bool GetMoving()
     {
         return isMoving;
+    }
+
+    public bool GetCrouched()
+    {
+        return crouched;
     }
 
     public void SetCrouched(bool c)

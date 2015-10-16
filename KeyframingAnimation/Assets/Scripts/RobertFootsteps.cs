@@ -5,24 +5,30 @@ public class RobertFootsteps : MonoBehaviour {
 
     public AudioClip[] clips;
     private SmoothAnimScript smoothAnim;
-    private CharacterController charCont;
     private bool isMoving = false;
+    private bool crouched = false;
     private int soundOffset = 0;
+    private float crouchDelay = 0.7f;
+    private float crouchTime = 0.0f;
 
 	// Use this for initialization
 	void Start () {
         smoothAnim = GetComponent<SmoothAnimScript>();
-        charCont = GetComponent<CharacterController>();
-        InvokeRepeating("Moving", 0.5f, 0.3f);
+        if (!crouched)
+        {
+            InvokeRepeating("Moving", 0.5f, 0.3f);
+        }
     }
 	
 	// Update is called once per frame
 	void Update () {
         isMoving = smoothAnim.GetMoving();
-        Vector3 pos = transform.position + (new Vector3(0, 1, 0));
-        Ray footstepRay = new Ray(pos, Vector3.down);
+        crouched = smoothAnim.GetCrouched();
+        Vector3 pos = transform.position + (new Vector3(0, 0.2f, 0));
+        Ray downRay = new Ray(pos, Vector3.down);
         RaycastHit hit;
-        if(Physics.Raycast(footstepRay, out hit)){
+        if(Physics.Raycast(downRay, out hit)){
+            Debug.Log(hit.collider.tag);
             if(hit.collider.tag == "Water"){
                 soundOffset = 4;
             } else if (hit.collider.tag == "Volcano")
@@ -33,6 +39,7 @@ public class RobertFootsteps : MonoBehaviour {
                 soundOffset = 8;
             }
         }
+        crouchTime += Time.deltaTime;
     }
 
 
@@ -40,7 +47,18 @@ public class RobertFootsteps : MonoBehaviour {
     {
         if (isMoving)
         {
-            AudioSource.PlayClipAtPoint(clips[Random.Range(soundOffset, soundOffset+4)], gameObject.transform.position);
+            if (crouched)
+            {
+                if (crouchTime > crouchDelay)
+                {
+                    AudioSource.PlayClipAtPoint(clips[Random.Range(soundOffset, soundOffset + 4)], gameObject.transform.position);
+                    crouchTime = 0.0f;
+                }
+            }else
+            {
+                AudioSource.PlayClipAtPoint(clips[Random.Range(soundOffset, soundOffset + 4)], gameObject.transform.position);
+            }
+
         }
     }
 }
