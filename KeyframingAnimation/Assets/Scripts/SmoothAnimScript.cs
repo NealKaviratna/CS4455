@@ -73,7 +73,7 @@ public class SmoothAnimScript : MonoBehaviour {
 		animator.SetFloat ("HorizSpeed", horizontalAxis);
         //Debug.Log ("V: " + verticalAxis + " H: " + horizontalAxis);
 
-        if (horizontalAxis > 0.1f || horizontalAxis < -0.1f || verticalAxis > 0.1f || verticalAxis < -0.1f)
+        if (verticalAxis > 0.1f || verticalAxis < -0.1f)
         {
             animator.SetBool("Moving", true);
             isMoving = true;
