@@ -23,11 +23,14 @@ public class RobertFootsteps : MonoBehaviour {
         Ray footstepRay = new Ray(pos, Vector3.down);
         RaycastHit hit;
         if(Physics.Raycast(footstepRay, out hit)){
-            if(hit.collider.tag == "Sand"){
+            if(hit.collider.tag == "Water"){
                 soundOffset = 4;
             } else if (hit.collider.tag == "Volcano")
             {
                 soundOffset = 0;
+            } else if (hit.collider.tag == "Sand")
+            {
+                soundOffset = 8;
             }
         }
     }
