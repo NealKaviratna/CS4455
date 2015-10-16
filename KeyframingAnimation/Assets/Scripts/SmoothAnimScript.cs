@@ -21,6 +21,7 @@ public class SmoothAnimScript : MonoBehaviour {
     private LookAtMouse lookAtMouse;
 
     private bool crouched = false;
+    private bool isMoving = false;
 
     //static int roll = Animator.StringToHash("Base Layer.Roll");
 
@@ -75,10 +76,12 @@ public class SmoothAnimScript : MonoBehaviour {
         if (horizontalAxis > 0.1f || horizontalAxis < -0.1f || verticalAxis > 0.1f || verticalAxis < -0.1f)
         {
             animator.SetBool("Moving", true);
+            isMoving = true;
         }
         else
         {
             animator.SetBool("Moving", false);
+            isMoving = false;
         }
 
         /*if (currentState.fullPathHash == roll)
@@ -89,6 +92,11 @@ public class SmoothAnimScript : MonoBehaviour {
             }
         }*/
 	}
+
+    public bool GetMoving()
+    {
+        return isMoving;
+    }
 
     public void SetCrouched(bool c)
     {
