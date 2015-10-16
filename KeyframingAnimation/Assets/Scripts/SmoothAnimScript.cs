@@ -54,22 +54,7 @@ public class SmoothAnimScript : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.C))
         {
-            crouched = !crouched;
-            animator.SetBool("Crouched", crouched);
-            if (crouched)
-            {
-                charController.height = .97f;
-                Vector3 newCenter = charController.center;
-                newCenter.y = .49f;
-                charController.center = newCenter;
-            }
-            else
-            {
-                charController.height = 1.77f;
-                Vector3 newCenter = charController.center;
-                newCenter.y = .9f;
-                charController.center = newCenter;
-            }
+            SetCrouched(!crouched);
         }
 
         // Temporary code for ragdoll testing
@@ -104,6 +89,26 @@ public class SmoothAnimScript : MonoBehaviour {
             }
         }*/
 	}
+
+    public void SetCrouched(bool c)
+    {
+        crouched = c;
+        animator.SetBool("Crouched", crouched);
+        if (crouched)
+        {
+            charController.height = .97f;
+            Vector3 newCenter = charController.center;
+            newCenter.y = .49f;
+            charController.center = newCenter;
+        }
+        else
+        {
+            charController.height = 1.77f;
+            Vector3 newCenter = charController.center;
+            newCenter.y = .9f;
+            charController.center = newCenter;
+        }
+    }
 
 	void CheckState() {
 		string thisState = "";
