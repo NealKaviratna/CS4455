@@ -7,6 +7,11 @@ TagManager:
   - Enemy
   - Volcano
   - Sand
+  - RegFloor
+  - Spike
+  - Grass
+  - Bounce
+  - Gravel
   layers:
   - Default
   - TransparentFX
