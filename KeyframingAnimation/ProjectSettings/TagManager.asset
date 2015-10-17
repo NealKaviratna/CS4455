@@ -7,6 +7,8 @@ TagManager:
   - Enemy
   - Volcano
   - Sand
+  - Snow
+  - Ice
   - RegFloor
   - Spike
   - Grass
