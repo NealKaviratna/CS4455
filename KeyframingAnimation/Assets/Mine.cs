@@ -32,9 +32,11 @@ public class Mine : MonoBehaviour {
 	void Update () {
 		if (isActive) {
 			distance = Vector3.Distance(player.position, this.transform.position);
+			Debug.Log(distance);
 			proxMultiplier = (1000 / Mathf.Log(distance));
 
 			totalTimer -= Time.deltaTime * proxMultiplier;
+			this.gameObject.GetComponent<AudioSource>().pitch = Mathf.Clamp(5 - distance, 1, 10);
 		}
 
 		if (totalTimer < 0.0f || detonate) {
@@ -48,12 +50,16 @@ public class Mine : MonoBehaviour {
 
 	void OnTriggerEnter(Collider coll) {
 		if (coll.tag == "Player") {
+			this.gameObject.GetComponent<AudioSource>().Play();
 			isActive = true;
 		}
 	}
 
 	void OnTriggerExit(Collider coll) {
 		if (coll.tag == "Player") {
+			this.gameObject.GetComponent<AudioSource>().Stop();
+			this.gameObject.GetComponent<AudioSource>().pitch = 1;
+			this.totalTimer = 5000;
 			isActive = false;
 		}
 	}
