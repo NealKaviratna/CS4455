@@ -1,5 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+/** Simple footsteps
+ * @Author: Team Wombo Combo
+ *          -Neal Kaviratna
+ *          -Robert Borowicz
+ *          -Ryan Mendes
+ *          -Clay Anderson
+ *          -Rich Li
+ **/
 
 public class RobertFootsteps : MonoBehaviour {
 
@@ -10,6 +18,7 @@ public class RobertFootsteps : MonoBehaviour {
     private int soundOffset = 0;
     private float crouchDelay = 0.7f;
     private float crouchTime = 0.0f;
+    private bool use = true;
 
 	// Use this for initialization
 	void Start () {
@@ -28,7 +37,6 @@ public class RobertFootsteps : MonoBehaviour {
         Ray downRay = new Ray(pos, Vector3.down);
         RaycastHit hit;
         if(Physics.Raycast(downRay, out hit)){
-            Debug.Log(hit.collider.tag);
             if(hit.collider.tag == "Water"){
                 soundOffset = 4;
             } else if (hit.collider.tag == "Volcano")
@@ -42,10 +50,20 @@ public class RobertFootsteps : MonoBehaviour {
         crouchTime += Time.deltaTime;
     }
 
+    public void SetUse(bool u)
+    {
+        this.use = u;
+    }
+
+    public bool GetUse()
+    {
+        return use;
+    }
+
 
     void Moving()
     {
-        if (isMoving)
+        if (isMoving && use)
         {
             if (crouched)
             {
