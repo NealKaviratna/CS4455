@@ -57,7 +57,7 @@ public class MeleeInput : MonoBehaviour {
 		if (!player.GetCurrentAnimatorStateInfo(1).IsTag("attack") && attackString.Count > 0) {
 			Attack next = attackString[0];
 			player.SetInteger("NextAttack", ((int)next) + 1);
-			Debug.Log(attackString.Count);
+//			Debug.Log(attackString.Count);
 			attackString.Remove(next);
 			Debug.Log(next);
 		}
