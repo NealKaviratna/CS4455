@@ -66,5 +66,11 @@ public class Mine : MonoBehaviour {
 
 	void OnCollisionEnter(Collision coll) {
 		if (coll.collider.GetComponentInParent<LookAtMouse>()) detonate = true;
+		else if(coll.collider.GetComponentInChildren<SuicideBot>()) {
+			Transform tr = coll.collider.gameObject.transform;
+			this.transform.position = tr.position;
+			this.transform.rotation = tr.transform.rotation;
+			this.transform.parent = tr;
+		}
 	}
 }
