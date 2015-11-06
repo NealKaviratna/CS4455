@@ -128,7 +128,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -.0961810052, y: -.0527250879, z: -.0101080891}
+  m_ConnectedAnchor: {x: -.0961810052, y: -.0527250879, z: -.0101090427}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -1522,7 +1522,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400130, guid: e7ab9c6a26ce3f24b844f303cca8e416, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 19.3299999
+      value: 11.1000004
       objectReference: {fileID: 0}
     - target: {fileID: 400130, guid: e7ab9c6a26ce3f24b844f303cca8e416, type: 3}
       propertyPath: m_LocalRotation.x
@@ -1542,7 +1542,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400130, guid: e7ab9c6a26ce3f24b844f303cca8e416, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400116, guid: e7ab9c6a26ce3f24b844f303cca8e416, type: 3}
       propertyPath: m_LocalRotation.x
@@ -1765,7 +1765,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -4.85775672e-07, y: .433648854, z: 7.75791705e-07}
+  m_ConnectedAnchor: {x: -4.84620614e-07, y: .433648825, z: -1.77882612e-07}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -1912,7 +1912,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 8.22707079e-07, y: .231601968, z: -1.89989805e-07}
+  m_ConnectedAnchor: {x: -1.19238393e-07, y: .231601968, z: -1.49011612e-08}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: -1}
   m_TwistLimitSpring:
@@ -5323,7 +5323,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -.000131165172, y: .303777397, z: .00785999745}
+  m_ConnectedAnchor: {x: -.000131165172, y: .303777248, z: .00786093995}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -7962,7 +7962,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 9.43866326e-07, y: .231603414, z: 2.12341547e-07}
+  m_ConnectedAnchor: {x: 3.49245965e-09, y: .231603414, z: 7.07805157e-08}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: -1}
   m_TwistLimitSpring:
@@ -8689,7 +8689,7 @@ Prefab:
         elementtype="RAIN.Perception.Sensors.Filters.RAINSensorFilter" /><field value="13.59"
         type="System.Single" id="_range" /><field value="False" type="System.Boolean"
         id="_canDetectSelf" /><field value="360" type="System.Single" id="_horizontalAngle"
-        /><field value="180" type="System.Single" id="_verticalAngle" /><field value="True"
+        /><field value="180" type="System.Single" id="_verticalAngle" /><field value="False"
         type="System.Boolean" id="_lineOfSight" /><field value="-5" type="UnityEngine.LayerMask"
         id="_lineOfSightMask" /></reference><reference type="RAIN.Perception.Sensors.VisualSensor"
         refcount="1" id="12"><field value="True" type="System.Boolean" id="_showVisual"
@@ -8702,7 +8702,7 @@ Prefab:
         /><field value="6.93" type="System.Single" id="_range" /><field value="False"
         type="System.Boolean" id="_canDetectSelf" /><field value="178" type="System.Single"
         id="_horizontalAngle" /><field value="180" type="System.Single" id="_verticalAngle"
-        /><field value="False" type="System.Boolean" id="_lineOfSight" /><field value="-5"
+        /><field value="True" type="System.Boolean" id="_lineOfSight" /><field value="-5"
         type="UnityEngine.LayerMask" id="_lineOfSightMask" /></reference><reference
         type="RAIN.Perception.Sensors.VisualSensor" refcount="1" id="13"><field value="True"
         type="System.Boolean" id="_showVisual" /><field value="hasMineSensor" type="System.String"
@@ -10761,7 +10761,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: -1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -.20856984, y: .214820057, z: -.00745508494}
+  m_ConnectedAnchor: {x: -.20856984, y: .214820176, z: -.00745602744}
   serializedVersion: 2
   m_SwingAxis: {x: 1, y: 0, z: 0}
   m_TwistLimitSpring:
@@ -21179,7 +21179,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: .000819044129, y: .205627933, z: -.0301619526}
+  m_ConnectedAnchor: {x: .000819044129, y: .205627933, z: -.0301609989}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -21608,7 +21608,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: -1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: .208474338, y: .216725975, z: -.00897419825}
+  m_ConnectedAnchor: {x: .208474338, y: .216725826, z: -.00897325203}
   serializedVersion: 2
   m_SwingAxis: {x: -1, y: 0, z: 0}
   m_TwistLimitSpring:
