@@ -16,48 +16,61 @@ MonoBehaviour:
       value="&lt;behaviortree version=&quot;1.1&quot; repeatuntil=&quot;&quot; name=&quot;SuicideBot&quot;
       debugbreak=&quot;False&quot;&gt;&lt;parallel tiebreaker=&quot;fail&quot; succeed=&quot;all&quot;
       repeatuntil=&quot;&quot; name=&quot;parallel&quot; fail=&quot;any&quot; debugbreak=&quot;False&quot;&gt;&lt;detect
-      sensor=&quot;&amp;quot;mineSensor&amp;quot;&quot; repeatuntil=&quot;&quot; name=&quot;detect
-      mines&quot; matchtype=&quot;best&quot; entityobjectvariable=&quot;mineIsClose&quot;
+      sensor=&quot;&amp;quot;hasMineSensor&amp;quot;&quot; repeatuntil=&quot;&quot;
+      name=&quot;detect has mine&quot; matchtype=&quot;best&quot; entityobjectvariable=&quot;hasMine&quot;
       debugbreak=&quot;False&quot; consistent=&quot;True&quot; aspectvariable=&quot;&quot;
       aspectobjectvariable=&quot;&quot; aspect=&quot;&amp;quot;mineAspect&amp;quot;&quot;
+      /&gt;&lt;constraint repeatuntil=&quot;&quot; name=&quot;RememberHasMine&quot;
+      debugbreak=&quot;False&quot; constraint=&quot;hasMine != null&quot;&gt;&lt;action
+      repeatuntil=&quot;&quot; parametervalues=&quot;&quot; parameters=&quot;&quot;
+      namespace=&quot;(global)&quot; name=&quot;action&quot; debugbreak=&quot;False&quot;
+      classname=&quot;hasGottenMine&quot; /&gt;&lt;/constraint&gt;&lt;detect sensor=&quot;&amp;quot;mineSensor&amp;quot;&quot;
+      repeatuntil=&quot;&quot; name=&quot;detect mines&quot; matchtype=&quot;best&quot;
+      entityobjectvariable=&quot;mineIsClose&quot; debugbreak=&quot;False&quot; consistent=&quot;True&quot;
+      aspectvariable=&quot;&quot; aspectobjectvariable=&quot;&quot; aspect=&quot;&amp;quot;mineAspect&amp;quot;&quot;
       /&gt;&lt;detect sensor=&quot;&amp;quot;heroSensor&amp;quot;&quot; repeatuntil=&quot;&quot;
       name=&quot;detect player&quot; matchtype=&quot;best&quot; entityobjectvariable=&quot;heroIsClose&quot;
       debugbreak=&quot;False&quot; consistent=&quot;True&quot; aspectvariable=&quot;&quot;
       aspectobjectvariable=&quot;&quot; aspect=&quot;&amp;quot;heroAspect&amp;quot;&quot;
       /&gt;&lt;selector usepriorities=&quot;False&quot; repeatuntil=&quot;&quot; name=&quot;selector&quot;
       debugbreak=&quot;False&quot;&gt;&lt;constraint repeatuntil=&quot;&quot; priority=&quot;&quot;
-      name=&quot;HeroFound&quot; debugbreak=&quot;False&quot; constraint=&quot;&amp;quot;heroIsClose&amp;quot;
-      != null&quot;&gt;&lt;parallel tiebreaker=&quot;fail&quot; succeed=&quot;all&quot;
-      repeatuntil=&quot;&quot; name=&quot;parallel&quot; fail=&quot;any&quot; debugbreak=&quot;True&quot;&gt;&lt;constraint
-      repeatuntil=&quot;&quot; name=&quot;MineFound&quot; debugbreak=&quot;False&quot;
-      constraint=&quot;&amp;quot;mineIsFound&amp;quot; != null&quot;&gt;&lt;parallel
+      name=&quot;NothingFound&quot; debugbreak=&quot;False&quot; constraint=&quot;heroIsClose
+      == null &amp;amp;&amp;amp; !sawPlayer&quot;&gt;&lt;parallel tiebreaker=&quot;fail&quot;
+      succeed=&quot;all&quot; repeatuntil=&quot;&quot; name=&quot;parallel&quot; fail=&quot;any&quot;
+      debugbreak=&quot;False&quot;&gt;&lt;waypointpatrol waypointsetvariable=&quot;&amp;quot;myWaypointRoute&amp;quot;&quot;
+      waypointactiontype=&quot;patrol&quot; traversetype=&quot;loop&quot; traverseorder=&quot;reverse&quot;
+      repeatuntil=&quot;&quot; pathtargetvariable=&quot;&quot; name=&quot;waypointpatrol&quot;
+      movetargetvariable=&quot;nextStop&quot; debugbreak=&quot;False&quot;&gt;&lt;move
+      turnspeed=&quot;360&quot; repeatuntil=&quot;&quot; name=&quot;move-to-waypoint&quot;
+      movetarget=&quot;nextStop&quot; movespeed=&quot;.4&quot; facetarget=&quot;nextStop&quot;
+      debugbreak=&quot;False&quot; closeenoughdistance=&quot;&quot; closeenoughangle=&quot;&quot;
+      /&gt;&lt;/waypointpatrol&gt;&lt;/parallel&gt;&lt;/constraint&gt;&lt;constraint
+      repeatuntil=&quot;&quot; priority=&quot;&quot; name=&quot;HeroFoundMineHad&quot;
+      debugbreak=&quot;False&quot; constraint=&quot;sawPlayer &amp;amp;&amp;amp; hasGottenMine&quot;&gt;&lt;move
+      turnspeed=&quot;360&quot; repeatuntil=&quot;&quot; name=&quot;move to player&quot;
+      movetarget=&quot;heroObject&quot; movespeed=&quot;.9&quot; facetarget=&quot;heroObject&quot;
+      debugbreak=&quot;False&quot; closeenoughdistance=&quot;&quot; closeenoughangle=&quot;&quot;
+      /&gt;&lt;/constraint&gt;&lt;constraint repeatuntil=&quot;&quot; priority=&quot;&quot;
+      name=&quot;HeroFound&quot; debugbreak=&quot;False&quot; constraint=&quot;!sawPlayer
+      &amp;amp;&amp;amp; heroIsClose != null&quot;&gt;&lt;action repeatuntil=&quot;&quot;
+      parametervalues=&quot;&quot; parameters=&quot;&quot; namespace=&quot;(global)&quot;
+      name=&quot;sawHeroAction&quot; debugbreak=&quot;False&quot; classname=&quot;SawHero&quot;
+      /&gt;&lt;/constraint&gt;&lt;constraint repeatuntil=&quot;&quot; priority=&quot;&quot;
+      name=&quot;MineFoundNotHad&quot; debugbreak=&quot;False&quot; constraint=&quot;sawPlayer
+      &amp;amp;&amp;amp; mineIsClose != null &amp;amp;&amp;amp; !hasGottenMine&quot;&gt;&lt;parallel
       tiebreaker=&quot;fail&quot; succeed=&quot;all&quot; repeatuntil=&quot;&quot;
       name=&quot;parallel&quot; fail=&quot;any&quot; debugbreak=&quot;False&quot;&gt;&lt;move
       turnspeed=&quot;360&quot; repeatuntil=&quot;&quot; name=&quot;move to mine&quot;
       movetarget=&quot;mineIsClose&quot; movespeed=&quot;1&quot; facetarget=&quot;mineIsClose&quot;
       debugbreak=&quot;False&quot; closeenoughdistance=&quot;&quot; closeenoughangle=&quot;&quot;
-      /&gt;&lt;/parallel&gt;&lt;/constraint&gt;&lt;move turnspeed=&quot;&quot; repeatuntil=&quot;&quot;
-      name=&quot;move to player&quot; movetarget=&quot;heroIsClose&quot; movespeed=&quot;.9&quot;
-      facetarget=&quot;&quot; debugbreak=&quot;False&quot; closeenoughdistance=&quot;&quot;
-      closeenoughangle=&quot;&quot; /&gt;&lt;/parallel&gt;&lt;/constraint&gt;&lt;constraint
-      repeatuntil=&quot;&quot; priority=&quot;&quot; name=&quot;NothingFound&quot;
-      debugbreak=&quot;False&quot; constraint=&quot;heroIsClose == null&quot;&gt;&lt;parallel
+      /&gt;&lt;/parallel&gt;&lt;/constraint&gt;&lt;constraint repeatuntil=&quot;&quot;
+      priority=&quot;&quot; name=&quot;HeroFoundNoMine&quot; debugbreak=&quot;False&quot;
+      constraint=&quot;sawPlayer &amp;amp;&amp;amp; !hasGottenMine&quot;&gt;&lt;parallel
       tiebreaker=&quot;fail&quot; succeed=&quot;all&quot; repeatuntil=&quot;&quot;
-      name=&quot;parallel&quot; fail=&quot;any&quot; debugbreak=&quot;False&quot;&gt;&lt;waypointpatrol
-      waypointsetvariable=&quot;&amp;quot;myWaypointRoute&amp;quot;&quot; waypointactiontype=&quot;patrol&quot;
-      traversetype=&quot;loop&quot; traverseorder=&quot;reverse&quot; repeatuntil=&quot;&quot;
-      pathtargetvariable=&quot;&quot; name=&quot;waypointpatrol&quot; movetargetvariable=&quot;nextStop&quot;
-      debugbreak=&quot;False&quot;&gt;&lt;move turnspeed=&quot;360&quot; repeatuntil=&quot;&quot;
-      name=&quot;move-to-waypoint&quot; movetarget=&quot;nextStop&quot; movespeed=&quot;.4&quot;
-      facetarget=&quot;nextStop&quot; debugbreak=&quot;False&quot; closeenoughdistance=&quot;&quot;
-      closeenoughangle=&quot;&quot; /&gt;&lt;/waypointpatrol&gt;&lt;/parallel&gt;&lt;/constraint&gt;&lt;constraint
-      repeatuntil=&quot;&quot; priority=&quot;&quot; name=&quot;HeroFoundNoMine&quot;
-      debugbreak=&quot;False&quot; constraint=&quot;&quot;&gt;&lt;parallel tiebreaker=&quot;fail&quot;
-      succeed=&quot;all&quot; repeatuntil=&quot;&quot; name=&quot;parallel&quot; fail=&quot;any&quot;
-      debugbreak=&quot;True&quot;&gt;&lt;move turnspeed=&quot;&quot; repeatuntil=&quot;&quot;
-      name=&quot;move from player&quot; movetarget=&quot;&quot; movespeed=&quot;&quot;
-      facetarget=&quot;&quot; debugbreak=&quot;False&quot; closeenoughdistance=&quot;&quot;
-      closeenoughangle=&quot;&quot; /&gt;&lt;/parallel&gt;&lt;/constraint&gt;&lt;/selector&gt;&lt;/parallel&gt;&lt;/behaviortree&gt;"
+      name=&quot;parallel&quot; fail=&quot;any&quot; debugbreak=&quot;False&quot;&gt;&lt;move
+      turnspeed=&quot;&quot; repeatuntil=&quot;&quot; name=&quot;move from player&quot;
+      movetarget=&quot;&quot; movespeed=&quot;&quot; facetarget=&quot;&quot; debugbreak=&quot;False&quot;
+      closeenoughdistance=&quot;&quot; closeenoughangle=&quot;&quot; /&gt;&lt;/parallel&gt;&lt;/constraint&gt;&lt;/selector&gt;&lt;/parallel&gt;&lt;/behaviortree&gt;"
       type="System.String" id="treeData" /><field type="System.Array" id="treeBindings"
       elementtype="System.String" /></fields><references /></scriptableobject>
     _serializedGameObjects: []
