@@ -18,6 +18,8 @@ public class Mine : MonoBehaviour {
 	
 	private LookAtMouse lookAtMouse;
 
+	private bool isHeld = false;
+
 	// Use this for initialization
 	void Start () {
 		isActive = false;
@@ -49,6 +51,10 @@ public class Mine : MonoBehaviour {
 			if (transform.parent) Destroy(transform.parent.gameObject);
 			Destroy(this.gameObject);
 		}
+
+		if (this.isHeld) {
+			this.transform.position = new Vector3(this.transform.parent.position.x, this.transform.parent.position.y + 1, this.transform.parent.position.z);
+		}
 	}
 
 	void OnTriggerEnter(Collider coll) {
@@ -78,6 +84,9 @@ public class Mine : MonoBehaviour {
 			this.transform.rotation = tr.transform.rotation;
 			this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + 1, this.transform.position.z);
 			this.transform.parent = tr;
+
+			Physics.IgnoreCollision(this.GetComponentInChildren<MeshCollider>(), coll.collider);
+			this.isHeld = true;
 		}
 	}
 }
