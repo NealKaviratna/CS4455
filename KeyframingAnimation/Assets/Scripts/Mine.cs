@@ -36,7 +36,6 @@ public class Mine : MonoBehaviour {
 	void Update () {
 		if (isActive) {
 			distance = Vector3.Distance(player.position, this.transform.position);
-			Debug.Log(distance);
 			proxMultiplier = (1000 / Mathf.Log(distance));
 
 			totalTimer -= Time.deltaTime * proxMultiplier;
@@ -74,7 +73,6 @@ public class Mine : MonoBehaviour {
 	}
 
 	void OnCollisionEnter(Collision coll) {
-		Debug.Log("mine hit");
 
 		if (coll.collider.GetComponentInParent<LookAtMouse>()) detonate = true;
 		else if(coll.collider.GetComponentInChildren<SuicideBot>()) {
