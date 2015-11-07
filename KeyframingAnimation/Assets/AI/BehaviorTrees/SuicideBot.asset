@@ -46,7 +46,7 @@ MonoBehaviour:
       debugbreak=&quot;False&quot; closeenoughdistance=&quot;&quot; closeenoughangle=&quot;&quot;
       /&gt;&lt;/waypointpatrol&gt;&lt;/parallel&gt;&lt;/constraint&gt;&lt;constraint
       repeatuntil=&quot;&quot; priority=&quot;&quot; name=&quot;HeroFoundMineHad&quot;
-      debugbreak=&quot;True&quot; constraint=&quot;sawPlayer &amp;amp;&amp;amp; hasGottenMine&quot;&gt;&lt;move
+      debugbreak=&quot;False&quot; constraint=&quot;sawPlayer &amp;amp;&amp;amp; hasGottenMine&quot;&gt;&lt;move
       turnspeed=&quot;360&quot; repeatuntil=&quot;&quot; name=&quot;move to player&quot;
       movetarget=&quot;heroObject&quot; movespeed=&quot;.9&quot; facetarget=&quot;&quot;
       debugbreak=&quot;False&quot; closeenoughdistance=&quot;&quot; closeenoughangle=&quot;&quot;
