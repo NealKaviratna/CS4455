@@ -15,12 +15,10 @@ MonoBehaviour:
     _serializedData: <scriptableobject version="1.3" type="RAIN.BehaviorTrees.BTAsset"><fields><field
       value="&lt;behaviortree version=&quot;1.1&quot; repeatuntil=&quot;&quot; name=&quot;RobotMK1&quot;
       debugbreak=&quot;False&quot;&gt;&lt;parallel tiebreaker=&quot;fail&quot; succeed=&quot;all&quot;
-      repeatuntil=&quot;&quot; name=&quot;root&quot; fail=&quot;any&quot; debugbreak=&quot;False&quot;&gt;&lt;expression
-      returnvalue=&quot;success&quot; repeatuntil=&quot;&quot; name=&quot;expression&quot;
-      expression=&quot;HidingSpot = navigationTarget(&amp;quot;HidingSpot1&amp;quot;)&quot;
-      debugbreak=&quot;False&quot; /&gt;&lt;waypointpath waypointsetvariable=&quot;&amp;quot;RunawayNetwork&amp;quot;&quot;
-      waypointactiontype=&quot;path&quot; traversetype=&quot;pingpong&quot; traverseorder=&quot;forward&quot;
-      repeatuntil=&quot;&quot; pathtargetvariable=&quot;Spot1&quot; name=&quot;waypointpath&quot;
+      repeatuntil=&quot;&quot; name=&quot;root&quot; fail=&quot;any&quot; debugbreak=&quot;False&quot;&gt;&lt;waypointpath
+      waypointsetvariable=&quot;&amp;quot;RunawayNetwork&amp;quot;&quot; waypointactiontype=&quot;path&quot;
+      traversetype=&quot;pingpong&quot; traverseorder=&quot;forward&quot; repeatuntil=&quot;&quot;
+      pathtargetvariable=&quot;&amp;quot;Spot1&amp;quot;&quot; name=&quot;waypointpath&quot;
       movetargetvariable=&quot;hidingSpot&quot; debugbreak=&quot;False&quot;&gt;&lt;move
       turnspeed=&quot;&quot; repeatuntil=&quot;&quot; name=&quot;move&quot; movetarget=&quot;hidingSpot&quot;
       movespeed=&quot;1&quot; facetarget=&quot;&quot; debugbreak=&quot;False&quot;

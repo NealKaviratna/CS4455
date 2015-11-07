@@ -59,16 +59,18 @@ public class MeleeInput : MonoBehaviour {
 			player.SetInteger("NextAttack", ((int)next) + 1);
 //			Debug.Log(attackString.Count);
 			attackString.Remove(next);
-			Debug.Log(next);
-		}
+            GetComponent<RobertFootsteps>().SetUse(false);
+        }
 		else if(player.GetCurrentAnimatorStateInfo(1).IsTag("attack")) {
 			player.SetInteger("NextAttack", 0);
 			hitbox1.enabled = true;
 			hitbox2.enabled = true;
-		}
+            GetComponent<RobertFootsteps>().SetUse(false);
+        }
 		else {
 			hitbox1.enabled = false;
 			hitbox2.enabled = false;
-		}
+            GetComponent<RobertFootsteps>().SetUse(true);
+        }
 	}
 }

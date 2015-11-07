@@ -1,6 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/**
+ * @Author: Team Wombo Combo
+ *          -Neal Kaviratna
+ *          -Robert Borowicz
+ *          -Ryan Mendes
+ *          -Clay Anderson
+ *          -Rich Li
+ **/
 public class HadokenSpawner : MonoBehaviour {
 	
 	public GameObject enemy;

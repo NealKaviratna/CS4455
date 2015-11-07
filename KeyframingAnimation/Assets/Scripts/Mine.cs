@@ -3,6 +3,15 @@ using System.Collections;
 using RAIN.Core;
 using RAIN.Action;
 
+/**
+ * @Author: Team Wombo Combo
+ *          -Neal Kaviratna
+ *          -Robert Borowicz
+ *          -Ryan Mendes
+ *          -Clay Anderson
+ *          -Rich Li
+ **/
+
 public class Mine : MonoBehaviour {
 
 	public bool isActive;
