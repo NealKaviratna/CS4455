@@ -9081,7 +9081,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 126334, guid: 20378bc87ac2dca4f88e634685681ad8, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11415518, guid: 20378bc87ac2dca4f88e634685681ad8, type: 2}
       propertyPath: _dataSerializer._serializedData

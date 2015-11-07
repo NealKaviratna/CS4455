@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿/*using UnityEngine;
 using System.Collections;
 
 /**
@@ -10,7 +10,7 @@ using System.Collections;
  *          -Rich Li
  **/
 
-public class RobotController : MonoBehaviour {
+/*public class RobotController : MonoBehaviour {
 
 	private Animator animator;
 	private CapsuleCollider capCollider;
@@ -113,4 +113,4 @@ public class RobotController : MonoBehaviour {
 			rigidBody.useGravity = true;
 		}
 	}
-}
+}*/

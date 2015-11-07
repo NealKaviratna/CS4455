@@ -17,7 +17,7 @@ public class SmoothAnimScript : MonoBehaviour {
     private CharacterController charController;
 	private SphereCollider sphereCollider;
 	private Rigidbody rigidBody;
-	private AnimatorStateInfo currentState;
+	//private AnimatorStateInfo currentState;
     private LookAtMouse lookAtMouse;
 
     private bool crouched = false;
@@ -40,11 +40,11 @@ public class SmoothAnimScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		currentState = animator.GetCurrentAnimatorStateInfo(0); //Get the current state
-//		if (Input.GetButtonUp ("Jump")) { //TODO: change this from jump to a dedicated crouch button
-//			animator.SetBool("Crouched", !animator.GetBool("Crouched"));
-//		}
-		/*if (Input.GetButtonUp ("Jump")) {
+        //currentState = animator.GetCurrentAnimatorStateInfo(0); //Get the current state
+        //		if (Input.GetButtonUp ("Jump")) { //TODO: change this from jump to a dedicated crouch button
+        //			animator.SetBool("Crouched", !animator.GetBool("Crouched"));
+        //		}
+        /*if (Input.GetButtonUp ("Jump")) {
 			animator.SetTrigger("Jump");
 		}*/
 
@@ -56,6 +56,24 @@ public class SmoothAnimScript : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.C))
         {
             SetCrouched(!crouched);
+        }
+
+        if (Input.GetButtonDown("Jump"))
+        {
+            animator.SetBool("Jump", true);
+        }
+        if (Input.GetButtonUp("Jump"))
+        {
+            animator.SetBool("Jump", false);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            animator.SetBool("Hadouken", true);
+        }
+        if (Input.GetKeyUp(KeyCode.Q))
+        {
+            animator.SetBool("Hadouken", false);
         }
 
         // Temporary code for ragdoll testing

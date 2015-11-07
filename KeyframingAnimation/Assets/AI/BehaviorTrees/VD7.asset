@@ -35,19 +35,19 @@ MonoBehaviour:
       debugbreak=&quot;False&quot;&gt;&lt;move turnspeed=&quot;360&quot; repeatuntil=&quot;&quot;
       name=&quot;move&quot; movetarget=&quot;varHeroProx&quot; movespeed=&quot;2&quot;
       facetarget=&quot;&quot; debugbreak=&quot;False&quot; closeenoughdistance=&quot;&quot;
-      closeenoughangle=&quot;&quot; /&gt;&lt;mecparam valueexpression=&quot;false&quot;
-      repeatuntil=&quot;&quot; parametertype=&quot;boolean&quot; parametername=&quot;Punching&quot;
-      name=&quot;mecparam&quot; debugbreak=&quot;False&quot; damptime=&quot;0&quot;
-      /&gt;&lt;/parallel&gt;&lt;/constraint&gt;&lt;constraint repeatuntil=&quot;failure&quot;
-      priority=&quot;&quot; name=&quot;Melee&quot; debugbreak=&quot;False&quot; constraint=&quot;varHeroClose
-      != null&quot;&gt;&lt;parallel tiebreaker=&quot;fail&quot; succeed=&quot;all&quot;
-      repeatuntil=&quot;running&quot; name=&quot;parallel&quot; fail=&quot;any&quot;
-      debugbreak=&quot;False&quot;&gt;&lt;animate repeatuntil=&quot;&quot; name=&quot;animate&quot;
-      debugbreak=&quot;False&quot; animationstate=&quot;Base Layer.Hook Left&quot;
-      /&gt;&lt;move turnspeed=&quot;540&quot; repeatuntil=&quot;&quot; name=&quot;move&quot;
-      movetarget=&quot;&quot; movespeed=&quot;&quot; facetarget=&quot;varHeroClose&quot;
-      debugbreak=&quot;False&quot; closeenoughdistance=&quot;&quot; closeenoughangle=&quot;&quot;
-      /&gt;&lt;/parallel&gt;&lt;/constraint&gt;&lt;/selector&gt;&lt;/constraint&gt;&lt;constraint
+      closeenoughangle=&quot;&quot; /&gt;&lt;/parallel&gt;&lt;/constraint&gt;&lt;constraint
+      repeatuntil=&quot;failure&quot; priority=&quot;&quot; name=&quot;Melee&quot;
+      debugbreak=&quot;False&quot; constraint=&quot;varHeroClose != null&quot;&gt;&lt;parallel
+      tiebreaker=&quot;fail&quot; succeed=&quot;all&quot; repeatuntil=&quot;running&quot;
+      name=&quot;parallel&quot; fail=&quot;any&quot; debugbreak=&quot;False&quot;&gt;&lt;random
+      repeatuntil=&quot;&quot; name=&quot;random&quot; debugbreak=&quot;False&quot;&gt;&lt;animate
+      weight=&quot;.5&quot; repeatuntil=&quot;&quot; name=&quot;animate&quot; debugbreak=&quot;False&quot;
+      animationstate=&quot;Base Layer.Hook Left&quot; /&gt;&lt;animate weight=&quot;.5&quot;
+      repeatuntil=&quot;&quot; name=&quot;animate&quot; debugbreak=&quot;False&quot;
+      animationstate=&quot;Base Layer.Hook Right&quot; /&gt;&lt;/random&gt;&lt;move
+      turnspeed=&quot;540&quot; repeatuntil=&quot;&quot; name=&quot;move&quot; movetarget=&quot;&quot;
+      movespeed=&quot;&quot; facetarget=&quot;varHeroClose&quot; debugbreak=&quot;False&quot;
+      closeenoughdistance=&quot;&quot; closeenoughangle=&quot;&quot; /&gt;&lt;/parallel&gt;&lt;/constraint&gt;&lt;/selector&gt;&lt;/constraint&gt;&lt;constraint
       repeatuntil=&quot;&quot; priority=&quot;&quot; name=&quot;Hero Not Found&quot;
       debugbreak=&quot;False&quot; constraint=&quot;varHeroProx == null&quot;&gt;&lt;parallel
       tiebreaker=&quot;fail&quot; succeed=&quot;all&quot; repeatuntil=&quot;&quot;
@@ -58,10 +58,7 @@ MonoBehaviour:
       debugbreak=&quot;False&quot;&gt;&lt;move turnspeed=&quot;1000&quot; repeatuntil=&quot;&quot;
       name=&quot;move&quot; movetarget=&quot;nextStop&quot; movespeed=&quot;.5&quot;
       facetarget=&quot;&quot; debugbreak=&quot;False&quot; closeenoughdistance=&quot;.5&quot;
-      closeenoughangle=&quot;&quot; /&gt;&lt;/waypointpatrol&gt;&lt;mecparam valueexpression=&quot;false&quot;
-      repeatuntil=&quot;&quot; parametertype=&quot;boolean&quot; parametername=&quot;Punching&quot;
-      name=&quot;mecparam&quot; debugbreak=&quot;False&quot; damptime=&quot;0&quot;
-      /&gt;&lt;/parallel&gt;&lt;/constraint&gt;&lt;/selector&gt;&lt;/parallel&gt;&lt;/behaviortree&gt;"
+      closeenoughangle=&quot;&quot; /&gt;&lt;/waypointpatrol&gt;&lt;/parallel&gt;&lt;/constraint&gt;&lt;/selector&gt;&lt;/parallel&gt;&lt;/behaviortree&gt;"
       type="System.String" id="treeData" /><field type="System.Array" id="treeBindings"
       elementtype="System.String" /></fields><references /></scriptableobject>
     _serializedGameObjects: []
