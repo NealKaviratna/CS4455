@@ -389,6 +389,17 @@ Transform:
 GameObject:
   m_PrefabParentObject: {fileID: 164842, guid: 46b31cf4dd16f3440b90518813d7a556, type: 2}
   m_PrefabInternal: {fileID: 182433237}
+--- !u!114 &991582763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 991582761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbcfa7659e410054cbf833b9311c6c88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &991582770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -402,6 +413,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hadoukenBall: {fileID: 154198, guid: c340de8027f54ae4cafa3b88853fc471, type: 2}
   firePos: {fileID: 1451630367}
+--- !u!135 &991582771
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 991582761}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.25
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!4 &1451630367 stripped
 Transform:
   m_PrefabParentObject: {fileID: 498694, guid: 46b31cf4dd16f3440b90518813d7a556, type: 2}
