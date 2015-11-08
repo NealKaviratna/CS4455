@@ -625,9 +625,11 @@ GameObject:
   m_Component:
   - 4: {fileID: 400082}
   - 95: {fileID: 9500000}
+  - 136: {fileID: 13608738}
+  - 114: {fileID: 11495206}
   m_Layer: 0
   m_Name: Robot_VD7_prefab
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1322,7 +1324,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100082}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: -4.37113883e-08}
-  m_LocalPosition: {x: -.0284528211, y: -4.23847842e-18, z: 1.90884101}
+  m_LocalPosition: {x: -.0284528211, y: -4.23847842e-18, z: 17.7000008}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400076}
@@ -1675,6 +1677,34 @@ MonoBehaviour:
       _stringData: ZmFscw0K
     - _data: 
       _stringData: ZmFsc2UNCg==
+--- !u!114 &11495206
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9d07362be1227b4b83999fe8f34a8ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hP: 101
+  attack: 10
+  isAlive: 0
+  hit: 0
+--- !u!136 &13608738
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100082}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: .5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!137 &13700000
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

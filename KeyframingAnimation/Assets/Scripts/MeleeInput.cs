@@ -70,14 +70,14 @@ public class MeleeInput : MonoBehaviour {
         }
 		else if(player.GetCurrentAnimatorStateInfo(1).IsTag("attack")) {
 			player.SetInteger("NextAttack", 0);
-			hitbox1.enabled = true;
-			hitbox2.enabled = true;
+			//hitbox1.enabled = true;
+			//hitbox2.enabled = true;
             GetComponent<RobertFootsteps>().SetUse(false);
             setAttacking(true);
         }
 		else {
-			hitbox1.enabled = false;
-			hitbox2.enabled = false;
+			//hitbox1.enabled = false;
+			//hitbox2.enabled = false;
             GetComponent<RobertFootsteps>().SetUse(true);
             setAttacking(true);
         }

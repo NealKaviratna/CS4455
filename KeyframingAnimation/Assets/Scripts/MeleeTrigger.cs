@@ -20,16 +20,24 @@ public class MeleeTrigger : MonoBehaviour {
     {
         Debug.Log("Melee");
         Vector3 myPos = transform.position;
-        for (int i = 0; i < nearbyEnemies.Count; i++)
+        if (nearbyEnemies.Count > 0)
         {
-            Vector3 ePos = nearbyEnemies[i].transform.position;
-            Vector3 diff = ePos - myPos;
-            Debug.Log(Vector3.Dot(diff, transform.forward));
-            float dist = Vector3.Dot(diff, transform.forward);
-            if (dist <= 1.25f && dist > 0f) {
-                nearbyEnemies[i].GetComponent<Enemy>().takeHit(10);
+            for (int i = 0; i < nearbyEnemies.Count; i++)
+            {
+                if (nearbyEnemies[i] != null)
+                {
+                    Vector3 ePos = nearbyEnemies[i].transform.position;
+                    Vector3 diff = ePos - myPos;
+                    Debug.Log(Vector3.Dot(diff, transform.forward));
+                    float dist = Vector3.Dot(diff, transform.forward);
+                    if (dist <= 1.25f && dist > 0f)
+                    {
+                        nearbyEnemies[i].GetComponent<Enemy>().takeHit(20);
+                    }
+                }
             }
         }
+        
     }
 
     void OnTriggerEnter(Collider coll)
@@ -45,7 +53,7 @@ public class MeleeTrigger : MonoBehaviour {
     {
         if (coll.GetComponent<Collider>().tag == "Enemy")
         {
-            nearbyEnemies.Add(coll.gameObject);
+            nearbyEnemies.Remove(coll.gameObject);
         }
     }
 }
