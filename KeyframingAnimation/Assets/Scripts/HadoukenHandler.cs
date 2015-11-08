@@ -26,6 +26,12 @@ public class HadoukenHandler : MonoBehaviour {
 
     void OnCollisionEnter(Collision coll)
     {
-        GameObject.Destroy(this.gameObject);
+        GameObject other = coll.gameObject;
+        Enemy enemy = other.GetComponent<Enemy>();
+        if (enemy != null)
+        {
+            enemy.takeHit(50f);
+        }
+        Destroy(this.gameObject);
     }
 }

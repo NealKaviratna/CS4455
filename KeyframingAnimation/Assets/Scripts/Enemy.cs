@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (this.hP <= 0) {
+		/*if (this.hP <= 0) {
             // This thing dies TODO: add animation/call to death
             anim.SetTrigger("Death");
             if (anim.GetCurrentAnimatorStateInfo(0).IsName("Death"))
@@ -35,11 +35,25 @@ public class Enemy : MonoBehaviour {
                 Debug.Log("Death");
                 this.SendToPool();
             }
-		}
-        anim.SetBool("Hit", hit);
+		}*/
+        /*anim.SetBool("Hit", hit);
         if (hit)
-            hit = false;
+            hit = false;*/
 	}
+
+    public void takeHit(float damage)
+    {
+
+        hP -= damage;
+        if (hP <= 0) die();
+        else anim.SetTrigger("TakeHit");
+    }
+
+    void die()
+    {
+        anim.SetTrigger("Death");
+        Destroy(gameObject, 3f);
+    }
 
 	void SendToPool() {
         this.transform.position = new Vector3(1000, 1000, 1000);
