@@ -14,6 +14,6 @@ public class FireHadouken : MonoBehaviour {
 	
 	void fireHadouken () {
         Debug.Log(firePos);
-        GameObject hado = (GameObject)Instantiate(hadoukenBall, firePos.position, transform.rotation);
+        GameObject hado = (GameObject)Instantiate(hadoukenBall, firePos.position + transform.forward, transform.rotation);
     }
 }

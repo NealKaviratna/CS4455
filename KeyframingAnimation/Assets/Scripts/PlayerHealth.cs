@@ -5,6 +5,7 @@ using System.Collections;
 public class PlayerHealth : MonoBehaviour {
 
     public float health = 200f;
+    private bool isAlive = true;
     public Slider healthSlider;
     private Animator animator;
 
@@ -22,7 +23,10 @@ public class PlayerHealth : MonoBehaviour {
     public void takeHit(float damage)
     {
         health -= damage;
-        if (health <= 0) die();
+        if (health <= 0)
+        {
+            if (isAlive) die();
+        }
         else animator.SetTrigger("TakeHit");
         if (health <= 0) healthSlider.value = 0;
         else healthSlider.value = health;
@@ -37,6 +41,7 @@ public class PlayerHealth : MonoBehaviour {
 
     void die()
     {
+        isAlive = false;
         animator.SetTrigger("Death");
         Destroy(gameObject, 3f);
     }

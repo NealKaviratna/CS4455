@@ -19,9 +19,9 @@ public class EnemyMeleeTrigger : MonoBehaviour
 
     }
 
-    public void EnemyMelee(GameObject player)
+    public void EnemyMelee(GameObject player, bool isAlive)
     {
-        if (player != null)
+        if (player != null && isAlive)
         {
             Debug.Log("EnemyMelee");
             Vector3 myPos = transform.position;
