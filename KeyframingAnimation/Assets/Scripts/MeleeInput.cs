@@ -51,7 +51,7 @@ public class MeleeInput : MonoBehaviour {
                 inputCooldown = inputCooldownlength;
                 animScript.SetCrouched(false);
             }
-			else if (Input.GetKeyDown(";") || Input.GetKeyDown(KeyCode.JoystickButton5))
+			else if (Input.GetKeyDown("f") || Input.GetKeyDown(KeyCode.JoystickButton5))
             {
                 attackString.Add(Attack.kick);
                 inputCooldown = inputCooldownlength;
