@@ -21,6 +21,7 @@ public class Enemy : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        isAlive = true;
         anim = this.GetComponent<Animator>();
         hit = false;
 	}
@@ -45,19 +46,23 @@ public class Enemy : MonoBehaviour {
     {
 
         hP -= damage;
-        if (hP <= 0) die();
+        if (hP <= 0)
+        {
+            if (isAlive)
+                die();
+        }
         else anim.SetTrigger("TakeHit");
     }
 
     void die()
     {
+        this.isAlive = false;
         anim.SetTrigger("Death");
         Destroy(gameObject, 3f);
     }
 
 	void SendToPool() {
         this.transform.position = new Vector3(1000, 1000, 1000);
-        this.isAlive = false;
         this.gameObject.SetActive(false);
 	}
 }
