@@ -93,7 +93,7 @@ public class SmoothAnimScript : MonoBehaviour {
         }
         energy += Time.deltaTime*2;
         if (energy > 100) energy = 100;
-        energySlider.value = energy;
+        if (energySlider) energySlider.value = energy;
     }
 
 	void FixedUpdate() {
