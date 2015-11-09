@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class PlayerHealth : MonoBehaviour {
 
     public float health = 200f;
+    public Slider healthSlider;
     private Animator animator;
 
 
@@ -22,6 +24,15 @@ public class PlayerHealth : MonoBehaviour {
         health -= damage;
         if (health <= 0) die();
         else animator.SetTrigger("TakeHit");
+        if (health <= 0) healthSlider.value = 0;
+        else healthSlider.value = health;
+    }
+
+    public void getHealth(float h)
+    {
+        health += h;
+        if (health > 200f) health = 200f;
+        healthSlider.value = health;
     }
 
     void die()

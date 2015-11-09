@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 /** User input and character controller
@@ -19,6 +20,9 @@ public class SmoothAnimScript : MonoBehaviour {
 	private Rigidbody rigidBody;
 	//private AnimatorStateInfo currentState;
     private LookAtMouse lookAtMouse;
+
+    public Slider energySlider;
+    public float energy;
 
     private bool crouched = false;
     private bool isMoving = false;
@@ -69,7 +73,12 @@ public class SmoothAnimScript : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            animator.SetBool("Hadouken", true);
+            if (energy >= 20)
+            {
+                animator.SetBool("Hadouken", true);
+                energy -= 20f;
+                //energySlider.value = energy;
+            }
         }
         if (Input.GetKeyUp(KeyCode.Q))
         {
@@ -82,6 +91,9 @@ public class SmoothAnimScript : MonoBehaviour {
             animator.enabled = !animator.enabled;
             lookAtMouse.enabled = !lookAtMouse.enabled;
         }
+        energy += Time.deltaTime*2;
+        if (energy > 100) energy = 100;
+        energySlider.value = energy;
     }
 
 	void FixedUpdate() {
