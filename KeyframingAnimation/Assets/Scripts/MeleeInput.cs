@@ -39,17 +39,19 @@ public class MeleeInput : MonoBehaviour {
 	void Update () {
 		// Take in user input with a cooldown for time between presses and add them to attack string
 		if (inputCooldown < 0) {
-			if (Input.GetMouseButtonDown(0)) {
+			// Pass block for hadouken
+			if (Input.GetAxis("LeftTrigger") > 0.3f|| Input.GetAxis("RightTrigger") > 0.3f);
+			else if (Input.GetMouseButtonDown(0) || Input.GetAxis("RightTrigger") > 0.3f) {
 				attackString.Add(Attack.jab);
                 inputCooldown = inputCooldownlength;
                 animScript.SetCrouched(false);
             }
-			else if (Input.GetMouseButtonDown(1)) {
+			else if (Input.GetMouseButtonDown(1) || Input.GetAxis("LeftTrigger") > 0.3f) {
                 attackString.Add(Attack.uppercut);
                 inputCooldown = inputCooldownlength;
                 animScript.SetCrouched(false);
             }
-			else if (Input.GetKeyDown(";"))
+			else if (Input.GetKeyDown(";") || Input.GetKeyDown(KeyCode.JoystickButton5))
             {
                 attackString.Add(Attack.kick);
                 inputCooldown = inputCooldownlength;
