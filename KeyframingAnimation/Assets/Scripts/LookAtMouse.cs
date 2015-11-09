@@ -18,7 +18,7 @@ public class LookAtMouse : MonoBehaviour
 
 	void Start()
 	{
-		if (Input.GetJoystickNames().Length > 0) useGamepad = true;
+		if (Input.GetJoystickNames().Length > 1) useGamepad = true;
 	}
 	
 	void FixedUpdate () 
