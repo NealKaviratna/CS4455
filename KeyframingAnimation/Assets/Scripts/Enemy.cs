@@ -56,7 +56,7 @@ public class Enemy : MonoBehaviour {
         }
         else
         {
-            Debug.Log(isAlive);
+            Debug.Log("Hit " + isAlive);
             anim.SetTrigger("TakeHit");
         }
     }

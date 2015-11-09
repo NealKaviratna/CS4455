@@ -41,7 +41,7 @@ public class MeleeTrigger : MonoBehaviour {
 
     void OnTriggerEnter(Collider coll)
     {
-        if (coll.GetComponent<Collider>().tag == "Enemy")
+        if (coll.GetComponent<Enemy>() != null)
         {
             nearbyEnemies.Add(coll.gameObject);
         }
@@ -49,7 +49,7 @@ public class MeleeTrigger : MonoBehaviour {
 
     void OnTriggerExit(Collider coll)
     {
-        if (coll.GetComponent<Collider>().tag == "Enemy")
+        if (coll.GetComponent<Enemy>() != null)
         {
             nearbyEnemies.Remove(coll.gameObject);
         }
