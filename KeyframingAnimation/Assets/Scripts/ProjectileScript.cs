@@ -38,8 +38,14 @@ public class ProjectileScript : MonoBehaviour {
 		myTrans.position = myTrans.position + dir;
 	}
 
-	void OnCollisionEnter (Collision col)
+	void OnCollisionEnter (Collision coll)
 	{
-		Destroy(this.gameObject);
-	}
+        GameObject other = coll.gameObject;
+        PlayerHealth player = other.GetComponent<PlayerHealth>();
+        if (player != null)
+        {
+            player.takeHit(50f);
+        }
+        Destroy(this.gameObject);
+    }
 }
