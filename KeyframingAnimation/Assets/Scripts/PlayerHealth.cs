@@ -43,6 +43,7 @@ public class PlayerHealth : MonoBehaviour {
 			GameObject hp = Instantiate(healthPart);
 			hp.transform.position = this.transform.position;
 			hp.transform.rotation = hp.transform.rotation;
+			hp.transform.parent = this.transform;
 		}
     }
 
