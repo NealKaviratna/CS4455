@@ -62,7 +62,7 @@ public class SmoothAnimScript : MonoBehaviour {
             animator.SetTrigger("Roll");
         }*/
 
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.C) || Input.GetKeyDown(KeyCode.JoystickButton8))
         {
             SetCrouched(!crouched);
         }
@@ -75,7 +75,7 @@ public class SmoothAnimScript : MonoBehaviour {
         {
             animator.SetBool("Jump", false);
         }
-		if (Input.GetKeyDown(KeyCode.Q) || (Input.GetAxis("LeftTrigger") > 0.3f&&Input.GetAxis("RightTrigger") > 0.3f&&!animator.GetBool("Hadouken")))
+		if (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.JoystickButton4))//(Input.GetAxis("LeftTrigger") > 0.3f&&Input.GetAxis("RightTrigger") > 0.3f&&!animator.GetBool("Hadouken")))
 		{
 			Debug.Log(energy);
             if (energy >= 20)
@@ -85,7 +85,7 @@ public class SmoothAnimScript : MonoBehaviour {
                 //energySlider.value = energy;
             }
         }
-		if (Input.GetKeyUp(KeyCode.Q) || (Input.GetJoystickNames().Length >= 1 && Input.GetAxis("LeftTrigger") > 0.3f&&Input.GetAxis("RightTrigger") > 0.3f))
+		if (Input.GetKeyUp(KeyCode.Q) || Input.GetKeyUp(KeyCode.JoystickButton4))//|| (Input.GetJoystickNames().Length >= 1 && Input.GetAxis("LeftTrigger") > 0.3f&&Input.GetAxis("RightTrigger") > 0.3f))
 		{
 			animator.SetBool("Hadouken", false);
         }
