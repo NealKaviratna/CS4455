@@ -75,9 +75,9 @@ public class SmoothAnimScript : MonoBehaviour {
         {
             animator.SetBool("Jump", false);
         }
-
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
+		if (Input.GetKeyDown(KeyCode.Q) || (Input.GetAxis("LeftTrigger") > 0.3f&&Input.GetAxis("RightTrigger") > 0.3f&&!animator.GetBool("Hadouken")))
+		{
+			Debug.Log(energy);
             if (energy >= 20)
             {
                 animator.SetBool("Hadouken", true);
@@ -85,9 +85,9 @@ public class SmoothAnimScript : MonoBehaviour {
                 //energySlider.value = energy;
             }
         }
-        if (Input.GetKeyUp(KeyCode.Q))
-        {
-            animator.SetBool("Hadouken", false);
+		if (Input.GetKeyUp(KeyCode.Q) || (Input.GetJoystickNames().Length >= 1 && Input.GetAxis("LeftTrigger") > 0.3f&&Input.GetAxis("RightTrigger") > 0.3f))
+		{
+			animator.SetBool("Hadouken", false);
         }
 
         // Temporary code for ragdoll testing
