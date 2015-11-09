@@ -57,6 +57,7 @@ public class Mine : MonoBehaviour {
 			lookAtMouse.enabled = !lookAtMouse.enabled;
 			Instantiate(explosion, this.transform.position, this.transform.rotation);
 			if (transform.parent) Destroy(transform.parent.gameObject);
+			player.gameObject.GetComponent<PlayerHealth>().takeHit(300);
 			Destroy(this.gameObject);
 		}
 
@@ -84,6 +85,7 @@ public class Mine : MonoBehaviour {
 	void OnCollisionEnter(Collision coll) {
 
 		if (coll.collider.GetComponentInParent<LookAtMouse>()) detonate = true;
+
 		else if(coll.collider.GetComponentInChildren<SuicideBot>()) {
 			this.GetComponent<Rigidbody>().useGravity = false;
 			Transform tr = coll.collider.gameObject.transform;
