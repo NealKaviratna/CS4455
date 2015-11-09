@@ -52,6 +52,6 @@ public class PlayerHealth : MonoBehaviour {
         isAlive = false;
         GetComponent<RobertFootsteps>().SetUse(false);
         animator.SetTrigger("Death");
-        Destroy(gameObject, 3f);
+        //Destroy(gameObject, 3f);
     }
 }
