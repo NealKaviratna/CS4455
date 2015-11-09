@@ -49,9 +49,16 @@ public class Enemy : MonoBehaviour {
         if (hP <= 0)
         {
             if (isAlive)
+            {
                 die();
+                Debug.Log("dead");
+            }
         }
-        else anim.SetTrigger("TakeHit");
+        else
+        {
+            Debug.Log(isAlive);
+            anim.SetTrigger("TakeHit");
+        }
     }
 
     void die()

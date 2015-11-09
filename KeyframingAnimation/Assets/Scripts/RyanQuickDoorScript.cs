@@ -26,11 +26,13 @@ public class RyanQuickDoorScript : MonoBehaviour {
 		}
 	}
 
-	void OnTriggerEnter() {
-		triggered = true;
+	void OnTriggerEnter(Collider collider) {
+        if (collider.gameObject.tag == "Player")
+            triggered = true;
 	}
 
-	void OnTriggerExit() {
-		triggered = false;
+	void OnTriggerExit(Collider collider) {
+        if (collider.gameObject.tag == "Player")
+            triggered = false;
 	}
 }

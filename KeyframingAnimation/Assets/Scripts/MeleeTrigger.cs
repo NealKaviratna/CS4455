@@ -18,7 +18,6 @@ public class MeleeTrigger : MonoBehaviour {
 
     void Melee()
     {
-        Debug.Log("Melee");
         Vector3 myPos = transform.position;
         if (nearbyEnemies.Count > 0)
         {
@@ -42,7 +41,6 @@ public class MeleeTrigger : MonoBehaviour {
 
     void OnTriggerEnter(Collider coll)
     {
-        Debug.Log("Detected");
         if (coll.GetComponent<Collider>().tag == "Enemy")
         {
             nearbyEnemies.Add(coll.gameObject);

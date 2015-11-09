@@ -23,7 +23,6 @@ public class EnemyMeleeTrigger : MonoBehaviour
     {
         if (player != null && isAlive)
         {
-            Debug.Log("EnemyMelee");
             Vector3 myPos = transform.position;
             Vector3 pPos = player.transform.position;
             Vector3 diff = pPos - myPos;
@@ -40,7 +39,6 @@ public class EnemyMeleeTrigger : MonoBehaviour
     {
         if (coll.GetComponent<Collider>().tag == "Player")
         {
-            Debug.Log("PlayerDetected");
             //player = coll.gameObject;
         }
     }

@@ -29,7 +29,7 @@ public class ProjectileScript : MonoBehaviour {
 		float dist = Vector3.Distance (shooterLoc.position, heroLoc.position);
 		Vector3 dest = heroLoc.position + heroLoc.forward * heroAnim.GetFloat ("VertSpeed") * destScale * dist;
 		dir = (dest-shooterLoc.position)/(Vector3.Distance(dest,shooterLoc.position))*speedScale;
-		dir.y = 0;
+		//dir.y = 0;
 
 	}
 	

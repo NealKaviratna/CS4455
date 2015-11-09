@@ -9,11 +9,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 1227330239, guid: 9fa2ecd1ff2ad394281dd3bf72c5b76e, type: 3}
-  m_Name: VD7
+  m_Name: VD72
   m_EditorClassIdentifier: 
   _dataSerializer:
     _serializedData: <scriptableobject version="1.3" type="RAIN.BehaviorTrees.BTAsset"><fields><field
-      value="&lt;behaviortree version=&quot;1.1&quot; repeatuntil=&quot;&quot; name=&quot;VD7&quot;
+      value="&lt;behaviortree version=&quot;1.1&quot; repeatuntil=&quot;&quot; name=&quot;VD72&quot;
       debugbreak=&quot;False&quot;&gt;&lt;parallel tiebreaker=&quot;fail&quot; succeed=&quot;all&quot;
       repeatuntil=&quot;&quot; name=&quot;parallel&quot; fail=&quot;any&quot; debugbreak=&quot;False&quot;&gt;&lt;detect
       sensor=&quot;&amp;quot;MeleeRange&amp;quot;&quot; repeatuntil=&quot;running&quot;
@@ -52,7 +52,7 @@ MonoBehaviour:
       debugbreak=&quot;False&quot; constraint=&quot;varHeroProx == null&quot;&gt;&lt;parallel
       tiebreaker=&quot;fail&quot; succeed=&quot;all&quot; repeatuntil=&quot;&quot;
       name=&quot;parallel&quot; fail=&quot;any&quot; debugbreak=&quot;False&quot;&gt;&lt;waypointpatrol
-      waypointsetvariable=&quot;Route2&quot; waypointactiontype=&quot;patrol&quot;
+      waypointsetvariable=&quot;Route1&quot; waypointactiontype=&quot;patrol&quot;
       traversetype=&quot;pingpong&quot; traverseorder=&quot;forward&quot; repeatuntil=&quot;&quot;
       pathtargetvariable=&quot;&quot; name=&quot;waypointpatrol&quot; movetargetvariable=&quot;nextStop&quot;
       debugbreak=&quot;False&quot;&gt;&lt;move turnspeed=&quot;1000&quot; repeatuntil=&quot;&quot;

@@ -20,10 +20,9 @@ public class EnemyMeleeHelper : MonoBehaviour {
     void EnemyMelee()
     {
         EnemyMeleeTrigger e = GetComponentInChildren<EnemyMeleeTrigger>();
-        Debug.Log(e);
         if (e != null)
         {
-            Debug.Log("Success");
+            Debug.Log(eScript.isAlive);
             e.EnemyMelee(player, eScript.isAlive);
         }
     }

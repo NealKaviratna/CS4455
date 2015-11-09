@@ -37,8 +37,8 @@ MonoBehaviour:
       name=&quot;NothingFound&quot; debugbreak=&quot;False&quot; constraint=&quot;heroIsClose
       == null &amp;amp;&amp;amp; !sawPlayer&quot;&gt;&lt;parallel tiebreaker=&quot;fail&quot;
       succeed=&quot;all&quot; repeatuntil=&quot;&quot; name=&quot;parallel&quot; fail=&quot;any&quot;
-      debugbreak=&quot;False&quot;&gt;&lt;waypointpatrol waypointsetvariable=&quot;&amp;quot;myWaypointRoute&amp;quot;&quot;
-      waypointactiontype=&quot;patrol&quot; traversetype=&quot;loop&quot; traverseorder=&quot;reverse&quot;
+      debugbreak=&quot;False&quot;&gt;&lt;waypointpatrol waypointsetvariable=&quot;myWaypointRoute&quot;
+      waypointactiontype=&quot;patrol&quot; traversetype=&quot;pingpong&quot; traverseorder=&quot;reverse&quot;
       repeatuntil=&quot;&quot; pathtargetvariable=&quot;&quot; name=&quot;waypointpatrol&quot;
       movetargetvariable=&quot;nextStop&quot; debugbreak=&quot;False&quot;&gt;&lt;move
       turnspeed=&quot;360&quot; repeatuntil=&quot;&quot; name=&quot;move-to-waypoint&quot;
