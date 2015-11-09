@@ -37,7 +37,7 @@ public class PlayerHealth : MonoBehaviour {
     {
         health += h;
         if (health > 200f) health = 200f;
-        healthSlider.value = health;
+        if (healthSlider) healthSlider.value = health;
 
 		if (healthPart) {
 			GameObject hp = Instantiate(healthPart);
