@@ -55,9 +55,12 @@ public class Mine : MonoBehaviour {
 			player.gameObject.GetComponent<Animator>().enabled = false;
 			player.gameObject.GetComponent<Rigidbody>().AddExplosionForce(10,this.transform.position, 10);
 			lookAtMouse.enabled = !lookAtMouse.enabled;
+
 			Instantiate(explosion, this.transform.position, this.transform.rotation);
+			PlayerHealth health = player.gameObject.GetComponent<PlayerHealth>();
+			if (health) health.takeHit(300);
+
 			if (transform.parent) Destroy(transform.parent.gameObject);
-			player.gameObject.GetComponent<PlayerHealth>().takeHit(300);
 			Destroy(this.gameObject);
 		}
 
