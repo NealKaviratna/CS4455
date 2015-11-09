@@ -9,6 +9,7 @@ public class PlayerHealth : MonoBehaviour {
     public Slider healthSlider;
     private Animator animator;
 
+	public GameObject healthPart;
 
 	// Use this for initialization
 	void Start () {
@@ -36,7 +37,14 @@ public class PlayerHealth : MonoBehaviour {
     {
         health += h;
         if (health > 200f) health = 200f;
-        healthSlider.value = health;
+        if (healthSlider) healthSlider.value = health;
+
+		if (healthPart) {
+			GameObject hp = Instantiate(healthPart);
+			hp.transform.position = this.transform.position;
+			hp.transform.rotation = hp.transform.rotation;
+			hp.transform.parent = this.transform;
+		}
     }
 
     void die()
