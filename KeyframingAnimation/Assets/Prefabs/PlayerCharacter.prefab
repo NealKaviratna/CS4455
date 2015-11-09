@@ -2067,7 +2067,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!54 &5430376
 Rigidbody:
@@ -2257,7 +2257,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 200
   healthSlider: {fileID: 0}
-  healthPart: {fileID: 183266, guid: 3f2d8c20242d56e43814f61b13477b11, type: 2}
+  healthPart: {fileID: 198754, guid: 3f2d8c20242d56e43814f61b13477b11, type: 2}
 --- !u!114 &11424302
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2320,6 +2320,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+  useGamepad: 0
+  pointer: {fileID: 0}
 --- !u!114 &11455840
 MonoBehaviour:
   m_ObjectHideFlags: 1
