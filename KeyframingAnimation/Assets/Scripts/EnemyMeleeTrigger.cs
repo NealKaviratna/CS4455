@@ -30,7 +30,7 @@ public class EnemyMeleeTrigger : MonoBehaviour
             float dist = Vector3.Dot(diff, transform.forward);
             if (dist <= 1.25f && dist > 0f)
             {
-                player.GetComponent<PlayerHealth>().takeHit(10);
+                player.GetComponent<PlayerHealth>().takeHit(15);
             }
         }
     }
