@@ -26,6 +26,7 @@ public class SmoothAnimScript : MonoBehaviour {
 
     private bool crouched = false;
     private bool isMoving = false;
+    private ParticleSystem ps;
 
     //static int roll = Animator.StringToHash("Base Layer.Roll");
 
@@ -39,6 +40,8 @@ public class SmoothAnimScript : MonoBehaviour {
 		rigidBody = GetComponent<Rigidbody> ();
         charController = GetComponent<CharacterController>();
         lookAtMouse = GetComponent<LookAtMouse>();
+        ps = GetComponentInChildren<ParticleSystem>();
+        ps.enableEmission = false;
 
     }
 	
@@ -82,12 +85,14 @@ public class SmoothAnimScript : MonoBehaviour {
             {
                 animator.SetBool("Hadouken", true);
                 energy -= 20f;
+                ps.enableEmission = true;
                 //energySlider.value = energy;
             }
         }
 		if (Input.GetKeyUp(KeyCode.Q) || Input.GetKeyUp(KeyCode.JoystickButton4))//|| (Input.GetJoystickNames().Length >= 1 && Input.GetAxis("LeftTrigger") > 0.3f&&Input.GetAxis("RightTrigger") > 0.3f))
 		{
 			animator.SetBool("Hadouken", false);
+            ps.enableEmission = false;
         }
 
         // Temporary code for ragdoll testing
