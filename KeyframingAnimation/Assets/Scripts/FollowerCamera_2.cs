@@ -4,7 +4,7 @@ using System.Collections;
 public class FollowerCamera_2 : MonoBehaviour {
 
     public GameObject target;
-    private float dist_back = 1f;
+    private float dist_back = 4f;
     private float dist_up = 1f;
     public float smoothing = 2;
     Vector3 followTarget;
