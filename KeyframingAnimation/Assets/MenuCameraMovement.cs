@@ -17,7 +17,7 @@ public class MenuCameraMovement : MonoBehaviour {
         transform.rotation = Quaternion.Slerp(transform.rotation, currentMount.rotation, speed);
 	}
 
-    void SetMount(Transform newMount)
+    public void SetMount(Transform newMount)
     {
         currentMount = newMount;
     }
