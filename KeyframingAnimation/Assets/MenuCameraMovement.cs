@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using System.Collections;
 
 public class MenuCameraMovement : MonoBehaviour {
@@ -17,8 +19,18 @@ public class MenuCameraMovement : MonoBehaviour {
         transform.rotation = Quaternion.Slerp(transform.rotation, currentMount.rotation, speed);
 	}
 
+	public void DoNothing() {
+
+	}
+
     public void SetMount(Transform newMount)
     {
         currentMount = newMount;
     }
+
+	public void SetButtonFocus(Button focus)
+	{
+		EventSystem.current.SetSelectedGameObject (null);
+		focus.Select ();
+	}
 }
