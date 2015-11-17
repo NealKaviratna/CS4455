@@ -19,6 +19,7 @@ public class FadeScreen : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         //GUITexture overlay = GetComponent<GUITexture>();
+        //overlay.enabled = true;
 	}
     /*
 	void OnGUI () {
