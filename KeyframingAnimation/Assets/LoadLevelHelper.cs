@@ -3,6 +3,8 @@ using System.Collections;
 
 public class LoadLevelHelper: MonoBehaviour {
 
+
+
 	// Use this for initialization
 	void Start () {
 	
@@ -15,6 +17,8 @@ public class LoadLevelHelper: MonoBehaviour {
 
     public void SwitchLevel(int level)
     {
+		float fade = GameObject.Find ("Camera").GetComponent<FadeScreen> ().StartFade (1);
+		//yield return new WaitForSeconds (fade);
         Application.LoadLevel(level);
     }
 
