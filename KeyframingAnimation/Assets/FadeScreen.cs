@@ -1,21 +1,26 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class FadeScreen : MonoBehaviour {
 
-	public Texture2D fadeScreen;
+	//public Texture2D fadeScreen;
 	public float speed = 0.0f;
+    public Image overlay;
+    private bool startScene = true;
+    private bool exitScene = false;
+    private int level;
 
-	private float alphaFade = 1.0f;
-	private int fadeInOut = -1;
-	private int depth = -1000;
+	//private float alphaFade = 1.0f;
+	//private int fadeInOut = -1;
+	//private int depth = -1000;
 
 
 	// Use this for initialization
 	void Start () {
-	
+        //GUITexture overlay = GetComponent<GUITexture>();
 	}
-
+    /*
 	void OnGUI () {
 		alphaFade += fadeInOut * speed * Time.deltaTime;
 		alphaFade = Mathf.Clamp01 (alphaFade);
@@ -32,5 +37,50 @@ public class FadeScreen : MonoBehaviour {
 
 	void OnLevelWasLoaded() {
 		StartFade (-1);
-	}
+	}*/
+
+    void Update()
+    {
+        if (startScene)
+        {
+            BeginScene();
+        } else if (exitScene) {
+            FadeOut();
+
+            if (overlay.color.a >= 0.98f)
+            {
+                Application.LoadLevel(level);
+            }
+        }
+    }
+
+    void FadeIn()
+    {
+        overlay.color = Color.Lerp(overlay.color, Color.clear, speed * Time.deltaTime);
+    }
+
+    void FadeOut()
+    {
+        overlay.color = Color.Lerp(overlay.color, Color.black, speed * Time.deltaTime);
+    }
+
+    void BeginScene()
+    {
+        FadeIn();
+
+        if (overlay.color.a <= 0.02f)
+        {
+            overlay.color = Color.clear;
+            overlay.enabled = false;
+
+            startScene = false;
+        }
+    }
+
+    public void SwitchScene(int nextLevel)
+    {
+        exitScene = true;
+        overlay.enabled = true;
+        level = nextLevel;
+    }
 }

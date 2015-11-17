@@ -15,11 +15,19 @@ public class LoadLevelHelper: MonoBehaviour {
 	
 	}
 
-    public void SwitchLevel(int level)
+    /*public void SwitchLevel(int level)
     {
-		float fade = GameObject.Find ("Camera").GetComponent<FadeScreen> ().StartFade (1);
-		//yield return new WaitForSeconds (fade);
-        Application.LoadLevel(level);
+        Debug.Log("SwitchLevel");
+        CallFade(level);
+        Debug.Log("CalledSwitch");
     }
+
+    IEnumerator CallFade(int level)
+    {
+        float fade = GameObject.Find("Camera").GetComponent<FadeScreen>().StartFade(1);
+        Debug.Log(fade);
+        yield return new WaitForSeconds (fade);
+        Application.LoadLevel(level);
+    }*/
 
 }
