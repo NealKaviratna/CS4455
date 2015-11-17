@@ -77,10 +77,16 @@ public class FadeScreen : MonoBehaviour {
         }
     }
 
+    public void SetStart(bool b)
+    {
+        this.startScene = b;
+    }
+
     public void SwitchScene(int nextLevel)
     {
-        exitScene = true;
+        Debug.Log("switch");
         overlay.enabled = true;
+        exitScene = true;
         level = nextLevel;
     }
 }
