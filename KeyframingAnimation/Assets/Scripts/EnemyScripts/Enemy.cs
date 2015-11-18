@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 /**
  * @Author: Team Wombo Combo
@@ -14,41 +15,27 @@ public class Enemy : MonoBehaviour {
 
     Animator anim;
 
-	public float hP;
-	public float attack;
-	public bool isAlive;
-    public bool hit;
+	public float HP;
+	public float Attack;
+	public bool IsAlive;
+    public bool Hit;
+
+	public Image Portrait;
 
 	// Use this for initialization
 	void Start () {
-        isAlive = true;
+        IsAlive = true;
         anim = this.GetComponent<Animator>();
-        hit = false;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		/*if (this.hP <= 0) {
-            // This thing dies TODO: add animation/call to death
-            anim.SetTrigger("Death");
-            if (anim.GetCurrentAnimatorStateInfo(0).IsName("Death"))
-            {
-                Debug.Log("Death");
-                this.SendToPool();
-            }
-		}*/
-        /*anim.SetBool("Hit", hit);
-        if (hit)
-            hit = false;*/
+        Hit = false;
 	}
 
     public void takeHit(float damage)
     {
 
-        hP -= damage;
-        if (hP <= 0)
+        HP -= damage;
+        if (HP <= 0)
         {
-            if (isAlive)
+            if (IsAlive)
             {
                 die();
                 Debug.Log("dead");
@@ -56,14 +43,14 @@ public class Enemy : MonoBehaviour {
         }
         else
         {
-            Debug.Log("Hit " + isAlive);
+            Debug.Log("Hit " + IsAlive);
             anim.SetTrigger("TakeHit");
         }
     }
 
     void die()
     {
-        this.isAlive = false;
+        this.IsAlive = false;
         anim.SetTrigger("Death");
         Destroy(gameObject, 3f);
     }
