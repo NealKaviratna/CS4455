@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 /**
@@ -29,8 +29,8 @@ public class Hitbox : MonoBehaviour {
 		if (coll.collider.tag == "Enemy" && !inColl) {
             inColl = true;
 			Enemy hitEnemy = coll.gameObject.GetComponent<Enemy>();
-			hitEnemy.hP -= damage;
-            hitEnemy.hit = true;
+			hitEnemy.HP -= damage;
+            hitEnemy.Hit = true;
 		}
 	}
 

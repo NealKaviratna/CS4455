@@ -22,8 +22,8 @@ public class EnemyMeleeHelper : MonoBehaviour {
         EnemyMeleeTrigger e = GetComponentInChildren<EnemyMeleeTrigger>();
         if (e != null)
         {
-            Debug.Log(eScript.isAlive);
-            e.EnemyMelee(player, eScript.isAlive);
+            Debug.Log(eScript.IsAlive);
+            e.EnemyMelee(player, eScript.IsAlive);
         }
     }
 }
