@@ -15,18 +15,24 @@ public class Enemy : MonoBehaviour {
 
     Animator anim;
 
+	public string name;
+
 	public float HP;
+	public float MaxHP;
+
 	public float Attack;
 	public bool IsAlive;
     public bool Hit;
 
 	public Sprite Portrait;
+	public EnemyStatusDisplayController StatusHUD;
 
 	// Use this for initialization
 	void Start () {
         IsAlive = true;
         anim = this.GetComponent<Animator>();
         Hit = false;
+		MaxHP = HP;
 	}
 
     public void takeHit(float damage)
@@ -46,6 +52,8 @@ public class Enemy : MonoBehaviour {
             Debug.Log("Hit " + IsAlive);
             anim.SetTrigger("TakeHit");
         }
+
+		StatusHUD.Enemy = this;
     }
 
     void die()
