@@ -20,7 +20,7 @@ public class Enemy : MonoBehaviour {
 	public bool IsAlive;
     public bool Hit;
 
-	public Image Portrait;
+	public Sprite Portrait;
 
 	// Use this for initialization
 	void Start () {
