@@ -8,13 +8,11 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 497372}
-  - 33: {fileID: 3315016}
   - 135: {fileID: 13541970}
-  - 23: {fileID: 2339704}
   - 114: {fileID: 11440462}
-  - 198: {fileID: 19809286}
-  - 199: {fileID: 19991890}
   - 54: {fileID: 5424716}
+  - 199: {fileID: 19983624}
+  - 198: {fileID: 19874024}
   m_Layer: 0
   m_Name: HadoukenBall
   m_TagString: Untagged
@@ -34,37 +32,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!23 &2339704
-MeshRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 148006}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_Materials:
-  - {fileID: 2100000, guid: c039cef8b3c815345aa2ee68e5375173, type: 2}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
-  m_ProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 1
-  m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
---- !u!33 &3315016
-MeshFilter:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 148006}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!54 &5424716
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -106,7 +73,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: .5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!198 &19809286
+--- !u!198 &19874024
 ParticleSystem:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -280,7 +247,7 @@ ParticleSystem:
         rgba: 4294967295
       maxColor:
         serializedVersion: 2
-        rgba: 4279769307
+        rgba: 4294967295
       minMaxState: 0
     startSize:
       scalar: 1
@@ -1159,7 +1126,7 @@ ParticleSystem:
     subEmitterCollision1: {fileID: 0}
     subEmitterDeath: {fileID: 0}
     subEmitterDeath1: {fileID: 0}
---- !u!199 &19991890
+--- !u!199 &19983624
 ParticleSystemRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
