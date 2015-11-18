@@ -1139,7 +1139,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_Motion: {fileID: 7400000, guid: b4bb6e8d5178c844a888aa6ab78908ce, type: 3}
-  m_Tag: 
+  m_Tag: Hado
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 

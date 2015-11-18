@@ -81,7 +81,8 @@ public class SmoothAnimScript : MonoBehaviour {
 		if (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.JoystickButton4))//(Input.GetAxis("LeftTrigger") > 0.3f&&Input.GetAxis("RightTrigger") > 0.3f&&!animator.GetBool("Hadouken")))
 		{
 			Debug.Log(energy);
-            if (energy >= 20)
+            Debug.Log(animator.GetCurrentAnimatorStateInfo(0).tagHash);
+            if (energy >= 20 && !animator.GetCurrentAnimatorStateInfo(0).IsTag("Hado"))
             {
                 animator.SetBool("Hadouken", true);
                 energy -= 20f;
