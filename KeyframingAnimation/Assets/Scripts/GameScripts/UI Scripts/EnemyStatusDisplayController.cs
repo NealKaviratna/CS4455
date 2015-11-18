@@ -25,4 +25,12 @@ public class EnemyStatusDisplayController : MonoBehaviour {
 		}
 	}
 	#endregion
+
+	#region Monobehaviour
+	void Start() {
+		this.portrait = transform.GetChild(0).GetComponent<Image>();
+		this.health = transform.GetChild(1).GetComponent<Slider>();
+		this.name = transform.GetChild(2).GetComponent<Text>();
+	}
+	#endregion
 }
