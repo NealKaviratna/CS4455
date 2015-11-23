@@ -27,18 +27,24 @@ public class Enemy : MonoBehaviour {
 	public Sprite Portrait;
 	public EnemyStatusDisplayController StatusHUD;
 
+    public ParticleSystem sparks;
+    public ParticleSystem smoke;
+
 	// Use this for initialization
 	void Start () {
         IsAlive = true;
         anim = this.GetComponent<Animator>();
         Hit = false;
 		MaxHP = HP;
+        sparks.enableEmission = false;
+        smoke.enableEmission = false;
 	}
 
     public void takeHit(float damage)
     {
 
         HP -= damage;
+        if (HP <= 50) smoke.enableEmission = true;
         if (HP <= 0)
         {
             if (IsAlive)
@@ -59,6 +65,7 @@ public class Enemy : MonoBehaviour {
     void die()
     {
         this.IsAlive = false;
+        sparks.enableEmission = true;
         anim.SetTrigger("Death");
         Destroy(gameObject, 3f);
     }
