@@ -36,15 +36,15 @@ public class Enemy : MonoBehaviour {
         anim = this.GetComponent<Animator>();
         Hit = false;
 		MaxHP = HP;
-        sparks.enableEmission = false;
-        smoke.enableEmission = false;
+        if (sparks != null) sparks.enableEmission = false;
+        if (smoke != null) smoke.enableEmission = false;
 	}
 
     public void takeHit(float damage)
     {
 
         HP -= damage;
-        if (HP <= 50) smoke.enableEmission = true;
+        if (HP <= 50 && smoke != null) smoke.enableEmission = true;
         if (HP <= 0)
         {
             if (IsAlive)
@@ -65,7 +65,7 @@ public class Enemy : MonoBehaviour {
     void die()
     {
         this.IsAlive = false;
-        sparks.enableEmission = true;
+        if (sparks != null) sparks.enableEmission = true;
         anim.SetTrigger("Death");
         Destroy(gameObject, 3f);
     }
