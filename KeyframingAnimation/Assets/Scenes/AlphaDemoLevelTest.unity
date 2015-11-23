@@ -7685,7 +7685,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 33
+  m_RootOrder: 34
 --- !u!1001 &981715511
 Prefab:
   m_ObjectHideFlags: 0
@@ -7895,11 +7895,11 @@ Prefab:
       objectReference: {fileID: 210886957}
     - target: {fileID: 22485046, guid: 75695783b0818e64a891e2da1c5216b4, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22485046, guid: 75695783b0818e64a891e2da1c5216b4, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22430026, guid: 75695783b0818e64a891e2da1c5216b4, type: 2}
       propertyPath: m_AnchorMax.x
@@ -8259,28 +8259,16 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 438182, guid: b44c8c31fd5c4c54184dd127c159e3e0, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 438182, guid: b44c8c31fd5c4c54184dd127c159e3e0, type: 2}
-      propertyPath: m_LocalScale.x
-      value: .25
-      objectReference: {fileID: 0}
-    - target: {fileID: 438182, guid: b44c8c31fd5c4c54184dd127c159e3e0, type: 2}
-      propertyPath: m_LocalScale.y
-      value: .25
-      objectReference: {fileID: 0}
-    - target: {fileID: 438182, guid: b44c8c31fd5c4c54184dd127c159e3e0, type: 2}
-      propertyPath: m_LocalScale.z
-      value: .25
-      objectReference: {fileID: 0}
-    - target: {fileID: 11448886, guid: b44c8c31fd5c4c54184dd127c159e3e0, type: 2}
-      propertyPath: playerHealth
-      value: 
-      objectReference: {fileID: 210886957}
     - target: {fileID: 11448886, guid: b44c8c31fd5c4c54184dd127c159e3e0, type: 2}
       propertyPath: player
       value: 
       objectReference: {fileID: 210886955}
+    - target: {fileID: 11448886, guid: b44c8c31fd5c4c54184dd127c159e3e0, type: 2}
+      propertyPath: playerHealth
+      value: 
+      objectReference: {fileID: 210886957}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b44c8c31fd5c4c54184dd127c159e3e0, type: 2}
   m_IsPrefabParent: 0
@@ -12194,7 +12182,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1659897551
 Transform:
   m_ObjectHideFlags: 0
