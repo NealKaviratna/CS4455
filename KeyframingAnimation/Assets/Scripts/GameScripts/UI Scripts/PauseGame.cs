@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
-using UnityEditor;
+//using UnityEditor;
 
 public class PauseGame : MonoBehaviour {
 
@@ -43,10 +43,11 @@ public class PauseGame : MonoBehaviour {
 
     public void ExitGame()
     {
-        #if UNITY_EDITOR
+        /*#if UNITY_EDITOR
         EditorApplication.isPlaying = false;
         #else
         Application.Quit();
-        #endif
+        #endif*/
+        Application.Quit();
     }
 }
