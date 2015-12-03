@@ -41,6 +41,13 @@ public class PauseGame : MonoBehaviour {
         fader.SwitchScene(0);        
     }
 
+    public void RestartLevel(int level)
+    {
+        UnPause();
+        fader.SetStart(false);
+        fader.SwitchScene(level);
+    }
+
     public void ExitGame()
     {
         /*#if UNITY_EDITOR
