@@ -22,7 +22,9 @@ public class SmoothAnimScript : MonoBehaviour {
     private LookAtMouse lookAtMouse;
 
     public Slider energySlider;
-    public float energy;
+	public float energy;
+	
+	public Transform cameraOrientation;
 
     private bool crouched = false;
     private bool isMoving = false;
@@ -108,32 +110,32 @@ public class SmoothAnimScript : MonoBehaviour {
     }
 
 	void FixedUpdate() {
-		float horizontalAxis = Input.GetAxis ("Horizontal");
-		float verticalAxis = Input.GetAxis ("Vertical");
+		Vector3 playerDir = Vector3.ProjectOnPlane(this.transform.forward, Vector3.up);
+		Vector3 cameraDir = Vector3.ProjectOnPlane(cameraOrientation.forward, Vector3.up);
+
+		Vector3 inputDir = new Vector3(Input.GetAxis ("Horizontal"), 0, Input.GetAxis ("Vertical"));
+
+		float playerAngle = AngleSigned(playerDir, cameraDir, Vector3.up);
+		Debug.Log(playerAngle);
+
+		Vector3 adjustedInput = Quaternion.Euler(0, playerAngle, 0) * inputDir;
+
 		if (animator.enabled) {
-			animator.SetFloat ("VertSpeed", verticalAxis);
-			animator.SetFloat ("HorizSpeed", horizontalAxis);
+			animator.SetFloat ("VertSpeed", adjustedInput.z);
+			animator.SetFloat ("HorizSpeed", adjustedInput.x);
 		}
         //Debug.Log ("V: " + verticalAxis + " H: " + horizontalAxis);
-
-        if (verticalAxis > 0.1f || verticalAxis < -0.1f)
-        {
-            if (animator.enabled) animator.SetBool("Moving", true);
-            isMoving = true;
-        }
-        else
-        {
-            if (animator.enabled) animator.SetBool("Moving", false);
-            isMoving = false;
-        }
-
-        /*if (currentState.fullPathHash == roll)
-        {
-            if (!animator.IsInTransition(0))
-            {
-                charController.height = animator.GetFloat("ColliderHeight");
-            }
-        }*/
+//
+//        if (verticalAxis > 0.1f || verticalAxis < -0.1f)
+//        {
+//            if (animator.enabled) animator.SetBool("Moving", true);
+//            isMoving = true;
+//        }
+//        else
+//        {
+//            if (animator.enabled) animator.SetBool("Moving", false);
+//            isMoving = false;
+//        }
 	}
 
     public bool GetMoving()
@@ -170,5 +172,12 @@ public class SmoothAnimScript : MonoBehaviour {
 		string thisState = "";
 //		if (currentState.nameHash == idle)
 		Debug.Log ("State = " + thisState);
+	}
+
+	public float AngleSigned(Vector3 v1, Vector3 v2, Vector3 n)
+	{
+		return Mathf.Atan2(
+			Vector3.Dot(n, Vector3.Cross(v1, v2)),
+			Vector3.Dot(v1, v2)) * Mathf.Rad2Deg;
 	}
 }
