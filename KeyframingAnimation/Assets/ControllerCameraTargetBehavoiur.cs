@@ -44,9 +44,9 @@ public class ControllerCameraTargetBehavoiur : MonoBehaviour {
 		float horInput = Input.GetAxis("CameraHorizontal");
 		if (!this.IsFree && Mathf.Abs(horInput) > .1f)
 			this.IsFree = true;
-		else if (this.IsFree && horInput < .1f && Vector3.Distance(transform.position, defPosition.position) < 3)
+		else if (this.IsFree && horInput < .2f && Vector3.Distance(transform.position, defPosition.position) < 3)
 			this.IsFree = false;
-		YRot += horInput * 8;
+		YRot += horInput * 6;
 
 		if (Input.GetKeyDown(KeyCode.JoystickButton9)) this.IsFree = false;
 	}

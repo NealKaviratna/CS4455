@@ -2193,7 +2193,7 @@ Transform:
   m_Children:
   - {fileID: 1650180517}
   m_Father: {fileID: 210886956}
-  m_RootOrder: 7
+  m_RootOrder: 6
 --- !u!1001 &373770165
 Prefab:
   m_ObjectHideFlags: 0
@@ -2545,11 +2545,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 401330179}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.0392720103, y: 2.68223953, z: -2.84187269}
+  m_LocalPosition: {x: -.0392720103, y: -1.15999997, z: -12.7299995}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 210886956}
-  m_RootOrder: 6
+  m_Father: {fileID: 750680255}
+  m_RootOrder: 0
 --- !u!1 &415817968
 GameObject:
   m_ObjectHideFlags: 0
@@ -6345,6 +6345,34 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 471326, guid: f1311ca672c2d604abd47d2c2dfa0ea0, type: 2}
   m_PrefabInternal: {fileID: 2115454964}
+--- !u!1 &750680254
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 750680255}
+  m_Layer: 0
+  m_Name: XPivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &750680255
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 750680254}
+  m_LocalRotation: {x: .0697564781, y: 0, z: 0, w: .997564077}
+  m_LocalPosition: {x: 0, y: 1.37400031, z: 7.38000154}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 401330180}
+  m_Father: {fileID: 1218707528}
+  m_RootOrder: 0
 --- !u!114 &754200106 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11492744, guid: 75695783b0818e64a891e2da1c5216b4,
@@ -9064,6 +9092,34 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1216644213}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1218707527
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1218707528}
+  m_Layer: 0
+  m_Name: CameraPivot (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1218707528
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1218707527}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 750680255}
+  m_Father: {fileID: 210886956}
+  m_RootOrder: 7
 --- !u!1001 &1226325885
 Prefab:
   m_ObjectHideFlags: 0
@@ -11140,7 +11196,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1604897236}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.0392720103, y: -1.204, z: -10.2218733}
+  m_LocalPosition: {x: -.0392720103, y: -1.15999997, z: -12.7299995}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1650180517}
