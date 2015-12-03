@@ -17,37 +17,54 @@ public class ControllerCameraTargetBehavoiur : MonoBehaviour {
 	private Transform xPivotPoint;
 	private float playerSpeed;
 
+	private Vector3 temp;
+
 	// Use this for initialization
 	void Start () {
 		xPivotPoint = transform.parent;
 		yPivotPoint = xPivotPoint.parent;
 		XRot = yPivotPoint.eulerAngles.x;
+		temp = Vector3.zero;
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		if (this.IsFree) {
-			yPivotPoint.eulerAngles = new Vector3(yPivotPoint.eulerAngles.x, YRot, yPivotPoint.eulerAngles.z);
+			temp.x = yPivotPoint.eulerAngles.x;
+			temp.y = YRot;
+			Debug.Log (temp.y);
+			temp.z = yPivotPoint.eulerAngles.z;
+			yPivotPoint.localEulerAngles = temp;
 		}
 		else {
+			this.YRot = 0;
 			yPivotPoint.localRotation = Quaternion.Lerp(yPivotPoint.localRotation, Quaternion.identity, Time.deltaTime*2);
 		}
-		xPivotPoint.eulerAngles = new Vector3(this.XRot, xPivotPoint.eulerAngles.y, xPivotPoint.eulerAngles.z);
+		temp.x = this.XRot;
+		temp.y = xPivotPoint.eulerAngles.y;
+		temp.z = xPivotPoint.eulerAngles.z;
 
-		defPosition.parent.eulerAngles = new Vector3(this.XRot, defPosition.parent.eulerAngles.y, defPosition.parent.eulerAngles.z);
+		xPivotPoint.eulerAngles = temp;
+
+		temp.y = defPosition.parent.eulerAngles.y;
+		temp.z = defPosition.parent.eulerAngles.z;
+
+		defPosition.parent.eulerAngles = temp;
 
 		XRot += Input.GetAxis("CameraVertical");
 		XRot = Mathf.Clamp(XRot, 5, 20);
 
 
-		Debug.Log(Vector3.Distance(transform.position, defPosition.position));
 		float horInput = Input.GetAxis("CameraHorizontal");
 		if (!this.IsFree && Mathf.Abs(horInput) > .1f)
 			this.IsFree = true;
-		else if (this.IsFree && horInput < .2f && Vector3.Distance(transform.position, defPosition.position) < 3)
+		else if (this.IsFree && Mathf.Abs(horInput) < .2f && Vector3.Distance(transform.position, defPosition.position) < 3) {
 			this.IsFree = false;
+		}
 		YRot += horInput * 6;
 
-		if (Input.GetKeyDown(KeyCode.JoystickButton9)) this.IsFree = false;
+		if (Input.GetKeyDown(KeyCode.JoystickButton9)){ this.IsFree = false;}
+
+		Debug.Log(this.YRot);
 	}
 }
