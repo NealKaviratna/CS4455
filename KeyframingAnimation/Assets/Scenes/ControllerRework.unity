@@ -7849,11 +7849,11 @@ Prefab:
       objectReference: {fileID: 210886957}
     - target: {fileID: 22485046, guid: 75695783b0818e64a891e2da1c5216b4, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22485046, guid: 75695783b0818e64a891e2da1c5216b4, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22430026, guid: 75695783b0818e64a891e2da1c5216b4, type: 2}
       propertyPath: m_AnchorMax.x
@@ -11158,8 +11158,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsFree: 0
   LockingDistance: 0
-  Smoothing: 0
-  XRot: 0
+  Smoothing: 10000
+  XRot: 5
   YRot: 0
   defPosition: {fileID: 401330180}
 --- !u!1001 &1611006327

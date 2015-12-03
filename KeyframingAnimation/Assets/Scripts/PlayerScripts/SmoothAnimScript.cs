@@ -116,7 +116,6 @@ public class SmoothAnimScript : MonoBehaviour {
 		Vector3 inputDir = new Vector3(Input.GetAxis ("Horizontal"), 0, Input.GetAxis ("Vertical"));
 
 		float playerAngle = AngleSigned(playerDir, cameraDir, Vector3.up);
-		Debug.Log(playerAngle);
 
 		Vector3 adjustedInput = Quaternion.Euler(0, playerAngle, 0) * inputDir;
 

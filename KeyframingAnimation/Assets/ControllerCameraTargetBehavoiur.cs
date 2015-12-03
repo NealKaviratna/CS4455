@@ -30,20 +30,24 @@ public class ControllerCameraTargetBehavoiur : MonoBehaviour {
 			yPivotPoint.eulerAngles = new Vector3(yPivotPoint.eulerAngles.x, YRot, yPivotPoint.eulerAngles.z);
 		}
 		else {
-			yPivotPoint.rotation = Quaternion.Lerp(yPivotPoint.rotation, Quaternion.identity, Time.deltaTime*Smoothing);
+			yPivotPoint.localRotation = Quaternion.Lerp(yPivotPoint.localRotation, Quaternion.identity, Time.deltaTime*2);
 		}
 		xPivotPoint.eulerAngles = new Vector3(this.XRot, xPivotPoint.eulerAngles.y, xPivotPoint.eulerAngles.z);
 
-		//defPosition.eulerAngles = new Vector3(this.XRot, defPosition.eulerAngles.y, defPosition.eulerAngles.z);
+		defPosition.parent.eulerAngles = new Vector3(this.XRot, defPosition.parent.eulerAngles.y, defPosition.parent.eulerAngles.z);
 
 		XRot += Input.GetAxis("CameraVertical");
-		XRot = Mathf.Clamp(XRot, 5, 25);
+		XRot = Mathf.Clamp(XRot, 5, 20);
 
+
+		Debug.Log(Vector3.Distance(transform.position, defPosition.position));
 		float horInput = Input.GetAxis("CameraHorizontal");
-		if (!this.IsFree && horInput > .1f)
+		if (!this.IsFree && Mathf.Abs(horInput) > .1f)
 			this.IsFree = true;
-		else if (this.IsFree && horInput > .1f && Vector3.Distance(transform.position, defPosition.position) < .1f)
+		else if (this.IsFree && horInput < .1f && Vector3.Distance(transform.position, defPosition.position) < 3)
 			this.IsFree = false;
-		YRot += horInput * 5;
+		YRot += horInput * 8;
+
+		if (Input.GetKeyDown(KeyCode.JoystickButton9)) this.IsFree = false;
 	}
 }

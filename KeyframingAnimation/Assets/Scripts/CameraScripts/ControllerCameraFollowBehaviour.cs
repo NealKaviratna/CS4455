@@ -13,7 +13,7 @@ public class ControllerCameraFollowBehaviour : MonoBehaviour {
 
     void LateUpdate()
     {
-        transform.position = Vector3.Lerp(transform.position, followTarget.position, Time.deltaTime * smoothing);
+        transform.position = Vector3.Lerp(transform.position, followTarget.position, Time.deltaTime * 10);
 
         transform.LookAt(lookTarget);
     }
