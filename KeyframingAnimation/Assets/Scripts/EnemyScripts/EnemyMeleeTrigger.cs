@@ -21,6 +21,10 @@ public class EnemyMeleeTrigger : MonoBehaviour
 
     public void EnemyMelee(GameObject player, bool isAlive)
     {
+        RaycastHit ray;
+
+        Physics.Raycast(transform.position, transform.forward, out ray, 1.25f);
+
         if (player != null && isAlive)
         {
             Vector3 myPos = transform.position;
@@ -28,7 +32,7 @@ public class EnemyMeleeTrigger : MonoBehaviour
             Vector3 diff = pPos - myPos;
             Debug.Log(Vector3.Dot(diff, transform.forward));
             float dist = Vector3.Dot(diff, transform.forward);
-            if (dist <= 1.25f && dist > 0f)
+            if (dist <= 1.25f && dist > 0f && ray.collider.tag == "Player")
             {
                 player.GetComponent<PlayerHealth>().takeHit(15);
             }

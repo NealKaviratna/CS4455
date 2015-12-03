@@ -26,6 +26,7 @@ public class SmoothAnimScript : MonoBehaviour {
 
     private bool crouched = false;
     private bool isMoving = false;
+    private bool doorNearby = false;
     private ParticleSystem ps;
 
     //static int roll = Animator.StringToHash("Base Layer.Roll");
@@ -164,6 +165,11 @@ public class SmoothAnimScript : MonoBehaviour {
             newCenter.y = .9f;
             charController.center = newCenter;
         }
+    }
+
+    public void SetDoorNearby(bool b)
+    {
+        this.doorNearby = b;
     }
 
 	void CheckState() {
