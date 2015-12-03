@@ -35,7 +35,7 @@ public class ProjectileScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		myTrans.position = myTrans.position + dir;
+		myTrans.position = myTrans.position + dir*Time.deltaTime*60;
 	}
 
 	void OnCollisionEnter (Collision coll)
