@@ -21,7 +21,7 @@ public class HadoukenHandler : MonoBehaviour {
 	void Update () {
         time -= Time.deltaTime;
         if (time <= 0) Destroy(this.gameObject);
-        transform.position = transform.position + direction;
+        transform.position = transform.position + direction * Time.deltaTime * 60;
 	}
 
     void OnCollisionEnter(Collision coll)

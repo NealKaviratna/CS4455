@@ -23,6 +23,7 @@ public class HadokenSpawner : MonoBehaviour {
 	
 	// Update is called once per frame
 	public void Spawn() {
+        Debug.Log("SPAWN");
 		GameObject hado = (GameObject)Instantiate(enemy, spawnPoint.position, spawnPoint.rotation);
 		ProjectileScript hados = hado.GetComponent<ProjectileScript> ();
 		hados.heroLoc = heroLoc;

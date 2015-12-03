@@ -29,13 +29,12 @@ public class ProjectileScript : MonoBehaviour {
 		float dist = Vector3.Distance (shooterLoc.position, heroLoc.position);
 		Vector3 dest = heroLoc.position + heroLoc.forward * heroAnim.GetFloat ("VertSpeed") * destScale * dist;
 		dir = (dest-shooterLoc.position)/(Vector3.Distance(dest,shooterLoc.position))*speedScale;
-		//dir.y = 0;
 
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		myTrans.position = myTrans.position + dir;
+		myTrans.position = myTrans.position + dir*Time.deltaTime*60;
 	}
 
 	void OnCollisionEnter (Collision coll)
