@@ -32,12 +32,12 @@ public class ControllerCameraTargetBehavoiur : MonoBehaviour {
 		if (this.IsFree) {
 			temp.x = yPivotPoint.eulerAngles.x;
 			temp.y = YRot;
-			Debug.Log (temp.y);
 			temp.z = yPivotPoint.eulerAngles.z;
-			yPivotPoint.localEulerAngles = temp;
+			yPivotPoint.eulerAngles = temp;
 		}
 		else {
-			this.YRot = 0;
+			this.YRot = yPivotPoint.eulerAngles.y;
+			Debug.Log(this.YRot);
 			yPivotPoint.localRotation = Quaternion.Lerp(yPivotPoint.localRotation, Quaternion.identity, Time.deltaTime*2);
 		}
 		temp.x = this.XRot;
@@ -64,7 +64,5 @@ public class ControllerCameraTargetBehavoiur : MonoBehaviour {
 		YRot += horInput * 6;
 
 		if (Input.GetKeyDown(KeyCode.JoystickButton9)){ this.IsFree = false;}
-
-		Debug.Log(this.YRot);
 	}
 }
