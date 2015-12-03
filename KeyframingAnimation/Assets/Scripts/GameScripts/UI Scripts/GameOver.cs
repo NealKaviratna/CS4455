@@ -35,7 +35,7 @@ public class GameOver : MonoBehaviour {
         {
             isDead = true;
             if (inputControl) inputControl.enabled = false;
-            mouseLook.enabled = false;
+            if (mouseLook) mouseLook.enabled = false;
             if (menu) this.menu.enabled = true;
         }
 
