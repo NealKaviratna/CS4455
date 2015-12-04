@@ -20,7 +20,11 @@ public class Enemy : MonoBehaviour {
 	public float HP;
 	public float MaxHP;
 
-	public float Attack;
+	public int killValue;
+
+	public ScoreManager scoreManage;
+
+	private float Attack;
 	public bool IsAlive;
     public bool Hit;
 
@@ -49,6 +53,7 @@ public class Enemy : MonoBehaviour {
         {
             if (IsAlive)
             {
+				scoreManage.addScore(killValue);
                 die();
                 Debug.Log("dead");
             }
