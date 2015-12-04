@@ -62,12 +62,17 @@ public class Enemy : MonoBehaviour {
 		StatusHUD.Enemy = this;
     }
 
-    void die()
+    public void die()
     {
-        this.IsAlive = false;
-        if (sparks != null) sparks.enableEmission = true;
-        anim.SetTrigger("Death");
-        Destroy(gameObject, 3f);
+		if (IsAlive) {
+
+			HP = 0f;
+			this.IsAlive = false;
+			if (sparks != null)
+			sparks.enableEmission = true;
+			anim.SetTrigger ("Death");
+			Destroy (gameObject, 3f);
+		}
     }
 
 	void SendToPool() {

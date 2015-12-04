@@ -47,11 +47,14 @@ public class PlayerHealth : MonoBehaviour {
 		}
     }
 
-    void die()
+    public void die()
     {
-        isAlive = false;
-        GetComponent<RobertFootsteps>().SetUse(false);
-        animator.SetTrigger("Death");
+		if (isAlive) {
+			health = 0f;
+			isAlive = false;
+			GetComponent<RobertFootsteps> ().SetUse (false);
+			animator.SetTrigger ("Death");
+		}
         //Destroy(gameObject, 3f);
     }
 }
