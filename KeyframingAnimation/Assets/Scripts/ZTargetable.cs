@@ -2,7 +2,6 @@
 using System.Collections;
 
 public class ZTargetable : MonoBehaviour {
-	
 	private ControllerCameraTargetBehavoiur ZTargetReference;
 
 	// Use this for initialization

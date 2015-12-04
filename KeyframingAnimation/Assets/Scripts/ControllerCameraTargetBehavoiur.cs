@@ -16,6 +16,7 @@ public class ControllerCameraTargetBehavoiur : MonoBehaviour {
 
 	public GameObject ZTarget;
 	public List<GameObject> PotentialZTargets;
+	public bool Zlocked;
 	
 	private Transform yPivotPoint;
 	private Transform xPivotPoint;
@@ -35,6 +36,24 @@ public class ControllerCameraTargetBehavoiur : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+		if (!Zlocked) {
+			NormalCameraUpdate();
+			ZTargetUpdate();
+		}
+		else {
+			ZLockedUpdate();
+		}
+
+		if (Input.GetKeyDown(KeyCode.JoystickButton9)){
+			if (this.ZTarget == null)
+				this.IsFree = false;
+			else
+				this.Zlocked = !this.Zlocked;
+		}
+	}
+
+
+	void NormalCameraUpdate() {
 		if (this.IsFree) {
 			temp.x = yPivotPoint.eulerAngles.x;
 			temp.y = YRot;
@@ -67,15 +86,11 @@ public class ControllerCameraTargetBehavoiur : MonoBehaviour {
 			this.IsFree = false;
 		}
 		YRot += horInput * 6;
-
-		if (Input.GetKeyDown(KeyCode.JoystickButton9)){ this.IsFree = false;}
-
-		ZTargetUpdate();
-		Debug.Log(ZTarget);
 	}
 
 	void ZTargetUpdate() {
 		float minDistance = float.PositiveInfinity;
+		if (ZTarget != null) ZTarget.transform.GetChild(0).gameObject.SetActive(false);
 		ZTarget = null;
 		foreach (GameObject zT in PotentialZTargets) {
 			float dist = Vector3.Distance(yPivotPoint.position, zT.transform.position);
@@ -87,5 +102,10 @@ public class ControllerCameraTargetBehavoiur : MonoBehaviour {
 				ZTarget = zT;
 			}
 		}
+		if (ZTarget != null) ZTarget.transform.GetChild(0).gameObject.SetActive(true);
+	}
+
+	void ZLockedUpdate() {
+
 	}
 }
