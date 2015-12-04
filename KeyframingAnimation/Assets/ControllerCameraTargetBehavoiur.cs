@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class ControllerCameraTargetBehavoiur : MonoBehaviour {
 
@@ -12,6 +13,9 @@ public class ControllerCameraTargetBehavoiur : MonoBehaviour {
 	[Range(0,360)]
 	public float YRot;
 	public Transform defPosition;
+
+	public GameObject ZTarget;
+	public List<GameObject> PotentialZTargets;
 	
 	private Transform yPivotPoint;
 	private Transform xPivotPoint;
@@ -25,6 +29,8 @@ public class ControllerCameraTargetBehavoiur : MonoBehaviour {
 		yPivotPoint = xPivotPoint.parent;
 		XRot = yPivotPoint.eulerAngles.x;
 		temp = Vector3.zero;
+
+		PotentialZTargets = new List<GameObject>();
 	}
 	
 	// Update is called once per frame
@@ -37,7 +43,6 @@ public class ControllerCameraTargetBehavoiur : MonoBehaviour {
 		}
 		else {
 			this.YRot = yPivotPoint.eulerAngles.y;
-			Debug.Log(this.YRot);
 			yPivotPoint.localRotation = Quaternion.Lerp(yPivotPoint.localRotation, Quaternion.identity, Time.deltaTime*2);
 		}
 		temp.x = this.XRot;
@@ -64,5 +69,23 @@ public class ControllerCameraTargetBehavoiur : MonoBehaviour {
 		YRot += horInput * 6;
 
 		if (Input.GetKeyDown(KeyCode.JoystickButton9)){ this.IsFree = false;}
+
+		ZTargetUpdate();
+		Debug.Log(ZTarget);
+	}
+
+	void ZTargetUpdate() {
+		float minDistance = float.PositiveInfinity;
+		ZTarget = null;
+		foreach (GameObject zT in PotentialZTargets) {
+			float dist = Vector3.Distance(yPivotPoint.position, zT.transform.position);
+
+			RaycastHit hit;
+
+			if (dist < minDistance && Physics.Raycast(transform.position, zT.transform.position -transform.position, out hit, 100, 1) && hit.collider.gameObject == zT) {
+				minDistance = dist;
+				ZTarget = zT;
+			}
+		}
 	}
 }
