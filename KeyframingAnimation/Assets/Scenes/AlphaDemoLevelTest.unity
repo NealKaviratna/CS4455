@@ -19762,7 +19762,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 2092045458}
-  timeText: {fileID: 389215638}
 --- !u!4 &2022650877
 Transform:
   m_ObjectHideFlags: 0
