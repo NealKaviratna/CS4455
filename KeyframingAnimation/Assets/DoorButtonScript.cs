@@ -7,14 +7,14 @@ public class DoorButtonScript : MonoBehaviour {
     private bool open = false;
     //public SmoothAnimScript inputControl;
     public DoorOpen door;
-    private Light light;
+    private Light buttonLight;
 
     private Color RED;
     private Color GREEN;
 
 	// Use this for initialization
 	void Start () {
-        light = GetComponent<Light>();
+        buttonLight = GetComponent<Light>();
         RED = new Color(255, 0, 0);
         GREEN = new Color(0, 255, 0);
     }
@@ -30,7 +30,7 @@ public class DoorButtonScript : MonoBehaviour {
             if (Input.GetKeyDown(KeyCode.G))
             {
                 open = !open;
-                light.color = open ? GREEN : RED;
+                buttonLight.color = open ? GREEN : RED;
                 door.SetTriggered();
             }
         }

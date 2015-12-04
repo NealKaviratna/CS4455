@@ -20,7 +20,11 @@ public class Enemy : MonoBehaviour {
 	public float HP;
 	public float MaxHP;
 
-	public float Attack;
+	public int killValue;
+
+	public ScoreManager scoreManage;
+
+	private float Attack;
 	public bool IsAlive;
     public bool Hit;
 
@@ -49,6 +53,7 @@ public class Enemy : MonoBehaviour {
         {
             if (IsAlive)
             {
+				scoreManage.addScore(killValue);
                 die();
                 Debug.Log("dead");
             }
@@ -62,12 +67,17 @@ public class Enemy : MonoBehaviour {
 		StatusHUD.Enemy = this;
     }
 
-    void die()
+    public void die()
     {
-        this.IsAlive = false;
-        if (sparks != null) sparks.enableEmission = true;
-        anim.SetTrigger("Death");
-        Destroy(gameObject, 3f);
+		if (IsAlive) {
+
+			HP = 0f;
+			this.IsAlive = false;
+			if (sparks != null)
+			sparks.enableEmission = true;
+			anim.SetTrigger ("Death");
+			Destroy (gameObject, 3f);
+		}
     }
 
 	void SendToPool() {
