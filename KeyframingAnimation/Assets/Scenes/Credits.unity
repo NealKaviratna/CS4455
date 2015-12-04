@@ -607,6 +607,10 @@ Prefab:
       propertyPath: audio
       value: 
       objectReference: {fileID: 1154098620}
+    - target: {fileID: 11499276, guid: 3ce4aac99aee06c418882fb544f4c47a, type: 2}
+      propertyPath: MyAudio
+      value: 
+      objectReference: {fileID: 1154098620}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3ce4aac99aee06c418882fb544f4c47a, type: 2}
   m_IsPrefabParent: 0
@@ -2256,7 +2260,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: .5
   overlay: {fileID: 0}
-  audio: {fileID: 0}
+  MyAudio: {fileID: 0}
 --- !u!4 &1489762252
 Transform:
   m_ObjectHideFlags: 0

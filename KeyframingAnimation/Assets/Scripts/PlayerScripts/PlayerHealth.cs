@@ -51,6 +51,7 @@ public class PlayerHealth : MonoBehaviour {
     {
 		if (isAlive) {
 			health = 0f;
+			healthSlider.value = health;
 			isAlive = false;
 			GetComponent<RobertFootsteps> ().SetUse (false);
 			animator.SetTrigger ("Death");
