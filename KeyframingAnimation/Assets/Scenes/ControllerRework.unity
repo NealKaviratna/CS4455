@@ -394,6 +394,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff8dc1cedcf25b34498545e18557d885, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  menu: {fileID: 0}
   fader: {fileID: 1309217251}
 --- !u!1001 &61044401
 Prefab:
@@ -1593,6 +1594,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 589ac130e9c7ea049a67442a3bb0f6f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clip: {fileID: 0}
   jumpSpeed: 0
   gravity: 0
 --- !u!4 &212759154 stripped
