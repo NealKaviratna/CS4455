@@ -29,7 +29,6 @@ public class ProjectileScript : MonoBehaviour {
 		float dist = Vector3.Distance (shooterLoc.position, heroLoc.position);
 		Vector3 dest = heroLoc.position + heroLoc.forward * heroAnim.GetFloat ("VertSpeed") * destScale * dist;
 		dir = (dest-shooterLoc.position)/(Vector3.Distance(dest,shooterLoc.position))*speedScale;
-
 	}
 	
 	// Update is called once per frame
@@ -41,10 +40,11 @@ public class ProjectileScript : MonoBehaviour {
 	{
         GameObject other = coll.gameObject;
         PlayerHealth player = other.GetComponent<PlayerHealth>();
-        if (player != null)
-        {
-            player.takeHit(50f);
-        }
-        Destroy(this.gameObject);
+        if (player != null) {
+			player.takeHit (50f);
+			Destroy (this.gameObject);
+		} else if (other.tag != "Enemy") {
+			Destroy (this.gameObject);
+		}
     }
 }
