@@ -1851,6 +1851,7 @@ GameObject:
   - 224: {fileID: 656794686}
   - 222: {fileID: 656794688}
   - 114: {fileID: 656794687}
+  - 114: {fileID: 656794689}
   m_Layer: 0
   m_Name: Aku
   m_TagString: Untagged
@@ -1909,6 +1910,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 656794685}
+--- !u!114 &656794689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 656794685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a60e93b6e8413a241910712509ce98e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blacked_out: {fileID: 21300000, guid: 27a14889c8059d14598b6512e2f48994, type: 3}
+  collected: {fileID: 21300000, guid: f756574a0fad1cb4d93fcef3004d88be, type: 3}
+  sprite_number: 0
 --- !u!1 &699080053
 GameObject:
   m_ObjectHideFlags: 0
@@ -3812,6 +3827,7 @@ GameObject:
   - 224: {fileID: 1311425272}
   - 222: {fileID: 1311425274}
   - 114: {fileID: 1311425273}
+  - 114: {fileID: 1311425275}
   m_Layer: 0
   m_Name: Jack
   m_TagString: Untagged
@@ -3870,6 +3886,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1311425271}
+--- !u!114 &1311425275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1311425271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a60e93b6e8413a241910712509ce98e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blacked_out: {fileID: 21300000, guid: 4cce884d6b7f13b44ae25d5c40a9ee4e, type: 3}
+  collected: {fileID: 21300000, guid: b1068b6fe8d7cce4a882c19399cfc3b9, type: 3}
+  sprite_number: 1
 --- !u!1001 &1326150014
 Prefab:
   m_ObjectHideFlags: 0
@@ -4735,6 +4765,7 @@ GameObject:
   - 224: {fileID: 1722993243}
   - 222: {fileID: 1722993245}
   - 114: {fileID: 1722993244}
+  - 114: {fileID: 1722993246}
   m_Layer: 0
   m_Name: Jack_Aku
   m_TagString: Untagged
@@ -4793,6 +4824,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1722993242}
+--- !u!114 &1722993246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1722993242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a60e93b6e8413a241910712509ce98e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blacked_out: {fileID: 21300000, guid: ecc3d0f1f27183e4ea8f29e1faf9fdcd, type: 3}
+  collected: {fileID: 21300000, guid: 69450321a3e96e343b3d9cf33e61778f, type: 3}
+  sprite_number: 2
 --- !u!1 &1760652541
 GameObject:
   m_ObjectHideFlags: 0
