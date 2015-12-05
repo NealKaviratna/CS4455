@@ -1471,25 +1471,35 @@ MonoBehaviour:
     _serializedData: <component version="1.3" type="RAIN.Navigation.Waypoints.WaypointRig"><fields><field
       value="AlwaysOn" type="RAIN.Core.VisualModeEnum" id="_visualMode" /><field type="RAIN.Navigation.Waypoints.WaypointSet"
       reference="0" id="_waypointSet" /></fields><references><reference type="RAIN.Navigation.Waypoints.WaypointSet"
-      refcount="3" id="0"><field type="UnityEngine.Transform" id="_mountPoint" gameobject="0"
-      /><field value="Waypoint Route" type="System.String" id="_setName" /><field
+      refcount="5" id="0"><field type="UnityEngine.Transform" id="_mountPoint" gameobject="0"
+      /><field value="HadoukenWaypoints" type="System.String" id="_setName" /><field
       value="Route" type="RAIN.Navigation.Waypoints.WaypointSet+WaypointSetType" id="_setType"
       /><field value="0.6,0.5529412,0.009411765,1" type="UnityEngine.Color" id="_networkColor"
       /><field value="-0.5" type="System.Single" id="_outlineColorOffset" /><field
       value="0.4" type="System.Single" id="_selectionColorOffset" /><field type="System.Collections.Generic.List"
       id="_waypoints" elementtype="RAIN.Navigation.Waypoints.Waypoint"><field type="RAIN.Navigation.Waypoints.Waypoint"
-      reference="1" id="element0" /><field type="RAIN.Navigation.Waypoints.Waypoint"
-      reference="2" id="element1" /></field><field type="System.Collections.Generic.List"
+      reference="2" id="element0" /><field type="RAIN.Navigation.Waypoints.Waypoint"
+      reference="3" id="element1" /><field type="RAIN.Navigation.Waypoints.Waypoint"
+      reference="4" id="element2" /><field type="RAIN.Navigation.Waypoints.Waypoint"
+      reference="1" id="element3" /></field><field type="System.Collections.Generic.List"
       id="_connections" elementtype="RAIN.Navigation.Waypoints.WaypointSet+WaypointConnection"
       /></reference><reference type="RAIN.Navigation.Waypoints.Waypoint" refcount="1"
       id="1"><field type="RAIN.Navigation.Waypoints.WaypointSet" reference="0" id="_waypointSet"
-      /><field value="" type="System.String" id="_waypointName" /><field value="-7.530649,0,-3.118332"
+      /><field value="" type="System.String" id="_waypointName" /><field value="13.36217,2.384186E-07,16.31446"
       type="UnityEngine.Vector3" id="_position" /><field value="0.5" type="System.Single"
       id="_range" /></reference><reference type="RAIN.Navigation.Waypoints.Waypoint"
       refcount="1" id="2"><field type="RAIN.Navigation.Waypoints.WaypointSet" reference="0"
       id="_waypointSet" /><field value="" type="System.String" id="_waypointName"
-      /><field value="0,0,-3.190407" type="UnityEngine.Vector3" id="_position" /><field
-      value="0.5" type="System.Single" id="_range" /></reference></references></component>
+      /><field value="-7.172314,2.384186E-07,18.496" type="UnityEngine.Vector3" id="_position"
+      /><field value="0.5" type="System.Single" id="_range" /></reference><reference
+      type="RAIN.Navigation.Waypoints.Waypoint" refcount="1" id="3"><field type="RAIN.Navigation.Waypoints.WaypointSet"
+      reference="0" id="_waypointSet" /><field value="" type="System.String" id="_waypointName"
+      /><field value="-7.530649,2.384186E-07,5.4198" type="UnityEngine.Vector3" id="_position"
+      /><field value="0.5" type="System.Single" id="_range" /></reference><reference
+      type="RAIN.Navigation.Waypoints.Waypoint" refcount="1" id="4"><field type="RAIN.Navigation.Waypoints.WaypointSet"
+      reference="0" id="_waypointSet" /><field value="" type="System.String" id="_waypointName"
+      /><field value="14.4236,2.384186E-07,5.593262" type="UnityEngine.Vector3" id="_position"
+      /><field value="0.5" type="System.Single" id="_range" /></reference></references></component>
     _serializedGameObjects:
     - {fileID: 144107636}
     _serializedCustomData: []
@@ -6533,6 +6543,58 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8a7bc8aa90bda3b4896874e461c7db00, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &601637665
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 601637666}
+  - 135: {fileID: 601637667}
+  - 114: {fileID: 601637668}
+  m_Layer: 0
+  m_Name: MeleeTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &601637666
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 601637665}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 507917869}
+  m_RootOrder: 3
+--- !u!135 &601637667
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 601637665}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.5
+  m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &601637668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 601637665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62b8346ef23339d409cf4965c9c9d32f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &606998366
 Prefab:
   m_ObjectHideFlags: 0
