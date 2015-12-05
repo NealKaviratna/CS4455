@@ -7,8 +7,6 @@ public class CollectibleGameHandler : MonoBehaviour {
     private bool taken;
     public int collectible_number;
 
-    public GameObject player;
-
     // Use this for initialization
     void Start()
     {
@@ -22,7 +20,7 @@ public class CollectibleGameHandler : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject == player)
+        if (other.gameObject.tag == "Player")
         {
             if (!taken)
             {
