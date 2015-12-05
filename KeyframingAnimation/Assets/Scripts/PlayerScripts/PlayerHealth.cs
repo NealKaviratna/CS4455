@@ -54,6 +54,7 @@ public class PlayerHealth : MonoBehaviour {
 			healthSlider.value = health;
 			isAlive = false;
 			GetComponent<RobertFootsteps> ().SetUse (false);
+            GetComponent<MeleeInput>().enabled = false;
 			animator.SetTrigger ("Death");
 		}
         //Destroy(gameObject, 3f);
