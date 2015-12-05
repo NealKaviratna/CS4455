@@ -30,7 +30,7 @@ public class DoorButtonScript : MonoBehaviour {
             if (Input.GetKeyDown(KeyCode.G))
             {
                 open = !open;
-                buttonLight.color = open ? GREEN : RED;
+                if (!door.isBroken) buttonLight.color = open ? GREEN : RED;
                 door.SetTriggered();
             }
         }

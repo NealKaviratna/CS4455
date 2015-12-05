@@ -10,13 +10,18 @@ public class DoorOpen : MonoBehaviour
     Vector3 endPosition;
     public float vectorOffset = 0; //Use this to tweek where the door should "stop"
     public float doorSpeed = 1.0f;
+    public bool isBroken;
     bool triggered = false;
+    public ParticleSystem sparks;
+    public ParticleSystem smoke;
 
     void Start()
     {
 
         startPosition = transform.position;
         endPosition = new Vector3(startPosition.x, startPosition.y + vectorOffset, startPosition.z);
+        if (sparks) sparks.enableEmission = false;
+        if (smoke) smoke.enableEmission = false;
 
     }
 
@@ -25,8 +30,13 @@ public class DoorOpen : MonoBehaviour
         if (triggered)
         {
             transform.position = Vector3.MoveTowards(transform.position, endPosition, doorSpeed);
+            if (isBroken)
+            {
+                if (sparks) sparks.enableEmission = true;
+                if (smoke) smoke.enableEmission = true;
+            }
         }
-        else
+        else if (!triggered && !isBroken)
         {
             transform.position = Vector3.MoveTowards(transform.position, startPosition, doorSpeed);
         }
