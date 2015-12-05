@@ -23,15 +23,15 @@ public class EnemyMeleeTrigger : MonoBehaviour
     {
         RaycastHit ray;
 
-        if (player != null && isAlive && Physics.Raycast(transform.position, transform.forward, out ray, 1.25f))
+        if (player != null && isAlive) //&& Physics.Raycast(transform.position, transform.forward, out ray, 1.25f))
         {
             Vector3 myPos = transform.position;
             Vector3 pPos = player.transform.position;
             Vector3 diff = pPos - myPos;
-            //Debug.Log(Vector3.Dot(diff, transform.forward));
+            Debug.Log(Vector3.Dot(diff, transform.forward));
             float dist = Vector3.Dot(diff, transform.forward);
-            Debug.Log(ray.collider.tag);
-            if (dist <= 1.25f && dist > 0f && ray.collider.tag == "Player")
+            //Debug.Log(ray.collider.tag);
+            if (dist <= 1.25f && dist > 0f)
             {
                 player.GetComponent<PlayerHealth>().takeHit(15);
             }

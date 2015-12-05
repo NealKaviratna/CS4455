@@ -39,7 +39,7 @@ public class ProjectileScript : MonoBehaviour {
 	void OnCollisionEnter (Collision coll)
 	{
         GameObject other = coll.gameObject;
-        PlayerHealth player = other.GetComponent<PlayerHealth>();
+        PlayerHealth player = other.GetComponentInParent<PlayerHealth>();
         if (player != null) {
 			player.takeHit (50f);
 			Destroy (this.gameObject);
