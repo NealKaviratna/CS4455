@@ -34,10 +34,14 @@ public class Enemy : MonoBehaviour {
     public ParticleSystem sparks;
     public ParticleSystem smoke;
 
+    public AudioClip hitSound;
+    private AudioSource audio_s;
+
 	// Use this for initialization
 	void Start () {
         IsAlive = true;
         anim = this.GetComponent<Animator>();
+        audio_s = GetComponent<AudioSource>();
         Hit = false;
 		MaxHP = HP;
         if (sparks != null) sparks.enableEmission = false;
@@ -60,6 +64,7 @@ public class Enemy : MonoBehaviour {
         }
         else
         {
+            if (hitSound) audio_s.PlayOneShot(hitSound, .7f);
             Debug.Log("Hit " + IsAlive);
             anim.SetTrigger("TakeHit");
         }
