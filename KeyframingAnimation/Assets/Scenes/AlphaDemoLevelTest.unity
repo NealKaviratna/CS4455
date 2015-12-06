@@ -3599,7 +3599,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 466772, guid: 46b31cf4dd16f3440b90518813d7a556, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 123.459999
+      value: 120.209999
       objectReference: {fileID: 0}
     - target: {fileID: 466772, guid: 46b31cf4dd16f3440b90518813d7a556, type: 2}
       propertyPath: m_LocalRotation.x
@@ -6834,6 +6834,8 @@ GameObject:
   - 4: {fileID: 637979632}
   - 198: {fileID: 637979634}
   - 199: {fileID: 637979633}
+  - 65: {fileID: 637979635}
+  - 114: {fileID: 637979636}
   m_Layer: 0
   m_Name: WinParticles
   m_TagString: Untagged
@@ -7937,6 +7939,30 @@ ParticleSystem:
     subEmitterCollision1: {fileID: 0}
     subEmitterDeath: {fileID: 0}
     subEmitterDeath1: {fileID: 0}
+--- !u!65 &637979635
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 637979631}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: .5, y: .5, z: 2}
+  m_Center: {x: 0, y: 0, z: 1}
+--- !u!114 &637979636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 637979631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88be72c8aea4b544b99e5d50f1bc8417, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wgh: {fileID: 1281571871}
 --- !u!114 &647852340 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11469262, guid: 75695783b0818e64a891e2da1c5216b4,
@@ -11260,27 +11286,27 @@ Prefab:
       objectReference: {fileID: 210886957}
     - target: {fileID: 22485046, guid: 75695783b0818e64a891e2da1c5216b4, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22485046, guid: 75695783b0818e64a891e2da1c5216b4, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22430026, guid: 75695783b0818e64a891e2da1c5216b4, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22430026, guid: 75695783b0818e64a891e2da1c5216b4, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22426332, guid: 75695783b0818e64a891e2da1c5216b4, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22426332, guid: 75695783b0818e64a891e2da1c5216b4, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22463102, guid: 75695783b0818e64a891e2da1c5216b4, type: 2}
       propertyPath: m_AnchorMax.x
@@ -13722,13 +13748,14 @@ GameObject:
   - 223: {fileID: 1281571870}
   - 114: {fileID: 1281571869}
   - 114: {fileID: 1281571868}
+  - 114: {fileID: 1281571871}
   m_Layer: 5
   m_Name: GameWinMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1281571867
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13801,6 +13828,22 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
+--- !u!114 &1281571871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1281571866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3835ad57666daeb4e966aac294c38a73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: {fileID: 524155600}
+  clear_time: {fileID: 1108040922}
+  killed: {fileID: 1963055059}
+  sm: {fileID: 2022650876}
+  menu: {fileID: 481723676}
 --- !u!1 &1286313521 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 168920, guid: 46b31cf4dd16f3440b90518813d7a556, type: 2}

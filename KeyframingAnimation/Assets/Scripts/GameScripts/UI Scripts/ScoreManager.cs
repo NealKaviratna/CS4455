@@ -6,6 +6,7 @@ public class ScoreManager : MonoBehaviour {
 
 	private int score = 0;
 	private float gameTimer;
+    private int enemies_killed;
 
 	public Text scoreText;
 	//public Text timeText;
@@ -41,7 +42,13 @@ public class ScoreManager : MonoBehaviour {
 
 	public void addScore(int value) {
 		score += value;
+        enemies_killed++;
 	}
+
+    public int getKilled()
+    {
+        return enemies_killed;
+    }
 
 	public int getScore() {
 		return score;
