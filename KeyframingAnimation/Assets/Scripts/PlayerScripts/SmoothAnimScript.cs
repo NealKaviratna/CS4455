@@ -133,6 +133,7 @@ public class SmoothAnimScript : MonoBehaviour {
 			animator.SetFloat ("VertSpeed", adjustedInput.z);
 			animator.SetFloat ("HorizSpeed", adjustedInput.x);
 			animator.SetFloat("Speed", Mathf.Abs(adjustedInput.x) + Mathf.Abs(adjustedInput.z));
+			animator.SetFloat("SpeedFactor", Mathf.Lerp(1.0f, 1.4f, Input.GetAxis("RightTrigger")));
 		}
         //Debug.Log ("V: " + verticalAxis + " H: " + horizontalAxis);
 //
