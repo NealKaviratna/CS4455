@@ -84,6 +84,12 @@ public class SmoothAnimScript : MonoBehaviour {
         {
             animator.SetBool("Jump", false);
         }
+		if (Input.GetAxis("LeftTrigger") > 0.2) {
+			animator.SetBool("Walk", true);
+		}
+		else {
+			animator.SetBool("Walk", false);
+		}
 		if (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.JoystickButton4))//(Input.GetAxis("LeftTrigger") > 0.3f&&Input.GetAxis("RightTrigger") > 0.3f&&!animator.GetBool("Hadouken")))
 		{
 			Debug.Log(energy);
@@ -126,6 +132,7 @@ public class SmoothAnimScript : MonoBehaviour {
 		if (animator.enabled && !IsSettingViaScript) {
 			animator.SetFloat ("VertSpeed", adjustedInput.z);
 			animator.SetFloat ("HorizSpeed", adjustedInput.x);
+			animator.SetFloat("Speed", Mathf.Abs(adjustedInput.x) + Mathf.Abs(adjustedInput.z));
 		}
         //Debug.Log ("V: " + verticalAxis + " H: " + horizontalAxis);
 //
