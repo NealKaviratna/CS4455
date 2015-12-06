@@ -37,7 +37,7 @@ public class ControllerCameraTargetBehavoiur : MonoBehaviour {
 		}
 		else {
 			this.YRot = yPivotPoint.eulerAngles.y;
-			Debug.Log(this.YRot);
+			//Debug.Log(this.YRot);
 			yPivotPoint.localRotation = Quaternion.Lerp(yPivotPoint.localRotation, Quaternion.identity, Time.deltaTime*2);
 		}
 		temp.x = this.XRot;
