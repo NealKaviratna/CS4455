@@ -8,8 +8,12 @@ public class ControllerCameraFollowBehaviour : MonoBehaviour {
     public Transform followTarget;
 	public Transform lookTarget;
 
+	private Transform originalLookTarget;
+
     void Start()
-    {}
+    {
+		originalLookTarget = lookTarget;
+	}
 
     void LateUpdate()
     {
@@ -17,4 +21,8 @@ public class ControllerCameraFollowBehaviour : MonoBehaviour {
 
         transform.LookAt(lookTarget);
     }
+
+	public void ResetLook() {
+		lookTarget = originalLookTarget;
+	}
 }

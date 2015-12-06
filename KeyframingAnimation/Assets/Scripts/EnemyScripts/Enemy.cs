@@ -84,9 +84,4 @@ public class Enemy : MonoBehaviour {
 			Destroy (gameObject, 3f);
 		}
     }
-
-	void SendToPool() {
-        this.transform.position = new Vector3(1000, 1000, 1000);
-        this.gameObject.SetActive(false);
-	}
 }
