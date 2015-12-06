@@ -164,7 +164,7 @@ public class ControllerCameraTargetBehavoiur : MonoBehaviour {
 		temp.z = yPivotPoint.eulerAngles.z;
 		yPivotPoint.eulerAngles = temp;
 
-		//GetComponentInParent<FireHadouken>().trackTarget = ZTarget.transform;
+		GetComponentInParent<FireHadouken>().trackTarget = ZTarget.transform;
 	}
 
 	void DeZLock() {
@@ -173,6 +173,6 @@ public class ControllerCameraTargetBehavoiur : MonoBehaviour {
 		this.CCFB.ResetLook();
 		playerTrans.gameObject.GetComponent<SmoothAnimScript>().IsSettingViaScript = false;
 
-		//GetComponentInParent<FireHadouken>().trackTarget = null;
+		GetComponentInParent<FireHadouken>().trackTarget = null;
 	}
 }

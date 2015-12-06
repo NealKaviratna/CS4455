@@ -10,18 +10,14 @@ public class HadoukenHandler : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        Transform player = GameObject.FindGameObjectWithTag("Player").transform;
-        //myTrans = GetComponent<Transform>();
-        transform.position = player.position + Vector3.up + player.forward;
-        direction = player.forward*speed;
-        Debug.Log(direction);
+		this.transform.position = new Vector3 (this.transform.position.x, this.transform.position.y, this.transform.position.z +1);
     }
 	
 	// Update is called once per frame
 	void Update () {
         time -= Time.deltaTime;
         if (time <= 0) Destroy(this.gameObject);
-        transform.position = transform.position + direction * Time.deltaTime * 60;
+        transform.position = transform.position + transform.forward*speed * Time.deltaTime * 60;
 	}
 
     void OnCollisionEnter(Collision coll)
