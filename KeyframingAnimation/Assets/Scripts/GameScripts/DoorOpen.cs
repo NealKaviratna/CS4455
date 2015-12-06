@@ -38,7 +38,7 @@ public class DoorOpen : MonoBehaviour
         }
         else if (!triggered && !isBroken)
         {
-            transform.position = Vector3.MoveTowards(transform.position, startPosition, doorSpeed);
+            transform.position = Vector3.Lerp(transform.position, startPosition, doorSpeed*Time.deltaTime);
         }
     }
 

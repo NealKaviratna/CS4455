@@ -41,6 +41,7 @@ public class ProjectileScript : MonoBehaviour {
         GameObject other = coll.gameObject;
         PlayerHealth player = other.GetComponentInParent<PlayerHealth>();
         if (player != null) {
+			Debug.Log ("PlayerHit");
 			player.takeHit (50f);
 			Destroy (this.gameObject);
 		} else if (other.tag != "Enemy") {
