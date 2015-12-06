@@ -4426,7 +4426,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 466772, guid: 46b31cf4dd16f3440b90518813d7a556, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 45.6899986
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 466772, guid: 46b31cf4dd16f3440b90518813d7a556, type: 2}
       propertyPath: m_LocalPosition.y
@@ -4434,7 +4434,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 466772, guid: 46b31cf4dd16f3440b90518813d7a556, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 36.6599998
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 466772, guid: 46b31cf4dd16f3440b90518813d7a556, type: 2}
       propertyPath: m_LocalRotation.x
@@ -5214,7 +5214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: .39199999}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -10562,7 +10562,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target_pos: {fileID: 1053314095}
-  speed: .100000001
+  speed: .5
+  boss: {fileID: 507917868}
 --- !u!114 &754200106 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11492744, guid: 75695783b0818e64a891e2da1c5216b4,
@@ -20265,8 +20266,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6a438432294b9c40be5ad232287c9e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vectorOffset: 3
-  doorSpeed: .200000003
+  vectorOffset: 2.25
+  doorSpeed: 5
   isBroken: 0
   sparks: {fileID: 0}
   smoke: {fileID: 0}
@@ -20931,7 +20932,7 @@ CapsuleCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1692136044}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: .200000003
   m_Height: 2
@@ -27407,7 +27408,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 13629368, guid: 87460b8656150f446869ad17d4d9348c, type: 2}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 13629368, guid: 87460b8656150f446869ad17d4d9348c, type: 2}
       propertyPath: m_Center.y

@@ -23,5 +23,6 @@ public class FireHadouken : MonoBehaviour {
 	
 	void fireHadouken () {
 		hadoukenRef = Instantiate(hadoukenBall, firePos.position + this.transform.forward*2 , transform.rotation) as GameObject;
+		hadoukenRef.GetComponent<HadoukenHandler>().player = this.gameObject;
     }
 }

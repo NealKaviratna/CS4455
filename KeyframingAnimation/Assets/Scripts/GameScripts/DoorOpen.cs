@@ -29,7 +29,7 @@ public class DoorOpen : MonoBehaviour
     {
         if (triggered)
         {
-            transform.position = Vector3.MoveTowards(transform.position, endPosition, doorSpeed);
+            transform.position = Vector3.Lerp(transform.position, endPosition, doorSpeed*Time.deltaTime);
             if (isBroken)
             {
                 if (sparks) sparks.enableEmission = true;
