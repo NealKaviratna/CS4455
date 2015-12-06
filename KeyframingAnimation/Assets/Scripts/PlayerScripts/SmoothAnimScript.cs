@@ -31,6 +31,8 @@ public class SmoothAnimScript : MonoBehaviour {
     private bool doorNearby = false;
     private ParticleSystem ps;
 
+	public bool IsSettingViaScript;
+
     //static int roll = Animator.StringToHash("Base Layer.Roll");
 
 	//TODO: Set up states here using nameToHash
@@ -46,6 +48,7 @@ public class SmoothAnimScript : MonoBehaviour {
         //ps = GetComponentInChildren<ParticleSystem>();
         //ps.enableEmission = false;
 
+		IsSettingViaScript = false;
     }
 	
 	// Update is called once per frame
@@ -120,7 +123,7 @@ public class SmoothAnimScript : MonoBehaviour {
 
 		Vector3 adjustedInput = Quaternion.Euler(0, playerAngle, 0) * inputDir;
 
-		if (animator.enabled) {
+		if (animator.enabled && !IsSettingViaScript) {
 			animator.SetFloat ("VertSpeed", adjustedInput.z);
 			animator.SetFloat ("HorizSpeed", adjustedInput.x);
 		}
@@ -136,6 +139,26 @@ public class SmoothAnimScript : MonoBehaviour {
 //            if (animator.enabled) animator.SetBool("Moving", false);
 //            isMoving = false;
 //        }
+	}
+
+	public void LookAtTarget(Transform target) {
+		Vector3 playerToTarget = target.position - transform.position;
+		Vector3 playerForward = transform.forward;
+
+		float angle = AngleSigned(playerToTarget, playerForward, Vector3.up);
+		float turn = 0.0f;
+
+		if ( angle < -15)
+			turn = 0.5f;
+		else if (angle > 15)
+			turn = -0.5f;
+		
+		if (animator.enabled) {
+			animator.SetFloat ("VertSpeed", 0);
+			animator.SetFloat ("HorizSpeed", 0);
+			animator.SetFloat ("HorizSpeed", turn);
+			IsSettingViaScript = true;
+		}
 	}
 
     public bool GetMoving()

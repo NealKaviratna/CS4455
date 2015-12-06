@@ -39,9 +39,8 @@ public class ControllerCameraTargetBehavoiur : MonoBehaviour {
 		temp = Vector3.zero;
 
 		PotentialZTargets = new List<GameObject>();
-		ZLockLookPos = new Transform();
 
-		playerTrans 
+		playerTrans =  yPivotPoint.parent;
 	}
 	
 	// Update is called once per frame
@@ -58,22 +57,10 @@ public class ControllerCameraTargetBehavoiur : MonoBehaviour {
 			if (this.ZTarget == null)
 				this.IsFree = false;
 			else {
-				if (this.Zlocked) {
-					ZTarget.GetComponentInChildren<Image>().color = new Color(255, 255, 255);
-					this.Zlocked = false;
-					this.CCFB.ResetLook();
-				}
-				else {
-					ZTarget.GetComponentInChildren<Image>().color = new Color(255, 255, 0);
-					this.Zlocked = true;
-					this.ZLockLookPos.position = Vector3.Lerp( yPivotPoint.transform.position, ZTarget.transform.position, 0.5f);
-					this.CCFB.lookTarget = this.ZLockLookPos;
-					
-					temp.x = yPivotPoint.eulerAngles.x;
-					temp.y = YRot;
-					temp.z = yPivotPoint.eulerAngles.z;
-					yPivotPoint.eulerAngles = temp;
-				}
+				if (this.Zlocked)
+					DeZLock();
+				else
+					ZLock();
 			}
 		}
 	}
@@ -132,19 +119,60 @@ public class ControllerCameraTargetBehavoiur : MonoBehaviour {
 	}
 
 	void ZLockedUpdate() {
-		Vector3 cameraToTarget = ZTarget.transform.position - transform.position;
-		Vector3 cameraToPlayer = ZTarget.transform.position - this.yPivotPoint;
-
-		Vector3.ProjectOnPlane(cameraToTarget, Vector3.up);
-		Vector3.ProjectOnPlane(cameraToPlayer, Vector3.up);
-
-		float angle = Vector3.Angle(cameraToTarget, cameraToPlayer);
-
-		if ( angle >= 45) {
-			Vector3.MoveTowards(this.transform.position, this.transform.forward, 0.5f);
+		if (ZTarget == null) {
+			DeZLock();
 		}
-		else if ( angle < 40) {
-			Vector3.MoveTowards(this.transform.position, -1 * this.transform.forward, 0.5f);
+		else {
+			temp.x = yPivotPoint.eulerAngles.x;
+			temp.y = YRot;
+			temp.z = yPivotPoint.eulerAngles.z;
+			yPivotPoint.eulerAngles = temp;
+
+			this.ZLockLookPos.position = Vector3.Lerp( yPivotPoint.transform.position, ZTarget.transform.position, 0.5f);
+			Vector3 cameraToTarget = ZTarget.transform.position - transform.position;
+			Vector3 cameraToPlayer = yPivotPoint.position - transform.position;
+
+			Vector3.ProjectOnPlane(cameraToTarget, Vector3.up);
+			Vector3.ProjectOnPlane(cameraToPlayer, Vector3.up);
+
+			float angle = Vector3.Angle(cameraToTarget, cameraToPlayer);
+
+			if ( angle >= 45) {
+				Vector3.MoveTowards(this.transform.position, this.transform.forward, 0.5f);
+			}
+			else if ( angle < 40) {
+				Vector3.MoveTowards(this.transform.position, -1 * this.transform.forward, 0.5f);
+			}
+
+			if (Mathf.Abs(Input.GetAxis ("Horizontal")) + Mathf.Abs(Input.GetAxis ("Vertical")) < 0.05) {
+				playerTrans.gameObject.GetComponent<SmoothAnimScript>().LookAtTarget(ZTarget.transform);
+			}
+			else {
+				playerTrans.gameObject.GetComponent<SmoothAnimScript>().IsSettingViaScript = false;
+			}
 		}
+	}
+
+	void ZLock() {
+		ZTarget.GetComponentInChildren<Image>().color = new Color(255, 255, 0);
+		this.Zlocked = true;
+		this.ZLockLookPos.position = Vector3.Lerp( yPivotPoint.transform.position, ZTarget.transform.position, 0.5f);
+		this.CCFB.lookTarget = this.ZLockLookPos;
+		
+		temp.x = yPivotPoint.eulerAngles.x;
+		temp.y = YRot;
+		temp.z = yPivotPoint.eulerAngles.z;
+		yPivotPoint.eulerAngles = temp;
+
+		//GetComponentInParent<FireHadouken>().trackTarget = ZTarget.transform;
+	}
+
+	void DeZLock() {
+		if (ZTarget != null)  ZTarget.GetComponentInChildren<Image>().color = new Color(255, 255, 255);
+		this.Zlocked = false;
+		this.CCFB.ResetLook();
+		playerTrans.gameObject.GetComponent<SmoothAnimScript>().IsSettingViaScript = false;
+
+		//GetComponentInParent<FireHadouken>().trackTarget = null;
 	}
 }
