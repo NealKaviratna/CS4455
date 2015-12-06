@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class ControllerCameraTargetBehavoiur : MonoBehaviour {
 
@@ -17,7 +18,13 @@ public class ControllerCameraTargetBehavoiur : MonoBehaviour {
 	public GameObject ZTarget;
 	public List<GameObject> PotentialZTargets;
 	public bool Zlocked;
-	
+
+	public Transform ZLockCamerPos;
+	public Transform ZLockLookPos;
+
+	public ControllerCameraFollowBehaviour CCFB;
+
+	private Transform playerTrans;
 	private Transform yPivotPoint;
 	private Transform xPivotPoint;
 	private float playerSpeed;
@@ -32,6 +39,9 @@ public class ControllerCameraTargetBehavoiur : MonoBehaviour {
 		temp = Vector3.zero;
 
 		PotentialZTargets = new List<GameObject>();
+		ZLockLookPos = new Transform();
+
+		playerTrans 
 	}
 	
 	// Update is called once per frame
@@ -47,8 +57,24 @@ public class ControllerCameraTargetBehavoiur : MonoBehaviour {
 		if (Input.GetKeyDown(KeyCode.JoystickButton9)){
 			if (this.ZTarget == null)
 				this.IsFree = false;
-			else
-				this.Zlocked = !this.Zlocked;
+			else {
+				if (this.Zlocked) {
+					ZTarget.GetComponentInChildren<Image>().color = new Color(255, 255, 255);
+					this.Zlocked = false;
+					this.CCFB.ResetLook();
+				}
+				else {
+					ZTarget.GetComponentInChildren<Image>().color = new Color(255, 255, 0);
+					this.Zlocked = true;
+					this.ZLockLookPos.position = Vector3.Lerp( yPivotPoint.transform.position, ZTarget.transform.position, 0.5f);
+					this.CCFB.lookTarget = this.ZLockLookPos;
+					
+					temp.x = yPivotPoint.eulerAngles.x;
+					temp.y = YRot;
+					temp.z = yPivotPoint.eulerAngles.z;
+					yPivotPoint.eulerAngles = temp;
+				}
+			}
 		}
 	}
 
@@ -106,6 +132,19 @@ public class ControllerCameraTargetBehavoiur : MonoBehaviour {
 	}
 
 	void ZLockedUpdate() {
+		Vector3 cameraToTarget = ZTarget.transform.position - transform.position;
+		Vector3 cameraToPlayer = ZTarget.transform.position - this.yPivotPoint;
 
+		Vector3.ProjectOnPlane(cameraToTarget, Vector3.up);
+		Vector3.ProjectOnPlane(cameraToPlayer, Vector3.up);
+
+		float angle = Vector3.Angle(cameraToTarget, cameraToPlayer);
+
+		if ( angle >= 45) {
+			Vector3.MoveTowards(this.transform.position, this.transform.forward, 0.5f);
+		}
+		else if ( angle < 40) {
+			Vector3.MoveTowards(this.transform.position, -1 * this.transform.forward, 0.5f);
+		}
 	}
 }
