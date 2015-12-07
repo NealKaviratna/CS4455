@@ -110,13 +110,6 @@ public class SmoothAnimScript : MonoBehaviour {
 			animator.SetBool("Hadouken", false);
             //ps.enableEmission = false;
         }
-
-        // Temporary code for ragdoll testing
-        if (Input.GetKeyDown("r"))
-        {
-            animator.enabled = !animator.enabled;
-            lookAtMouse.enabled = !lookAtMouse.enabled;
-        }
         
         if (energySlider) energySlider.value = ph.GetEnergy();
 		SetAir ();
