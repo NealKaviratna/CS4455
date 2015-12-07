@@ -223,6 +223,8 @@ public class SmoothAnimScript : MonoBehaviour {
 	void SetAir()
 	{
 		Ray r = new Ray(transform.position + Vector3.up, Vector3.down);
+		Ray r2 = new Ray (transform.position + Vector3.up + Vector3.forward, Vector3.down);
+		Ray r3 = new Ray (transform.position + Vector3.up - Vector3.forward, Vector3.down);
 		RaycastHit rh = new RaycastHit();
 		if (Physics.Raycast (r, out rh, 100f, 1)) {
 			Debug.Log (rh.distance);
@@ -235,6 +237,10 @@ public class SmoothAnimScript : MonoBehaviour {
 			inAir = true;
 			Debug.Log ("");
 		}
+		if (Physics.Raycast (r2, 1.5f) || Physics.Raycast (r3, 1.5f)) {
+			inAir = false;
+		}
+
 		animator.SetBool ("InAir", inAir);
 	}
 }
