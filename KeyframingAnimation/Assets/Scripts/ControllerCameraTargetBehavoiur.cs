@@ -36,6 +36,7 @@ public class ControllerCameraTargetBehavoiur : MonoBehaviour {
 		xPivotPoint = transform.parent;
 		yPivotPoint = xPivotPoint.parent;
 		XRot = yPivotPoint.eulerAngles.x;
+		XRot = 12;
 		temp = Vector3.zero;
 
 		PotentialZTargets = new List<GameObject>();
@@ -45,6 +46,12 @@ public class ControllerCameraTargetBehavoiur : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+		RaycastHit hit;
+		if (Physics.Raycast(transform.position, playerTrans.position - transform.position , out hit, 100) && hit.collider.gameObject.GetComponentInParent<SmoothAnimScript>() == null) {
+			if (hit.collider.gameObject.GetComponent<XRayBehaviour>() == null)
+				hit.collider.gameObject.AddComponent<XRayBehaviour>();
+		}
+
 		if (!Zlocked) {
 			NormalCameraUpdate();
 			ZTargetUpdate();
