@@ -10,6 +10,7 @@ public class FireHadouken : MonoBehaviour {
 	public GameObject hadoukenRef;
 
 	public PlayerHealth ph;
+	public AudioClip sound_play;
 
 	void Start() {
 		ph = GetComponent<PlayerHealth> ();
@@ -23,6 +24,7 @@ public class FireHadouken : MonoBehaviour {
 	
 	void fireHadouken () {
 		ph.UseEnergy (20f);
+		AudioSource.PlayClipAtPoint (sound_play, transform.position);
 		hadoukenRef = Instantiate(hadoukenBall, firePos.position + this.transform.forward*2 , transform.rotation) as GameObject;
 		hadoukenRef.GetComponent<HadoukenHandler>().player = this.gameObject;
     }
