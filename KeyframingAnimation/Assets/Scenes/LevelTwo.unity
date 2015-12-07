@@ -7155,6 +7155,10 @@ Prefab:
       propertyPath: hadouken
       value: 
       objectReference: {fileID: 8300000, guid: b314b4c3bb6fe4b4194f498b4e2ede0d, type: 3}
+    - target: {fileID: 11407430, guid: 87460b8656150f446869ad17d4d9348c, type: 2}
+      propertyPath: e_name
+      value: Fireball Sentry
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 87460b8656150f446869ad17d4d9348c, type: 2}
   m_IsPrefabParent: 0
@@ -7852,6 +7856,10 @@ Prefab:
       propertyPath: hadouken
       value: 
       objectReference: {fileID: 8300000, guid: b314b4c3bb6fe4b4194f498b4e2ede0d, type: 3}
+    - target: {fileID: 11407430, guid: 87460b8656150f446869ad17d4d9348c, type: 2}
+      propertyPath: e_name
+      value: Fireball Sentry
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 87460b8656150f446869ad17d4d9348c, type: 2}
   m_IsPrefabParent: 0
@@ -12835,27 +12843,27 @@ Prefab:
       objectReference: {fileID: 1190840080}
     - target: {fileID: 22485046, guid: 75695783b0818e64a891e2da1c5216b4, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22485046, guid: 75695783b0818e64a891e2da1c5216b4, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22430026, guid: 75695783b0818e64a891e2da1c5216b4, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22430026, guid: 75695783b0818e64a891e2da1c5216b4, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22426332, guid: 75695783b0818e64a891e2da1c5216b4, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22426332, guid: 75695783b0818e64a891e2da1c5216b4, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22463102, guid: 75695783b0818e64a891e2da1c5216b4, type: 2}
       propertyPath: m_AnchorMax.x
@@ -13756,6 +13764,10 @@ Prefab:
       propertyPath: scoreManage
       value: 
       objectReference: {fileID: 366640661}
+    - target: {fileID: 11412810, guid: 3249839412bcbe64a8664abbcaebd764, type: 2}
+      propertyPath: e_name
+      value: VD7 Patrol
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3249839412bcbe64a8664abbcaebd764, type: 2}
   m_IsPrefabParent: 0
@@ -16107,6 +16119,10 @@ Prefab:
       propertyPath: _dataSerializer._serializedCustomData.Array.data[14]._stringData
       value: ZmFsc2UNCg==
       objectReference: {fileID: 0}
+    - target: {fileID: 11421462, guid: e66b902a6a215ba468bdc64e562264fe, type: 2}
+      propertyPath: e_name
+      value: VD7 Patrol
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e66b902a6a215ba468bdc64e562264fe, type: 2}
   m_IsPrefabParent: 0
@@ -16859,7 +16875,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9d07362be1227b4b83999fe8f34a8ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  e_name: 
+  e_name: The Boss
   HP: 50
   MaxHP: 0
   killValue: 250
@@ -19156,6 +19172,10 @@ Prefab:
     - target: {fileID: 486314, guid: 87460b8656150f446869ad17d4d9348c, type: 2}
       propertyPath: m_LocalRotation.w
       value: -.707106948
+      objectReference: {fileID: 0}
+    - target: {fileID: 11407430, guid: 87460b8656150f446869ad17d4d9348c, type: 2}
+      propertyPath: e_name
+      value: The Big Boss
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 87460b8656150f446869ad17d4d9348c, type: 2}
