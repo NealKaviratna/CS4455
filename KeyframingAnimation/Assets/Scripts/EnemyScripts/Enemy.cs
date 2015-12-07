@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour {
 
     Animator anim;
 
-	public string name;
+	public string e_name;
 
 	public float HP;
 	public float MaxHP;

@@ -10,7 +10,7 @@ public class EnemyStatusDisplayController : MonoBehaviour {
 	#region Private Members
 	private Image portrait;
 	private Slider health;
-	private Text name;
+	private Text t_name;
 	public Image background;
 
 	private Enemy enemy;
@@ -24,7 +24,7 @@ public class EnemyStatusDisplayController : MonoBehaviour {
 		set {
 			this.portrait.sprite = value.Portrait;
 			this.health.value = value.HP / value.MaxHP;
-			this.name.text = value.name;
+			this.t_name.text = value.e_name;
 
 			this.timer = 10.0f;
 			this.ShowUI();
@@ -36,7 +36,7 @@ public class EnemyStatusDisplayController : MonoBehaviour {
 	void Start() {
 		this.portrait = transform.GetChild(0).GetComponent<Image>();
 		this.health = transform.GetChild(1).GetComponent<Slider>();
-		this.name = transform.GetChild(2).GetComponent<Text>();
+		this.t_name = transform.GetChild(2).GetComponent<Text>();
 
 		this.timer = 10.0f;
 		this.background = this.GetComponent<Image>();
@@ -57,7 +57,7 @@ public class EnemyStatusDisplayController : MonoBehaviour {
 	void HideUI() {
 		this.portrait.enabled = false;
 		this.health.gameObject.SetActive(false);
-		this.name.enabled = false;
+		this.t_name.enabled = false;
 
 		this.background.enabled = false;
 	}
@@ -65,7 +65,7 @@ public class EnemyStatusDisplayController : MonoBehaviour {
 	void ShowUI() {
 		this.portrait.enabled = true;
 		this.health.gameObject.SetActive(true);
-		this.name.enabled = true;
+		this.t_name.enabled = true;
 
 		this.background.enabled = true;
 	}
