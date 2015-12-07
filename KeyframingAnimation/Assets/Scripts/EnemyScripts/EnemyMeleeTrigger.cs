@@ -21,7 +21,7 @@ public class EnemyMeleeTrigger : MonoBehaviour
 
     public void EnemyMelee(GameObject player, bool isAlive)
     {
-        RaycastHit ray;
+        //RaycastHit ray;
 
         if (player != null && isAlive) //&& Physics.Raycast(transform.position, transform.forward, out ray, 1.25f))
         {

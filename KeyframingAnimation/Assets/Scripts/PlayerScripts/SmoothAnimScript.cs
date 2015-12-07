@@ -17,7 +17,7 @@ public class SmoothAnimScript : MonoBehaviour {
 	//private CapsuleCollider capCollider;
     private CharacterController charController;
 	private SphereCollider sphereCollider;
-	private Rigidbody rigidBody;
+	//private Rigidbody rigidBody;
 	//private AnimatorStateInfo currentState;
     private LookAtMouse lookAtMouse;
 
@@ -28,7 +28,7 @@ public class SmoothAnimScript : MonoBehaviour {
 
     private bool crouched = false;
     private bool isMoving = false;
-    private bool doorNearby = false;
+    //private bool doorNearby = false;
     private ParticleSystem ps;
 	private bool inAir;
 
@@ -46,7 +46,7 @@ public class SmoothAnimScript : MonoBehaviour {
 		animator = GetComponent<Animator> ();
 //		capCollider = GetComponent<CapsuleCollider> ();
 //		sphereCollider = GetComponent<SphereCollider> ();
-		rigidBody = GetComponent<Rigidbody> ();
+		//rigidBody = GetComponent<Rigidbody> ();
         charController = GetComponent<CharacterController>();
         lookAtMouse = GetComponent<LookAtMouse>();
         //ps = GetComponentInChildren<ParticleSystem>();
@@ -202,10 +202,10 @@ public class SmoothAnimScript : MonoBehaviour {
         }
     }
 
-    public void SetDoorNearby(bool b)
-    {
-        this.doorNearby = b;
-    }
+    //public void SetDoorNearby(bool b)
+    //{
+     //   this.doorNearby = b;
+    //}
 
 	void CheckState() {
 		string thisState = "";
