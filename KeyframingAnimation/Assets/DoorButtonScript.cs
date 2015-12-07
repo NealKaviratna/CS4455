@@ -8,6 +8,7 @@ public class DoorButtonScript : MonoBehaviour {
     //public SmoothAnimScript inputControl;
     public DoorOpen door;
 	public AudioClip button_sound;
+	public AudioClip broken_sound;
 	private AudioSource a_source;
     private Light buttonLight;
 
@@ -32,7 +33,12 @@ public class DoorButtonScript : MonoBehaviour {
         {
             if (Input.GetKeyDown(KeyCode.G) || Input.GetKeyDown(KeyCode.JoystickButton1))
             {
-				a_source.PlayOneShot(button_sound, .5f);
+				if (!door.isBroken){
+					a_source.PlayOneShot(button_sound, .5f);
+				}
+				else {
+					a_source.PlayOneShot(broken_sound, .7f);
+				}
                 open = !open;
                 if (!door.isBroken) buttonLight.color = open ? GREEN : RED;
                 door.SetTriggered();

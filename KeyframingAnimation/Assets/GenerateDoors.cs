@@ -13,7 +13,7 @@ public class GenerateDoors : MonoBehaviour {
 			int broken = Random.Range (0, 4);
 			if (broken == 0) {
 				door.isBroken = true;
-				door.vectorOffset = 1.25f;
+				door.SetPosition(1.25f);
 			}
 		} else {
 			gameObject.SetActive (false);
