@@ -113,7 +113,7 @@ public class ControllerCameraTargetBehavoiur : MonoBehaviour {
 		if (ZTarget != null) ZTarget.transform.GetChild(0).gameObject.SetActive(false);
 		ZTarget = null;
 		foreach (GameObject zT in PotentialZTargets) {
-			if (zT != null) {
+			if (zT != null && zT.GetComponent<Enemy>().IsAlive) {
 				float dist = Vector3.Distance(yPivotPoint.position, zT.transform.position);
 
 				RaycastHit hit;
@@ -127,7 +127,7 @@ public class ControllerCameraTargetBehavoiur : MonoBehaviour {
 	}
 
 	void ZLockedUpdate() {
-		if (ZTarget == null) {
+		if (ZTarget == null || !ZTarget.GetComponent<Enemy>().IsAlive) {
 			DeZLock();
 		}
 		else {
