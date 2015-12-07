@@ -9,6 +9,7 @@ public class HealthPackBehavior : MonoBehaviour {
 	public GameObject player;
 	public PlayerHealth playerHealth;
 	public int health = 1;
+	public AudioClip pickup;
 
 
 	// Use this for initialization
@@ -24,6 +25,7 @@ public class HealthPackBehavior : MonoBehaviour {
 		{
             if (!taken)
             {
+				player.GetComponent<AudioSource>().PlayOneShot (pickup, 1f);
                 taken = true;
                 HealthTaken();
             }
@@ -44,7 +46,7 @@ public class HealthPackBehavior : MonoBehaviour {
 
 	void HealthTaken () 
 	{
-		playerHealth.getHealth (20);
+		playerHealth.getHealth (50);
 		Destroy(gameObject);
 	}
 }
