@@ -2,19 +2,20 @@
 using System.Collections;
 
 public class BagMovementScript : MonoBehaviour {
-
-	private float direction;
+	
+	public Transform left_lim;
+	public Transform right_lim;
+	public float length;
+	private Vector3 direc;
+	private bool left_right;
 
 	// Use this for initialization
 	void Start () {
-		direction = -1f;
+		//direction = -1f;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (this.transform.position.x < 8.5f || this.transform.position.x > 27f) {
-			direction *= -1f;
-		}
-		this.transform.Translate (new Vector3 (3f * direction * Time.deltaTime, 0, 0));
+		this.transform.position = Vector3.Lerp (left_lim.position, right_lim.position, Mathf.PingPong((Time.realtimeSinceStartup)/length, 1));
 	}
 }
