@@ -32,7 +32,7 @@ public class GameOver : MonoBehaviour {
             if (menu) menu.SetActive(true);
 			EventSystem.current.SetSelectedGameObject (null);
 			if (focus) focus.Select ();
-			pause.gameObject.SetActive(false);
+			if (pause) pause.gameObject.SetActive(false);
         }
 
 

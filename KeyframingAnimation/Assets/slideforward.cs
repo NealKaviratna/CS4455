@@ -5,11 +5,13 @@ public class slideforward : StateMachineBehaviour {
 
 	private CharacterController cc;
 	private float timer = 0.0f;
+	private Vector3 inputDir;
 
 	 //OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
 	override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
 		this.timer = 0.1f;
 		cc = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<CharacterController>();
+		this.inputDir = new Vector3(Input.GetAxis ("Horizontal"), 0, Input.GetAxis ("Vertical"));
 	}
 
 	 //OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -17,7 +19,9 @@ public class slideforward : StateMachineBehaviour {
 		timer -= Time.deltaTime;
 		Debug.Log(timer);
 		if (this.timer < 0) {
-			this.cc.SimpleMove(cc.transform.forward);
+			inputDir.x = Input.GetAxis ("Horizontal");
+			inputDir.y = Input.GetAxis ("Vertical");
+			this.cc.SimpleMove(inputDir);
 		}
 	}
 
