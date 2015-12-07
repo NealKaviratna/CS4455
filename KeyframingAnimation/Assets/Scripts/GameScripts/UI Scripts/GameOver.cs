@@ -44,7 +44,10 @@ public class GameOver : MonoBehaviour {
             {
                 isDead = true;
                 menu.SetActive(true);
-                Time.timeScale = 0;
+				Time.timeScale = 0;
+				EventSystem.current.SetSelectedGameObject (null);
+				if (focus) focus.Select ();
+				if (pause) pause.gameObject.SetActive(false);
             }
         }
 	}

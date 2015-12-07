@@ -7354,7 +7354,7 @@ MonoBehaviour:
   scoreManage: {fileID: 2022650876}
   IsAlive: 0
   Hit: 0
-  Portrait: {fileID: 21300000, guid: f18ffec8387dead4eb04e016ab10b453, type: 3}
+  Portrait: {fileID: 21300000, guid: 789086150ff28ea4085af01ef3486f70, type: 3}
   StatusHUD: {fileID: 647852340}
   sparks: {fileID: 0}
   smoke: {fileID: 0}
@@ -18982,6 +18982,11 @@ Prefab:
       propertyPath: dieSound
       value: 
       objectReference: {fileID: 8300000, guid: bae1bb4adf97a7d43b012c4eb4b0e4b8, type: 3}
+    - target: {fileID: 11451056, guid: ed8dc187ad8d7e241998bd99d89a6c5b, type: 2}
+      propertyPath: Portrait
+      value: 
+      objectReference: {fileID: 21300000, guid: 4e202237103b6104193513bc2815de85,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ed8dc187ad8d7e241998bd99d89a6c5b, type: 2}
   m_IsPrefabParent: 0
@@ -22611,6 +22616,11 @@ Prefab:
       propertyPath: dieSound
       value: 
       objectReference: {fileID: 8300000, guid: bae1bb4adf97a7d43b012c4eb4b0e4b8, type: 3}
+    - target: {fileID: 11451056, guid: ed8dc187ad8d7e241998bd99d89a6c5b, type: 2}
+      propertyPath: Portrait
+      value: 
+      objectReference: {fileID: 21300000, guid: 4e202237103b6104193513bc2815de85,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ed8dc187ad8d7e241998bd99d89a6c5b, type: 2}
   m_IsPrefabParent: 0
@@ -28562,6 +28572,11 @@ Prefab:
       propertyPath: e_name
       value: Fireball Sentry
       objectReference: {fileID: 0}
+    - target: {fileID: 11407430, guid: 87460b8656150f446869ad17d4d9348c, type: 2}
+      propertyPath: Portrait
+      value: 
+      objectReference: {fileID: 21300000, guid: 789086150ff28ea4085af01ef3486f70,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 87460b8656150f446869ad17d4d9348c, type: 2}
   m_IsPrefabParent: 0
