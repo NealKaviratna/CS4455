@@ -9,7 +9,7 @@ public class slideforward : StateMachineBehaviour {
 
 	 //OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
 	override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-		this.timer = 0.1f;
+		this.timer = 3.0f;
 		cc = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<CharacterController>();
 		this.inputDir = new Vector3(Input.GetAxis ("Horizontal"), 0, Input.GetAxis ("Vertical"));
 	}
