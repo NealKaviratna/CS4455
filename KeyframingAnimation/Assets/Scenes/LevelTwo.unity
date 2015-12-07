@@ -16137,6 +16137,10 @@ Prefab:
       propertyPath: e_name
       value: VD7 Patrol
       objectReference: {fileID: 0}
+    - target: {fileID: 11421462, guid: e66b902a6a215ba468bdc64e562264fe, type: 2}
+      propertyPath: scoreManage
+      value: 
+      objectReference: {fileID: 366640661}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e66b902a6a215ba468bdc64e562264fe, type: 2}
   m_IsPrefabParent: 0

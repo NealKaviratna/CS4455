@@ -5795,6 +5795,14 @@ Prefab:
       propertyPath: door
       value: 
       objectReference: {fileID: 1671073813}
+    - target: {fileID: 11436016, guid: 008c256032ad3fc4bb35875833efcf2c, type: 2}
+      propertyPath: button_sound
+      value: 
+      objectReference: {fileID: 8300000, guid: daf22e000f26c2c49a2e7741d9eece80, type: 3}
+    - target: {fileID: 11436016, guid: 008c256032ad3fc4bb35875833efcf2c, type: 2}
+      propertyPath: broken_sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 61969690a403efc48b6278cde294ffb8, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 008c256032ad3fc4bb35875833efcf2c, type: 2}
   m_IsPrefabParent: 0

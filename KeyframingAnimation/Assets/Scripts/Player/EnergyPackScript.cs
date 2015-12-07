@@ -49,7 +49,7 @@ public class EnergyPackScript : MonoBehaviour {
 	
 	void giveEnergy () 
 	{
-		smooth.energy=smooth.energy+50;
+		playerHealth.energy += 50;
 		Destroy(gameObject);
 	}
 }
