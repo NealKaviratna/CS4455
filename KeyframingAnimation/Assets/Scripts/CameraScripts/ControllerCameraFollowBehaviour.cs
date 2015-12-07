@@ -25,4 +25,8 @@ public class ControllerCameraFollowBehaviour : MonoBehaviour {
 	public void ResetLook() {
 		lookTarget = originalLookTarget;
 	}
+
+	public bool isOriginalLook() {
+		return lookTarget == this.originalLookTarget;
+	}
 }

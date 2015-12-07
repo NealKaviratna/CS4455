@@ -52,14 +52,6 @@ public class ControllerCameraTargetBehavoiur : MonoBehaviour {
 				hit.collider.gameObject.AddComponent<XRayBehaviour>();
 		}
 
-		if (!Zlocked) {
-			NormalCameraUpdate();
-			ZTargetUpdate();
-		}
-		else {
-			ZLockedUpdate();
-		}
-
 		if (Input.GetKeyDown(KeyCode.JoystickButton9)){
 			if (this.ZTarget == null)
 				this.IsFree = false;
@@ -69,6 +61,14 @@ public class ControllerCameraTargetBehavoiur : MonoBehaviour {
 				else
 					ZLock();
 			}
+		}
+
+		if (!Zlocked) {
+			NormalCameraUpdate();
+			ZTargetUpdate();
+		}
+		else {
+			ZLockedUpdate();
 		}
 	}
 
@@ -97,6 +97,13 @@ public class ControllerCameraTargetBehavoiur : MonoBehaviour {
 
 		XRot += Input.GetAxis("CameraVertical");
 		XRot = Mathf.Clamp(XRot, 5, 20);
+
+		ZLockLookPos.position = Vector3.MoveTowards(ZLockLookPos.position, yPivotPoint.position, .2f);
+
+		if (!CCFB.isOriginalLook()) {
+			if ( Vector3.Distance(ZLockLookPos.position, yPivotPoint.position) < 0.04f)
+				CCFB.ResetLook();
+		}
 
 
 		float horInput = Input.GetAxis("CameraHorizontal");
@@ -127,7 +134,7 @@ public class ControllerCameraTargetBehavoiur : MonoBehaviour {
 	}
 
 	void ZLockedUpdate() {
-		if (ZTarget == null || !ZTarget.GetComponent<Enemy>().IsAlive) {
+		if (ZTarget == null ) {//|| !ZTarget.GetComponent<Enemy>().IsAlive) {
 			DeZLock();
 		}
 		else {
@@ -178,7 +185,6 @@ public class ControllerCameraTargetBehavoiur : MonoBehaviour {
 	void DeZLock() {
 		if (ZTarget != null)  ZTarget.GetComponentInChildren<Image>().color = new Color(255, 255, 255);
 		this.Zlocked = false;
-		this.CCFB.ResetLook();
 		playerTrans.gameObject.GetComponent<SmoothAnimScript>().IsSettingViaScript = false;
 
 		GetComponentInParent<FireHadouken>().trackTarget = null;
