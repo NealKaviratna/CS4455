@@ -113,12 +113,14 @@ public class ControllerCameraTargetBehavoiur : MonoBehaviour {
 		if (ZTarget != null) ZTarget.transform.GetChild(0).gameObject.SetActive(false);
 		ZTarget = null;
 		foreach (GameObject zT in PotentialZTargets) {
-			float dist = Vector3.Distance(yPivotPoint.position, zT.transform.position);
+			if (zT != null) {
+				float dist = Vector3.Distance(yPivotPoint.position, zT.transform.position);
 
-			RaycastHit hit;
-			if (dist < minDistance && Physics.Raycast(transform.position, zT.transform.position -transform.position , out hit, 100, 1) && hit.collider.gameObject.GetComponentInParent<Enemy>() != null && hit.collider.gameObject.GetComponentInParent<Enemy>().gameObject == zT) {
-				minDistance = dist;
-				ZTarget = zT;
+				RaycastHit hit;
+				if (dist < minDistance && Physics.Raycast(transform.position, zT.transform.position -transform.position , out hit, 100, 1) && hit.collider.gameObject.GetComponentInParent<Enemy>() != null && hit.collider.gameObject.GetComponentInParent<Enemy>().gameObject == zT) {
+					minDistance = dist;
+					ZTarget = zT;
+				}
 			}
 		}
 		if (ZTarget != null) ZTarget.transform.GetChild(0).gameObject.SetActive(true);
