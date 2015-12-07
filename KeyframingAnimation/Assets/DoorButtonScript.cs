@@ -30,7 +30,7 @@ public class DoorButtonScript : MonoBehaviour {
         }*/
         if (inRange)
         {
-            if (Input.GetKeyDown(KeyCode.G))
+            if (Input.GetKeyDown(KeyCode.G) || Input.GetKeyDown(KeyCode.JoystickButton1))
             {
 				a_source.PlayOneShot(button_sound, .5f);
                 open = !open;
