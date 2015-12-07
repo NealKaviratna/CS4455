@@ -3303,7 +3303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88be72c8aea4b544b99e5d50f1bc8417, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wgh: {fileID: 0}
+  wgh: {fileID: 774034515}
 --- !u!65 &506246005
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7159,6 +7159,11 @@ Prefab:
       propertyPath: e_name
       value: Fireball Sentry
       objectReference: {fileID: 0}
+    - target: {fileID: 11407430, guid: 87460b8656150f446869ad17d4d9348c, type: 2}
+      propertyPath: Portrait
+      value: 
+      objectReference: {fileID: 21300000, guid: 789086150ff28ea4085af01ef3486f70,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 87460b8656150f446869ad17d4d9348c, type: 2}
   m_IsPrefabParent: 0
@@ -7860,6 +7865,11 @@ Prefab:
       propertyPath: e_name
       value: Fireball Sentry
       objectReference: {fileID: 0}
+    - target: {fileID: 11407430, guid: 87460b8656150f446869ad17d4d9348c, type: 2}
+      propertyPath: Portrait
+      value: 
+      objectReference: {fileID: 21300000, guid: 789086150ff28ea4085af01ef3486f70,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 87460b8656150f446869ad17d4d9348c, type: 2}
   m_IsPrefabParent: 0
@@ -12847,27 +12857,27 @@ Prefab:
       objectReference: {fileID: 1190840080}
     - target: {fileID: 22485046, guid: 75695783b0818e64a891e2da1c5216b4, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22485046, guid: 75695783b0818e64a891e2da1c5216b4, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22430026, guid: 75695783b0818e64a891e2da1c5216b4, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22430026, guid: 75695783b0818e64a891e2da1c5216b4, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22426332, guid: 75695783b0818e64a891e2da1c5216b4, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22426332, guid: 75695783b0818e64a891e2da1c5216b4, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22463102, guid: 75695783b0818e64a891e2da1c5216b4, type: 2}
       propertyPath: m_AnchorMax.x
@@ -16886,7 +16896,7 @@ MonoBehaviour:
   scoreManage: {fileID: 366640661}
   IsAlive: 0
   Hit: 0
-  Portrait: {fileID: 21300000, guid: f18ffec8387dead4eb04e016ab10b453, type: 3}
+  Portrait: {fileID: 21300000, guid: 789086150ff28ea4085af01ef3486f70, type: 3}
   StatusHUD: {fileID: 1074950618}
   sparks: {fileID: 0}
   smoke: {fileID: 0}
@@ -17238,7 +17248,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -19181,6 +19191,11 @@ Prefab:
       propertyPath: e_name
       value: The Big Boss
       objectReference: {fileID: 0}
+    - target: {fileID: 11407430, guid: 87460b8656150f446869ad17d4d9348c, type: 2}
+      propertyPath: Portrait
+      value: 
+      objectReference: {fileID: 21300000, guid: 789086150ff28ea4085af01ef3486f70,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 87460b8656150f446869ad17d4d9348c, type: 2}
   m_IsPrefabParent: 0
