@@ -19,7 +19,7 @@ public class WinCondition : MonoBehaviour {
     {
         if (coll.gameObject.tag == "Player")
         {
-            wgh.SignalWin();
+            if (wgh) wgh.SignalWin();
         }
     }
 }
