@@ -109,8 +109,7 @@ public class ControllerCameraTargetBehavoiur : MonoBehaviour {
 			float dist = Vector3.Distance(yPivotPoint.position, zT.transform.position);
 
 			RaycastHit hit;
-
-			if (dist < minDistance && Physics.Raycast(transform.position, zT.transform.position -transform.position, out hit, 100, 1) && hit.collider.gameObject == zT) {
+			if (dist < minDistance && Physics.Raycast(transform.position, zT.transform.position -transform.position , out hit, 100, 1) && hit.collider.gameObject.GetComponentInParent<Enemy>() != null && hit.collider.gameObject.GetComponentInParent<Enemy>().gameObject == zT) {
 				minDistance = dist;
 				ZTarget = zT;
 			}
