@@ -46,13 +46,7 @@ public class ControllerCameraTargetBehavoiur : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		RaycastHit hit;
-		if (Physics.Raycast(transform.position, playerTrans.position - transform.position , out hit, 100) && hit.collider.gameObject.GetComponentInParent<SmoothAnimScript>() == null) {
-			if (hit.collider.gameObject.GetComponent<XRayBehaviour>() == null)
-				hit.collider.gameObject.AddComponent<XRayBehaviour>();
-		}
-
-		if (Input.GetKeyDown(KeyCode.JoystickButton9)){
+		if (Input.GetKeyDown(KeyCode.JoystickButton9) || Input.GetKeyDown(KeyCode.I)){
 			if (this.ZTarget == null)
 				this.IsFree = false;
 			else {
