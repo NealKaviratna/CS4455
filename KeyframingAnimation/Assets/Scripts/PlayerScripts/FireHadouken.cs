@@ -9,8 +9,10 @@ public class FireHadouken : MonoBehaviour {
 	public Transform trackTarget;
 	public GameObject hadoukenRef;
 
-	void Start() {
+	public PlayerHealth ph;
 
+	void Start() {
+		ph = GetComponent<PlayerHealth> ();
 	}
 
 	void Update () {
@@ -20,6 +22,7 @@ public class FireHadouken : MonoBehaviour {
 	}
 	
 	void fireHadouken () {
+		ph.UseEnergy (20f);
 		hadoukenRef = Instantiate(hadoukenBall, firePos.position + this.transform.forward*2 , transform.rotation) as GameObject;
 		hadoukenRef.GetComponent<HadoukenHandler>().player = this.gameObject;
     }
