@@ -31,6 +31,8 @@ public class SmoothAnimScript : MonoBehaviour {
     private bool doorNearby = false;
     private ParticleSystem ps;
 
+	private PlayerHealth ph;
+
 	public bool IsSettingViaScript;
 
     //static int roll = Animator.StringToHash("Base Layer.Roll");
@@ -39,6 +41,7 @@ public class SmoothAnimScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		ph = GetComponent<PlayerHealth> ();
 		animator = GetComponent<Animator> ();
 //		capCollider = GetComponent<CapsuleCollider> ();
 //		sphereCollider = GetComponent<SphereCollider> ();
@@ -94,10 +97,9 @@ public class SmoothAnimScript : MonoBehaviour {
 		{
 			Debug.Log(energy);
             Debug.Log(animator.GetCurrentAnimatorStateInfo(0).tagHash);
-            if (energy >= 20 && !animator.GetCurrentAnimatorStateInfo(0).IsTag("Hado"))
+            if (ph.GetEnergy() >= 20 && !animator.GetCurrentAnimatorStateInfo(0).IsTag("Hado"))
             {
                 animator.SetBool("Hadouken", true);
-                energy -= 20f;
                 //ps.enableEmission = true;
                 //energySlider.value = energy;
             }
@@ -114,9 +116,8 @@ public class SmoothAnimScript : MonoBehaviour {
             animator.enabled = !animator.enabled;
             lookAtMouse.enabled = !lookAtMouse.enabled;
         }
-        energy += Time.deltaTime*2;
-        if (energy > 100) energy = 100;
-        if (energySlider) energySlider.value = energy;
+        
+        if (energySlider) energySlider.value = ph.GetEnergy();
     }
 
 	void FixedUpdate() {
