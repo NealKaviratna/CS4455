@@ -32,9 +32,11 @@ public class BounceScript : MonoBehaviour
     void OnControllerColliderHit(ControllerColliderHit collision)
     {
         moveDirection = Vector3.zero;
+
         if (collision.gameObject.CompareTag("Bounce"))
         {
-            AudioSource.PlayClipAtPoint(clip, gameObject.transform.position);
+			Debug.Log ("thing");
+            //AudioSource.PlayClipAtPoint(clip, gameObject.transform.position);
             bounce = true;
         }
     }
