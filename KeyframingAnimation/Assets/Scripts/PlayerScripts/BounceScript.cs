@@ -6,8 +6,10 @@ public class BounceScript : MonoBehaviour
     public AudioClip clip;
     public float jumpSpeed;
     public float gravity;
+	public float lateral;
     private bool bounce;
     private Vector3 moveDirection = Vector3.zero;
+	private Transform pad;
 
     void Start()
     {
@@ -18,10 +20,11 @@ public class BounceScript : MonoBehaviour
         CharacterController controller = GetComponent<CharacterController>();
         if (bounce)
         {
-            moveDirection = Vector3.zero;
-            moveDirection.y = jumpSpeed;
+			moveDirection = pad.up;
+			moveDirection.x *= lateral;
+			moveDirection.z *= lateral;
+            moveDirection.y = jumpSpeed*moveDirection.y;
             bounce = false;
-            Debug.Log("fart");
         }
         moveDirection.y -= gravity * Time.deltaTime;
         if (moveDirection.y <= 0)
@@ -36,6 +39,7 @@ public class BounceScript : MonoBehaviour
         if (collision.gameObject.CompareTag("Bounce"))
         {
 			Debug.Log ("thing");
+			pad = collision.gameObject.transform;
             //AudioSource.PlayClipAtPoint(clip, gameObject.transform.position);
             bounce = true;
         }
