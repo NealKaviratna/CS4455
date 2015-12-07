@@ -42,6 +42,10 @@ public class DoorOpen : MonoBehaviour
         }
     }
 
+	public void SetPosition(float f) {
+		endPosition = new Vector3(startPosition.x, startPosition.y + f, startPosition.z);
+	}
+
     public void SetTriggered()
     {
         this.triggered = !triggered;
