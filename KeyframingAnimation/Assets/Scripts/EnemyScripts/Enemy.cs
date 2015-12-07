@@ -57,8 +57,10 @@ public class Enemy : MonoBehaviour {
         {
             if (IsAlive)
             {
-				scoreManage.addScore(killValue);
-                die();
+				if (scoreManage != null)
+					scoreManage.addScore(killValue);
+				if (anim != null)
+	                die();
                 Debug.Log("dead");
             }
         }
@@ -66,9 +68,9 @@ public class Enemy : MonoBehaviour {
         {
             if (hitSound) audio_s.PlayOneShot(hitSound, .7f);
             Debug.Log("Hit " + IsAlive);
-            anim.SetTrigger("TakeHit");
+			if (anim != null)
+	            anim.SetTrigger("TakeHit");
         }
-
 		StatusHUD.Enemy = this;
     }
 

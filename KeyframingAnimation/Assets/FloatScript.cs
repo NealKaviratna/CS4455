@@ -26,7 +26,7 @@ public class FloatScript : MonoBehaviour {
 
     void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.CompareTag("Untagged"))
+		if (other.gameObject.CompareTag("Untagged") || other.gameObject.CompareTag("Ice"))
         {
             floating = true;
         }
