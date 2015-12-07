@@ -35,6 +35,7 @@ public class Enemy : MonoBehaviour {
     public ParticleSystem smoke;
 
     public AudioClip hitSound;
+	public AudioClip dieSound;
     private AudioSource audio_s;
 
 	// Use this for initialization
@@ -77,7 +78,7 @@ public class Enemy : MonoBehaviour {
     public void die()
     {
 		if (IsAlive) {
-
+			audio_s.PlayOneShot(dieSound, .5f);
 			HP = 0f;
 			this.IsAlive = false;
 			if (sparks != null)

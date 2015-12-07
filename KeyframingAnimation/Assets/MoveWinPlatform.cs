@@ -5,6 +5,7 @@ public class MoveWinPlatform : MonoBehaviour {
 
     public Transform target_pos;
     public float speed;
+	public GameObject boss;
 
 	// Use this for initialization
 	void Start () {
@@ -13,6 +14,6 @@ public class MoveWinPlatform : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        transform.position = Vector3.Lerp(transform.position, target_pos.position, speed * Time.deltaTime);
+        if (!boss) transform.position = Vector3.Lerp(transform.position, target_pos.position, speed * Time.deltaTime);
 	}
 }

@@ -9,7 +9,7 @@ public class GUIHandler : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+		source.volume = .05f;
 	}
 	
 	// Update is called once per frame

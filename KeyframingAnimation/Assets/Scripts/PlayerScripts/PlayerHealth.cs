@@ -9,28 +9,37 @@ public class PlayerHealth : MonoBehaviour {
     public Slider healthSlider;
     private Animator animator;
 
+	private float oldHealth;
+	private float newHealth;
+
 	public GameObject healthPart;
 
 	// Use this for initialization
 	void Start () {
         animator = GetComponent<Animator>();
+		oldHealth = health;
+		newHealth = health;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+		oldHealth = health;
 	}
 
     public void takeHit(float damage)
     {
-        health -= damage;
-        if (health <= 0)
-        {
-            if (isAlive) die();
-        }
-        else animator.SetTrigger("TakeHit");
-        if (health <= 0) healthSlider.value = 0;
-        else healthSlider.value = health;
+		if (oldHealth - newHealth < 50f) {
+			health -= damage;
+			newHealth = health;
+			if (health <= 0) {
+				if (isAlive)
+					die ();
+			} else animator.SetTrigger ("TakeHit");
+			if (health <= 0)
+				healthSlider.value = 0;
+			else
+				healthSlider.value = health;
+		}
     }
 
     public void getHealth(float h)

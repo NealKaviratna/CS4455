@@ -7,6 +7,8 @@ public class DoorButtonScript : MonoBehaviour {
     private bool open = false;
     //public SmoothAnimScript inputControl;
     public DoorOpen door;
+	public AudioClip button_sound;
+	private AudioSource a_source;
     private Light buttonLight;
 
     private Color RED;
@@ -14,6 +16,7 @@ public class DoorButtonScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		a_source = GetComponent<AudioSource> ();
         buttonLight = GetComponent<Light>();
         RED = new Color(255, 0, 0);
         GREEN = new Color(0, 255, 0);
@@ -27,8 +30,9 @@ public class DoorButtonScript : MonoBehaviour {
         }*/
         if (inRange)
         {
-            if (Input.GetKeyDown(KeyCode.G))
+            if (Input.GetKeyDown(KeyCode.G) || Input.GetKeyDown(KeyCode.JoystickButton1))
             {
+				a_source.PlayOneShot(button_sound, .5f);
                 open = !open;
                 if (!door.isBroken) buttonLight.color = open ? GREEN : RED;
                 door.SetTriggered();
