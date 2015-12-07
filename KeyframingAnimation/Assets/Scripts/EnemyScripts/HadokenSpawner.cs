@@ -16,6 +16,8 @@ public class HadokenSpawner : MonoBehaviour {
 	public Transform heroLoc;
 	public Animator heroAnim;
 	public Transform shooterLoc;
+	
+	public AudioClip hadouken;
 	// Use this for initialization
 	void Start () {
 		//Spawn ();
@@ -23,6 +25,8 @@ public class HadokenSpawner : MonoBehaviour {
 	
 	// Update is called once per frame
 	public void Spawn() {
+        Debug.Log("SPAWN");
+		AudioSource.PlayClipAtPoint (hadouken, transform.position);
 		GameObject hado = (GameObject)Instantiate(enemy, spawnPoint.position, spawnPoint.rotation);
 		ProjectileScript hados = hado.GetComponent<ProjectileScript> ();
 		hados.heroLoc = heroLoc;

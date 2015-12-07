@@ -87,7 +87,7 @@ public class Mine : MonoBehaviour {
 
 	void OnCollisionEnter(Collision coll) {
 
-		if (coll.collider.GetComponentInParent<LookAtMouse>()) detonate = true;
+		if (coll.collider.GetComponentInParent<SmoothAnimScript>() != null || coll.collider.GetComponentInParent<HadoukenHandler>() != null) detonate = true;
 
 		else if(coll.collider.GetComponentInChildren<SuicideBot>()) {
 			this.GetComponent<Rigidbody>().useGravity = false;

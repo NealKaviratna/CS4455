@@ -7,6 +7,9 @@ public class EnergyPackScript : MonoBehaviour {
 	private bool taken;
 	SmoothAnimScript smooth;
 
+	public PlayerAudio a_source;
+	public AudioClip pickup;
+
 	public GameObject player;
 	public PlayerHealth playerHealth;
 	public int health = 1;
@@ -25,6 +28,7 @@ public class EnergyPackScript : MonoBehaviour {
 		{
 			if (!taken)
 			{
+				a_source.PlaySoundClip(pickup);
 				taken = true;
 				giveEnergy();
 			}

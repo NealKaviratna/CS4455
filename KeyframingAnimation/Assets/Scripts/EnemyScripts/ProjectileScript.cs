@@ -29,23 +29,23 @@ public class ProjectileScript : MonoBehaviour {
 		float dist = Vector3.Distance (shooterLoc.position, heroLoc.position);
 		Vector3 dest = heroLoc.position + heroLoc.forward * heroAnim.GetFloat ("VertSpeed") * destScale * dist;
 		dir = (dest-shooterLoc.position)/(Vector3.Distance(dest,shooterLoc.position))*speedScale;
-		//dir.y = 0;
-
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		myTrans.position = myTrans.position + dir;
+		myTrans.position = myTrans.position + dir*Time.deltaTime*60;
 	}
 
 	void OnCollisionEnter (Collision coll)
 	{
         GameObject other = coll.gameObject;
-        PlayerHealth player = other.GetComponent<PlayerHealth>();
-        if (player != null)
-        {
-            player.takeHit(50f);
-        }
-        Destroy(this.gameObject);
+        PlayerHealth player = other.GetComponentInParent<PlayerHealth>();
+        if (player != null) {
+			Debug.Log ("PlayerHit");
+			player.takeHit (50f);
+			Destroy (this.gameObject);
+		} else if (other.tag != "Enemy") {
+			Destroy (this.gameObject);
+		}
     }
 }

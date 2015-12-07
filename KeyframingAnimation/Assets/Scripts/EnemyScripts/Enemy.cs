@@ -15,12 +15,16 @@ public class Enemy : MonoBehaviour {
 
     Animator anim;
 
-	public string name;
+	public string e_name;
 
 	public float HP;
 	public float MaxHP;
 
-	public float Attack;
+	public int killValue;
+
+	public ScoreManager scoreManage;
+
+	private float Attack;
 	public bool IsAlive;
     public bool Hit;
 
@@ -30,10 +34,15 @@ public class Enemy : MonoBehaviour {
     public ParticleSystem sparks;
     public ParticleSystem smoke;
 
+    public AudioClip hitSound;
+	public AudioClip dieSound;
+    private AudioSource audio_s;
+
 	// Use this for initialization
 	void Start () {
         IsAlive = true;
         anim = this.GetComponent<Animator>();
+        audio_s = GetComponent<AudioSource>();
         Hit = false;
 		MaxHP = HP;
         if (sparks != null) sparks.enableEmission = false;
@@ -49,29 +58,33 @@ public class Enemy : MonoBehaviour {
         {
             if (IsAlive)
             {
-                die();
+				if (scoreManage != null)
+					scoreManage.addScore(killValue);
+				if (anim != null)
+	                die();
                 Debug.Log("dead");
             }
         }
         else
         {
+            if (hitSound) audio_s.PlayOneShot(hitSound, .7f);
             Debug.Log("Hit " + IsAlive);
-            anim.SetTrigger("TakeHit");
+			if (anim != null)
+	            anim.SetTrigger("TakeHit");
         }
-
 		StatusHUD.Enemy = this;
     }
 
-    void die()
+    public void die()
     {
-        this.IsAlive = false;
-        if (sparks != null) sparks.enableEmission = true;
-        anim.SetTrigger("Death");
-        Destroy(gameObject, 3f);
+		if (IsAlive) {
+			if (dieSound != null && audio_s)audio_s.PlayOneShot(dieSound, .5f);
+			HP = 0f;
+			this.IsAlive = false;
+			if (sparks != null)
+				sparks.enableEmission = true;
+			anim.SetTrigger ("Death");
+			Destroy (gameObject, 3f);
+		}
     }
-
-	void SendToPool() {
-        this.transform.position = new Vector3(1000, 1000, 1000);
-        this.gameObject.SetActive(false);
-	}
 }

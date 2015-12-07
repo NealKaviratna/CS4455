@@ -17,16 +17,24 @@ public class SmoothAnimScript : MonoBehaviour {
 	//private CapsuleCollider capCollider;
     private CharacterController charController;
 	private SphereCollider sphereCollider;
-	private Rigidbody rigidBody;
+	//private Rigidbody rigidBody;
 	//private AnimatorStateInfo currentState;
     private LookAtMouse lookAtMouse;
 
     public Slider energySlider;
-    public float energy;
+	public float energy;
+	
+	public Transform cameraOrientation;
 
     private bool crouched = false;
     private bool isMoving = false;
+    //private bool doorNearby = false;
     private ParticleSystem ps;
+	private bool inAir;
+
+	private PlayerHealth ph;
+
+	public bool IsSettingViaScript;
 
     //static int roll = Animator.StringToHash("Base Layer.Roll");
 
@@ -34,15 +42,17 @@ public class SmoothAnimScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		ph = GetComponent<PlayerHealth> ();
 		animator = GetComponent<Animator> ();
 //		capCollider = GetComponent<CapsuleCollider> ();
 //		sphereCollider = GetComponent<SphereCollider> ();
-		rigidBody = GetComponent<Rigidbody> ();
+		//rigidBody = GetComponent<Rigidbody> ();
         charController = GetComponent<CharacterController>();
         lookAtMouse = GetComponent<LookAtMouse>();
         //ps = GetComponentInChildren<ParticleSystem>();
         //ps.enableEmission = false;
 
+		IsSettingViaScript = false;
     }
 	
 	// Update is called once per frame
@@ -78,14 +88,19 @@ public class SmoothAnimScript : MonoBehaviour {
         {
             animator.SetBool("Jump", false);
         }
+		if (Input.GetAxis("LeftTrigger") > 0.2 && Input.GetAxis("RightTrigger") < 0.1) {
+			animator.SetFloat("Speed", 1-Input.GetAxis("LeftTrigger"));
+		}
+		else {
+			animator.SetBool("Walk", false);
+		}
 		if (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.JoystickButton4))//(Input.GetAxis("LeftTrigger") > 0.3f&&Input.GetAxis("RightTrigger") > 0.3f&&!animator.GetBool("Hadouken")))
 		{
 			Debug.Log(energy);
             Debug.Log(animator.GetCurrentAnimatorStateInfo(0).tagHash);
-            if (energy >= 20 && !animator.GetCurrentAnimatorStateInfo(0).IsTag("Hado"))
+            if (ph.GetEnergy() >= 20 && !animator.GetCurrentAnimatorStateInfo(0).IsTag("Hado"))
             {
                 animator.SetBool("Hadouken", true);
-                energy -= 20f;
                 //ps.enableEmission = true;
                 //energySlider.value = energy;
             }
@@ -95,45 +110,62 @@ public class SmoothAnimScript : MonoBehaviour {
 			animator.SetBool("Hadouken", false);
             //ps.enableEmission = false;
         }
-
-        // Temporary code for ragdoll testing
-        if (Input.GetKeyDown("r"))
-        {
-            animator.enabled = !animator.enabled;
-            lookAtMouse.enabled = !lookAtMouse.enabled;
-        }
-        energy += Time.deltaTime*2;
-        if (energy > 100) energy = 100;
-        if (energySlider) energySlider.value = energy;
+        
+        if (energySlider) energySlider.value = ph.GetEnergy();
+		SetAir ();
     }
 
 	void FixedUpdate() {
-		float horizontalAxis = Input.GetAxis ("Horizontal");
-		float verticalAxis = Input.GetAxis ("Vertical");
-		if (animator.enabled) {
-			animator.SetFloat ("VertSpeed", verticalAxis);
-			animator.SetFloat ("HorizSpeed", horizontalAxis);
+		Vector3 playerDir = Vector3.ProjectOnPlane(this.transform.forward, Vector3.up);
+		Vector3 cameraDir = Vector3.ProjectOnPlane(cameraOrientation.forward, Vector3.up);
+
+		Vector3 inputDir = new Vector3(Input.GetAxis ("Horizontal"), 0, Input.GetAxis ("Vertical"));
+
+		float playerAngle = AngleSigned(playerDir, cameraDir, Vector3.up);
+
+		Vector3 adjustedInput = Quaternion.Euler(0, playerAngle, 0) * inputDir;
+
+		if (animator.enabled && !IsSettingViaScript) {
+			animator.SetFloat ("VertSpeed", adjustedInput.z);
+			animator.SetFloat ("HorizSpeed", adjustedInput.x);
+			animator.SetFloat("Speed", Mathf.Abs(adjustedInput.x) + Mathf.Abs(adjustedInput.z));
+			if (ph.energy > 10)animator.SetFloat("SpeedFactor", Mathf.Lerp(1.0f, 1.4f, Input.GetAxis("RightTrigger")));
+		}
+		if (Input.GetAxis("RightTrigger") > 0 && ph.energy > 10) {
+			ph.energy -= Input.GetAxis("RightTrigger") * 0.1f;
 		}
         //Debug.Log ("V: " + verticalAxis + " H: " + horizontalAxis);
+//
+//        if (verticalAxis > 0.1f || verticalAxis < -0.1f)
+//        {
+//            if (animator.enabled) animator.SetBool("Moving", true);
+//            isMoving = true;
+//        }
+//        else
+//        {
+//            if (animator.enabled) animator.SetBool("Moving", false);
+//            isMoving = false;
+//        }
+	}
 
-        if (verticalAxis > 0.1f || verticalAxis < -0.1f)
-        {
-            if (animator.enabled) animator.SetBool("Moving", true);
-            isMoving = true;
-        }
-        else
-        {
-            if (animator.enabled) animator.SetBool("Moving", false);
-            isMoving = false;
-        }
+	public void LookAtTarget(Transform target) {
+		Vector3 playerToTarget = target.position - transform.position;
+		Vector3 playerForward = transform.forward;
 
-        /*if (currentState.fullPathHash == roll)
-        {
-            if (!animator.IsInTransition(0))
-            {
-                charController.height = animator.GetFloat("ColliderHeight");
-            }
-        }*/
+		float angle = AngleSigned(playerToTarget, playerForward, Vector3.up);
+		float turn = 0.0f;
+
+		if ( angle < -15)
+			turn = 0.5f;
+		else if (angle > 15)
+			turn = -0.5f;
+		
+		if (animator.enabled) {
+			animator.SetFloat ("VertSpeed", 0);
+			animator.SetFloat ("HorizSpeed", 0);
+			animator.SetFloat ("HorizSpeed", turn);
+			IsSettingViaScript = true;
+		}
 	}
 
     public bool GetMoving()
@@ -166,9 +198,45 @@ public class SmoothAnimScript : MonoBehaviour {
         }
     }
 
+    //public void SetDoorNearby(bool b)
+    //{
+     //   this.doorNearby = b;
+    //}
+
 	void CheckState() {
 		string thisState = "";
 //		if (currentState.nameHash == idle)
 		Debug.Log ("State = " + thisState);
+	}
+
+	public static float AngleSigned(Vector3 v1, Vector3 v2, Vector3 n)
+	{
+		return Mathf.Atan2(
+			Vector3.Dot(n, Vector3.Cross(v1, v2)),
+			Vector3.Dot(v1, v2)) * Mathf.Rad2Deg;
+	}
+
+	void SetAir()
+	{
+		Ray r = new Ray(transform.position + Vector3.up, Vector3.down);
+		//Ray r2 = new Ray (transform.position + Vector3.up + Vector3.forward, Vector3.down);
+		//Ray r3 = new Ray (transform.position + Vector3.up - Vector3.forward, Vector3.down);
+		RaycastHit rh = new RaycastHit();
+		if (Physics.Raycast (r, out rh, 100f, 1)) {
+			Debug.Log (rh.distance);
+			if (rh.distance > 1.3f) {
+				inAir = true;
+			} else {
+				inAir = false;
+			}
+		} else {
+			inAir = true;
+			Debug.Log ("");
+		}
+		//if (Physics.Raycast (r2, 1.5f) || Physics.Raycast (r3, 1.5f)) {
+		//	inAir = false;
+		//}
+
+		animator.SetBool ("InAir", inAir);
 	}
 }

@@ -19,8 +19,8 @@ public class MouseOrbitImproved : MonoBehaviour
 
     public float distanceMin = .5f;
     public float distanceMax = 15f;
-
-    private Rigidbody rigidbody;
+	
+    private Rigidbody rigidbodyReference;
 
     float x = 0.0f;
     float y = 0.0f;
@@ -32,12 +32,12 @@ public class MouseOrbitImproved : MonoBehaviour
         x = angles.y;
         y = angles.x;
 
-        rigidbody = GetComponent<Rigidbody>();
+        rigidbodyReference = GetComponent<Rigidbody>();
 
         // Make the rigid body not change rotation
-        if (rigidbody != null)
+        if (rigidbodyReference != null)
         {
-            rigidbody.freezeRotation = true;
+            rigidbodyReference.freezeRotation = true;
         }
     }
 

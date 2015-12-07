@@ -3,14 +3,12 @@ using System.Collections;
 
 public class FloatScript : MonoBehaviour {
 
-    public CharacterController playerController;
-    public Rigidbody playerRigidBody;
-    private float movementSpeed;
-    private bool floating;
+    public float movementSpeed;
+    public bool floating;
 
 	// Use this for initialization
 	void Start () {
-        movementSpeed = 0.1f;
+        movementSpeed = 0f;
         floating = false;
 	}
 	
@@ -26,7 +24,7 @@ public class FloatScript : MonoBehaviour {
 
     void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.CompareTag("Untagged"))
+		if (other.gameObject.CompareTag("Untagged") || other.gameObject.CompareTag("Ice"))
         {
             floating = true;
         }

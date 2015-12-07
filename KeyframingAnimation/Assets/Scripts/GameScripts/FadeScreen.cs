@@ -7,7 +7,8 @@ public class FadeScreen : MonoBehaviour {
 	//public Texture2D fadeScreen;
 	public float speed = 0.0f;
     public Image overlay;
-    public AudioSource audio;
+    public AudioSource MyAudio;
+	public bool fadeAudio = true;
     private bool startScene = true;
     private bool exitScene = false;
     private int level;
@@ -59,13 +60,13 @@ public class FadeScreen : MonoBehaviour {
     void FadeIn()
     {
         overlay.color = Color.Lerp(overlay.color, Color.clear, speed * Time.deltaTime);
-        audio.volume = Mathf.Lerp(audio.volume, 1f, Time.deltaTime*speed);
+        if (fadeAudio) MyAudio.volume = Mathf.Lerp(MyAudio.volume, 1f, Time.deltaTime*speed);
     }
 
     void FadeOut()
     {
         overlay.color = Color.Lerp(overlay.color, Color.black, speed * Time.deltaTime);
-        audio.volume = Mathf.Lerp(audio.volume, 0f, Time.deltaTime * speed);
+        if (fadeAudio) MyAudio.volume = Mathf.Lerp(MyAudio.volume, 0f, Time.deltaTime * speed);
     }
 
     void BeginScene()
