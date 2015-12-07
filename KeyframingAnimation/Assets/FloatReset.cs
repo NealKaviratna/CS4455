@@ -5,6 +5,7 @@ public class FloatReset : MonoBehaviour {
 
     public GameObject lift;
     public Transform liftRespawn;
+	public FloatScript floatScript;
 	// Use this for initialization
 	void Start () {
 	}
@@ -22,7 +23,10 @@ public class FloatReset : MonoBehaviour {
 
     void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Player")
-            lift.transform.position = liftRespawn.position;
+        if (other.gameObject.tag == "Player") {
+			floatScript.floating = false;
+			floatScript.movementSpeed = 0f;
+			lift.transform.position = liftRespawn.position;
+		}
     }
 }

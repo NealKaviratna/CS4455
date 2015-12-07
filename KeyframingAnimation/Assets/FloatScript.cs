@@ -3,14 +3,12 @@ using System.Collections;
 
 public class FloatScript : MonoBehaviour {
 
-    public CharacterController playerController;
-    public Rigidbody playerRigidBody;
-    private float movementSpeed;
-    private bool floating;
+    public float movementSpeed;
+    public bool floating;
 
 	// Use this for initialization
 	void Start () {
-        movementSpeed = -0.8f;
+        movementSpeed = 0f;
         floating = false;
 	}
 	
