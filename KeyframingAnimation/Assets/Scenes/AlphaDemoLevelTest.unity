@@ -25,7 +25,7 @@ RenderSettings:
   m_AmbientGroundColor: {r: .0469999984, g: .0430000015, b: .0350000001, a: 1}
   m_AmbientIntensity: 0
   m_AmbientMode: 0
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: e980bc7fbb00dc34b86b95ac842d1920, type: 2}
   m_HaloStrength: .5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -396,6 +396,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menu: {fileID: 15465982}
   fader: {fileID: 1309217251}
+  focus: {fileID: 0}
 --- !u!1001 &56174429
 Prefab:
   m_ObjectHideFlags: 0
@@ -4052,7 +4053,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 401880905}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 49.3210144, y: -4.21000004, z: 39.8899994}
+  m_LocalPosition: {x: 49.8800011, y: -1.98000002, z: 36.3899994}
   m_LocalScale: {x: .300000012, y: .300000012, z: .5}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5241,6 +5242,10 @@ Prefab:
       propertyPath: m_LocalPosition.z
       value: -10.7700005
       objectReference: {fileID: 0}
+    - target: {fileID: 11489442, guid: 46b31cf4dd16f3440b90518813d7a556, type: 2}
+      propertyPath: sound_play
+      value: 
+      objectReference: {fileID: 8300000, guid: b314b4c3bb6fe4b4194f498b4e2ede0d, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 46b31cf4dd16f3440b90518813d7a556, type: 2}
   m_IsPrefabParent: 0
@@ -7264,7 +7269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9d07362be1227b4b83999fe8f34a8ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Hadouken Guy
+  e_name: 
   HP: 50
   MaxHP: 0
   killValue: 250
@@ -13909,27 +13914,27 @@ Prefab:
       objectReference: {fileID: 210886957}
     - target: {fileID: 22485046, guid: 75695783b0818e64a891e2da1c5216b4, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22485046, guid: 75695783b0818e64a891e2da1c5216b4, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22430026, guid: 75695783b0818e64a891e2da1c5216b4, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22430026, guid: 75695783b0818e64a891e2da1c5216b4, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22426332, guid: 75695783b0818e64a891e2da1c5216b4, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22426332, guid: 75695783b0818e64a891e2da1c5216b4, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22463102, guid: 75695783b0818e64a891e2da1c5216b4, type: 2}
       propertyPath: m_AnchorMax.x
@@ -16445,6 +16450,8 @@ MonoBehaviour:
   killed: {fileID: 1963055059}
   sm: {fileID: 2022650876}
   menu: {fileID: 481723676}
+  fs: {fileID: 1309217251}
+  focused_b: {fileID: 1996584318}
 --- !u!1 &1286313521 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 168920, guid: 46b31cf4dd16f3440b90518813d7a556, type: 2}
@@ -17498,8 +17505,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1309217251}
-        m_MethodName: SwitchScene
+      - m_Target: {fileID: 1281571871}
+        m_MethodName: NextLevel
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -19743,7 +19750,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1650596672
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19778,6 +19785,8 @@ MonoBehaviour:
   mouseLook: {fileID: 210886962}
   fader: {fileID: 1309217251}
   menu: {fileID: 786844159}
+  pause: {fileID: 0}
+  focus: {fileID: 0}
 --- !u!114 &1650596674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21368,7 +21377,7 @@ MeshCollider:
   m_GameObject: {fileID: 1683365784}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Convex: 0
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
@@ -26143,13 +26152,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1309217251}
-        m_MethodName: SwitchScene
+      - m_Target: {fileID: 1281571871}
+        m_MethodName: NextLevel
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0

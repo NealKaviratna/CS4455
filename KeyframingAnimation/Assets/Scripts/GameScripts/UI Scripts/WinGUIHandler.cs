@@ -35,6 +35,7 @@ public class WinGUIHandler : MonoBehaviour {
 
 	public void NextLevel(int level) {
 		menu.SetActive (false);
+		Time.timeScale = 1;
 		fs.SwitchScene (level);
 	}
 }
