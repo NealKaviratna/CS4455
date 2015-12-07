@@ -138,6 +138,9 @@ public class SmoothAnimScript : MonoBehaviour {
 			animator.SetFloat("Speed", Mathf.Abs(adjustedInput.x) + Mathf.Abs(adjustedInput.z));
 			animator.SetFloat("SpeedFactor", Mathf.Lerp(1.0f, 1.4f, Input.GetAxis("RightTrigger")));
 		}
+		if (Input.GetAxis("RightTrigger") > 0) {
+			ph.energy -= Input.GetAxis("RightTrigger") * 0.1f;
+		}
         //Debug.Log ("V: " + verticalAxis + " H: " + horizontalAxis);
 //
 //        if (verticalAxis > 0.1f || verticalAxis < -0.1f)

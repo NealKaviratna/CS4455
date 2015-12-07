@@ -31,7 +31,7 @@ public class GameOver : MonoBehaviour {
             if (mouseLook) mouseLook.enabled = false;
             if (menu) menu.SetActive(true);
 			EventSystem.current.SetSelectedGameObject (null);
-			focus.Select ();
+			if (focus) focus.Select ();
 			pause.gameObject.SetActive(false);
         }
 

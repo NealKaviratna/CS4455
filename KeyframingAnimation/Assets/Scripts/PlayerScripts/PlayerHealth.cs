@@ -12,7 +12,7 @@ public class PlayerHealth : MonoBehaviour {
 	private float oldHealth;
 	private float newHealth;
 
-	private float energy;
+	public float energy;
 
 	public GameObject healthPart;
 
