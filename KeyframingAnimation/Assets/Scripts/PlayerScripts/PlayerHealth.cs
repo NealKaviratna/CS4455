@@ -12,6 +12,8 @@ public class PlayerHealth : MonoBehaviour {
 	private float oldHealth;
 	private float newHealth;
 
+	private float energy;
+
 	public GameObject healthPart;
 
 	// Use this for initialization
@@ -19,11 +21,14 @@ public class PlayerHealth : MonoBehaviour {
         animator = GetComponent<Animator>();
 		oldHealth = health;
 		newHealth = health;
+		energy = 100f;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		oldHealth = health;
+		energy += Time.deltaTime*2;
+		if (energy > 100) energy = 100;
 	}
 
     public void takeHit(float damage)
@@ -55,6 +60,14 @@ public class PlayerHealth : MonoBehaviour {
 			hp.transform.parent = this.transform;
 		}
     }
+
+	public float GetEnergy() {
+		return energy;
+	}
+
+	public void UseEnergy(float e) {
+		energy -= e;
+	}
 
     public void die()
     {
