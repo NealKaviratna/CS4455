@@ -84,8 +84,8 @@ public class SmoothAnimScript : MonoBehaviour {
         {
             animator.SetBool("Jump", false);
         }
-		if (Input.GetAxis("LeftTrigger") > 0.2) {
-			animator.SetBool("Walk", true);
+		if (Input.GetAxis("LeftTrigger") > 0.2 && Input.GetAxis("RightTrigger") < 0.1) {
+			animator.SetFloat("Speed", 1-Input.GetAxis("LeftTrigger"));
 		}
 		else {
 			animator.SetBool("Walk", false);
