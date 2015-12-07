@@ -36,6 +36,7 @@ public class ControllerCameraTargetBehavoiur : MonoBehaviour {
 		xPivotPoint = transform.parent;
 		yPivotPoint = xPivotPoint.parent;
 		XRot = yPivotPoint.eulerAngles.x;
+		XRot = 12;
 		temp = Vector3.zero;
 
 		PotentialZTargets = new List<GameObject>();
@@ -45,6 +46,12 @@ public class ControllerCameraTargetBehavoiur : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+		RaycastHit hit;
+		if (Physics.Raycast(transform.position, playerTrans.position - transform.position , out hit, 100) && hit.collider.gameObject.GetComponentInParent<SmoothAnimScript>() == null) {
+			if (hit.collider.gameObject.GetComponent<XRayBehaviour>() == null)
+				hit.collider.gameObject.AddComponent<XRayBehaviour>();
+		}
+
 		if (!Zlocked) {
 			NormalCameraUpdate();
 			ZTargetUpdate();
@@ -106,12 +113,14 @@ public class ControllerCameraTargetBehavoiur : MonoBehaviour {
 		if (ZTarget != null) ZTarget.transform.GetChild(0).gameObject.SetActive(false);
 		ZTarget = null;
 		foreach (GameObject zT in PotentialZTargets) {
-			float dist = Vector3.Distance(yPivotPoint.position, zT.transform.position);
+			if (zT != null) {
+				float dist = Vector3.Distance(yPivotPoint.position, zT.transform.position);
 
-			RaycastHit hit;
-			if (dist < minDistance && Physics.Raycast(transform.position, zT.transform.position -transform.position , out hit, 100, 1) && hit.collider.gameObject.GetComponentInParent<Enemy>() != null && hit.collider.gameObject.GetComponentInParent<Enemy>().gameObject == zT) {
-				minDistance = dist;
-				ZTarget = zT;
+				RaycastHit hit;
+				if (dist < minDistance && Physics.Raycast(transform.position, zT.transform.position -transform.position , out hit, 100, 1) && hit.collider.gameObject.GetComponentInParent<Enemy>() != null && hit.collider.gameObject.GetComponentInParent<Enemy>().gameObject == zT) {
+					minDistance = dist;
+					ZTarget = zT;
+				}
 			}
 		}
 		if (ZTarget != null) ZTarget.transform.GetChild(0).gameObject.SetActive(true);
