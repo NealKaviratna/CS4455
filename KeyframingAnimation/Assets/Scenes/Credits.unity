@@ -253,6 +253,14 @@ MonoBehaviour:
 
     Jeremiah van Oosten
 
+    Hedgehog Team
+
+
+
+    Scripts:
+
+    Unity
+
 '
 --- !u!222 &157527816
 CanvasRenderer:
@@ -2261,6 +2269,7 @@ MonoBehaviour:
   speed: .5
   overlay: {fileID: 0}
   MyAudio: {fileID: 0}
+  fadeAudio: 1
 --- !u!4 &1489762252
 Transform:
   m_ObjectHideFlags: 0
