@@ -15,6 +15,7 @@ TagManager:
   - Bounce
   - Gravel
   - Wall
+  - Unwalkable
   layers:
   - Default
   - TransparentFX

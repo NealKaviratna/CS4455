@@ -9,6 +9,7 @@ public class GameOver : MonoBehaviour {
     public LookAtMouse mouseLook;
     public FadeScreen fader;
     public GameObject menu;
+	public PauseGame pause;
 
     private bool isDead;
 
@@ -43,9 +44,16 @@ public class GameOver : MonoBehaviour {
         }
 	}
 
+	public void ReturnToMain() {
+		menu.SetActive (false);
+		pause.ReturnToMain ();
+	}
+
     public void RestartLevel(int level)
     {
-        fader.SetStart(false);
-        fader.SwitchScene(level);
+		menu.SetActive (false);
+		pause.RestartLevel (level);
+        //fader.SetStart(false);
+        //fader.SwitchScene(level);
     }
 }

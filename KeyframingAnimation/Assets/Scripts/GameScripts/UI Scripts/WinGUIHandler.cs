@@ -9,6 +9,7 @@ public class WinGUIHandler : MonoBehaviour {
     public Text killed;
     public ScoreManager sm;
     public GameObject menu;
+	public FadeScreen fs;
 
 	// Use this for initialization
 	void Start () {
@@ -27,4 +28,9 @@ public class WinGUIHandler : MonoBehaviour {
         score.text = "Score: " + sm.getScore();
         killed.text = "Enemies Killed: " + sm.getKilled();
     }
+
+	public void NextLevel(int level) {
+		menu.SetActive (false);
+		fs.SwitchScene (level);
+	}
 }
