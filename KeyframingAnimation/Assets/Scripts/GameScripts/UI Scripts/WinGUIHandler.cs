@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.EventSystems;
 
 public class WinGUIHandler : MonoBehaviour {
 
@@ -10,6 +11,7 @@ public class WinGUIHandler : MonoBehaviour {
     public ScoreManager sm;
     public GameObject menu;
 	public FadeScreen fs;
+	public Button focused_b;
 
 	// Use this for initialization
 	void Start () {
@@ -25,6 +27,8 @@ public class WinGUIHandler : MonoBehaviour {
     {
         Time.timeScale = 0;
         menu.SetActive(true);
+		EventSystem.current.SetSelectedGameObject (null);
+		focused_b.Select ();
         score.text = "Score: " + sm.getScore();
         killed.text = "Enemies Killed: " + sm.getKilled();
     }

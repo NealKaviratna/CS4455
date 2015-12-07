@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.EventSystems;
 
 public class GameOver : MonoBehaviour {
 
@@ -10,6 +11,7 @@ public class GameOver : MonoBehaviour {
     public FadeScreen fader;
     public GameObject menu;
 	public PauseGame pause;
+	public Button focus;
 
     private bool isDead;
 
@@ -28,6 +30,9 @@ public class GameOver : MonoBehaviour {
             if (inputControl) inputControl.enabled = false;
             if (mouseLook) mouseLook.enabled = false;
             if (menu) menu.SetActive(true);
+			EventSystem.current.SetSelectedGameObject (null);
+			focus.Select ();
+			pause.gameObject.SetActive(false);
         }
 
 

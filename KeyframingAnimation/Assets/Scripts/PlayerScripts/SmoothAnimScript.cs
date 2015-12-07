@@ -30,6 +30,7 @@ public class SmoothAnimScript : MonoBehaviour {
     private bool isMoving = false;
     private bool doorNearby = false;
     private ParticleSystem ps;
+	private bool inAir;
 
 	private PlayerHealth ph;
 
@@ -118,6 +119,7 @@ public class SmoothAnimScript : MonoBehaviour {
         }
         
         if (energySlider) energySlider.value = ph.GetEnergy();
+		SetAir ();
     }
 
 	void FixedUpdate() {
@@ -216,5 +218,23 @@ public class SmoothAnimScript : MonoBehaviour {
 		return Mathf.Atan2(
 			Vector3.Dot(n, Vector3.Cross(v1, v2)),
 			Vector3.Dot(v1, v2)) * Mathf.Rad2Deg;
+	}
+
+	void SetAir()
+	{
+		Ray r = new Ray(transform.position + Vector3.up, Vector3.down);
+		RaycastHit rh = new RaycastHit();
+		if (Physics.Raycast (r, out rh, 100f, 1)) {
+			Debug.Log (rh.distance);
+			if (rh.distance > 1.3f) {
+				inAir = true;
+			} else {
+				inAir = false;
+			}
+		} else {
+			inAir = true;
+			Debug.Log ("");
+		}
+		animator.SetBool ("InAir", inAir);
 	}
 }

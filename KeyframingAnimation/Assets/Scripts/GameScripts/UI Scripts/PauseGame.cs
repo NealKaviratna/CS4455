@@ -1,12 +1,14 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.EventSystems;
 //using UnityEditor;
 
 public class PauseGame : MonoBehaviour {
 
     public GameObject menu;
     public FadeScreen fader;
+	public Button focus;
     private bool enable = false;
 
 	// Use this for initialization
@@ -27,6 +29,8 @@ public class PauseGame : MonoBehaviour {
     public void Pause()
     {
         Time.timeScale = Time.timeScale == 0 ? 1 : 0;
+		EventSystem.current.SetSelectedGameObject (null);
+		focus.Select ();
     }
 
     public void UnPause()

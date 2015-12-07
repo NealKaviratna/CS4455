@@ -2506,7 +2506,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 101324, guid: 8a7bc8aa90bda3b4896874e461c7db00, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8a7bc8aa90bda3b4896874e461c7db00, type: 2}
@@ -7212,6 +7212,7 @@ MonoBehaviour:
   sm: {fileID: 366640661}
   menu: {fileID: 29804713}
   fs: {fileID: 923667238}
+  focused_b: {fileID: 1941370765}
 --- !u!114 &774034516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9171,6 +9172,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menu: {fileID: 3705208}
   fader: {fileID: 923667238}
+  focus: {fileID: 1531423143}
 --- !u!224 &1003495351
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10426,7 +10428,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 466772, guid: 46b31cf4dd16f3440b90518813d7a556, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 38.5200005
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 466772, guid: 46b31cf4dd16f3440b90518813d7a556, type: 2}
       propertyPath: m_LocalPosition.y
@@ -10434,7 +10436,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 466772, guid: 46b31cf4dd16f3440b90518813d7a556, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 154.020004
+      value: 129
       objectReference: {fileID: 0}
     - target: {fileID: 466772, guid: 46b31cf4dd16f3440b90518813d7a556, type: 2}
       propertyPath: m_LocalRotation.x
@@ -13209,6 +13211,7 @@ MonoBehaviour:
   fader: {fileID: 923667238}
   menu: {fileID: 1396020949}
   pause: {fileID: 1003495350}
+  focus: {fileID: 1259129026}
 --- !u!114 &1467752728
 MonoBehaviour:
   m_ObjectHideFlags: 0
