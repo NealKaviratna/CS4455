@@ -16,7 +16,8 @@ public class BreakOnDeath : MonoBehaviour {
 	void Update () {
 	    if (bag.HP <= 0 && !dead)
         {
-            GetComponent<ConfigurableJoint>().breakForce = 0;
+			if (GetComponent<ConfigurableJoint>() != null)
+            	GetComponent<ConfigurableJoint>().breakForce = 0;
 			door.SetTriggered ();
 			dead = true;
         }
