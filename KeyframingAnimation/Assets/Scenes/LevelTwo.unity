@@ -4306,7 +4306,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 569931121}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 52.2000008, y: -.899999976, z: 132.399994}
+  m_LocalPosition: {x: 37, y: -3.70000005, z: 133.009995}
   m_LocalScale: {x: 2, y: .5, z: 10}
   m_Children: []
   m_Father: {fileID: 1517728589}
@@ -10051,27 +10051,27 @@ Prefab:
       objectReference: {fileID: 1190840080}
     - target: {fileID: 22485046, guid: 75695783b0818e64a891e2da1c5216b4, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22485046, guid: 75695783b0818e64a891e2da1c5216b4, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22430026, guid: 75695783b0818e64a891e2da1c5216b4, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22430026, guid: 75695783b0818e64a891e2da1c5216b4, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22426332, guid: 75695783b0818e64a891e2da1c5216b4, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22426332, guid: 75695783b0818e64a891e2da1c5216b4, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22463102, guid: 75695783b0818e64a891e2da1c5216b4, type: 2}
       propertyPath: m_AnchorMax.x
@@ -14723,9 +14723,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2129884446}
-  m_LocalRotation: {x: 0, y: .707106829, z: 0, w: .707106709}
-  m_LocalPosition: {x: 37, y: -3.70000005, z: 129}
-  m_LocalScale: {x: 2, y: .5, z: 40}
+  m_LocalRotation: {x: .0259121414, y: .717417955, z: -.0175459627, w: .695939779}
+  m_LocalPosition: {x: 26.1000004, y: -3, z: 129.279999}
+  m_LocalScale: {x: 2, y: .5, z: 20}
   m_Children: []
   m_Father: {fileID: 1517728589}
   m_RootOrder: 9
