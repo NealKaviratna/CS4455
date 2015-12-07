@@ -78,11 +78,11 @@ public class Enemy : MonoBehaviour {
     public void die()
     {
 		if (IsAlive) {
-			audio_s.PlayOneShot(dieSound, .5f);
+			if (dieSound != null && audio_s)audio_s.PlayOneShot(dieSound, .5f);
 			HP = 0f;
 			this.IsAlive = false;
 			if (sparks != null)
-			sparks.enableEmission = true;
+				sparks.enableEmission = true;
 			anim.SetTrigger ("Death");
 			Destroy (gameObject, 3f);
 		}
