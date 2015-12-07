@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class MeleeTrigger : MonoBehaviour {
 
     List<GameObject> nearbyEnemies = new List<GameObject>();
+	public AudioClip[] whoosh;
 
 	// Use this for initialization
 	void Start () {
@@ -18,6 +19,7 @@ public class MeleeTrigger : MonoBehaviour {
 
     void Melee()
     {
+		AudioSource.PlayClipAtPoint(whoosh[Random.Range(0, 2)], transform.position);
         Vector3 myPos = transform.position;
         if (nearbyEnemies.Count > 0)
         {
