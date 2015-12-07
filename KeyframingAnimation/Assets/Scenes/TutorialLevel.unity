@@ -2561,6 +2561,10 @@ Prefab:
       propertyPath: lateral
       value: 6.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11489442, guid: 46b31cf4dd16f3440b90518813d7a556, type: 2}
+      propertyPath: sound_play
+      value: 
+      objectReference: {fileID: 8300000, guid: b314b4c3bb6fe4b4194f498b4e2ede0d, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 46b31cf4dd16f3440b90518813d7a556, type: 2}
   m_IsPrefabParent: 0
